@@ -10,7 +10,7 @@ setuptools.setup(
     author="Alejandro Gutierrez",
     author_email="agutierrez@g-npd.com",
     description="Hansen Solubility Parameters in python",
-    url="https://github.com/gnpd/HSPy",
+    url="https://github.com/Gnpd/HSPy",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
