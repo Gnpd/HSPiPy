@@ -1,2 +1,2 @@
-# HSPy
-Hansen Solubility Parameters in python.
+# HSPiPy
+Hansen Solubility Parameters in Python.
