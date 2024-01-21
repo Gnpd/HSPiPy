@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 from hspcore import get_hsp, split_grid
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
 
 def WireframeSphere(centre=[0.,0.,0.], radius=1.,
                     n_meridians=40, n_circles_latitude=None):
