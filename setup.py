@@ -5,20 +5,23 @@ from pathlib import Path
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
-setuptools.setup(
+setup(
     name="HSPiPy",
-    version="0.0.2",
+    version="0.0.4",
     author="Alejandro Gutierrez",
     author_email="agutierrez@g-npd.com",
     description="Hansen Solubility Parameters in Python",
     long_description=long_description,
-    long_description_content_type='text/markdown'
+    long_description_content_type='text/markdown',
     url="https://github.com/Gnpd/HSPiPy",
+    download_url="https://github.com/Gnpd/HSPiPy/releases/tag/0.0.4",
     classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Developers',
+        'Topic :: Software Development :: Build Tools',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3.11',
     ],
-    install_requires=['scipy'],
+    install_requires=['hspcore','pandas','matplotlib','numpy'],
     python_requires='>=3.6',
 )

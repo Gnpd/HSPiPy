@@ -1,1 +1,1 @@
-from .src.hspipy import get_hsp
+from .src.hsp import HSP
