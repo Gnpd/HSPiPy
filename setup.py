@@ -7,14 +7,14 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="HSPiPy",
-    version="0.1",
+    version="0.2",
     author="Alejandro Gutierrez",
     author_email="agutierrez@g-npd.com",
     description="Hansen Solubility Parameters in Python",
     long_description=long_description,
     long_description_content_type='text/markdown',
     url="https://github.com/Gnpd/HSPiPy",
-    download_url="https://github.com/Gnpd/HSPiPy/archive/refs/tags/0.1.tar.gz",
+    download_url="https://github.com/Gnpd/HSPiPy/archive/refs/tags/v_0.2.tar.gz",
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
