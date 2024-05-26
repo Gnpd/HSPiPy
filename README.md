@@ -49,6 +49,8 @@ hsp.plot_3d()
 hsp.plot_2d()
 
 ```
+![3dHSP](https://github.com/Gnpd/HSPiPy/blob/main/3dPlot.png)
+![2dHSP](https://github.com/Gnpd/HSPiPy/blob/main/2dPlot.png)
 
 ### `HSP` class methods:
 | Method              |      Description                                                                       |  
