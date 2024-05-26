@@ -32,7 +32,7 @@ class and use the ``read`` method:
 
 .. code:: python
 
-   from HSPiPy import HSP
+   from hspipy import HSP
 
    hsp = HSP()
    hsp.read('path_to_your_hsp_file.csv')

@@ -25,7 +25,7 @@ pip install HSPiPy
 
 To read HSP data from a CSV file, create an instance of the `HSP` class and use the `read` method:
 ```python
-from HSPiPy import HSP
+from hspipy import HSP
 
 hsp = HSP()
 hsp.read('path_to_your_hsp_file.csv')
