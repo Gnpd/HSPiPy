@@ -82,7 +82,7 @@ the properties of the HSP class instance. Below are the attributes you
 can access:
 
 +----------------+--------------------------------------------------------+
-| Atribute       | Description                                            |
+| Attribute       | Description                                            |
 +================+========================================================+
 | ``hsp.d``      | Float - Dispersion parameter of the HSP.               |
 +----------------+--------------------------------------------------------+
