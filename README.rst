@@ -2,7 +2,7 @@ HSPiPy
 ======
 
 Hansen Solubility Parameters in Python.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------
 
 Introduction
 ----------------
@@ -13,7 +13,7 @@ compute HSP from a grid of solvent data and offers 2D and 3D plotting
 capabilities to visualize the solubility parameter space
 
 Installation
-----------------
+^^^^^^^^^^^^^^^
 
 Install **HSPiPy** easily with pip:
 
@@ -22,10 +22,10 @@ Install **HSPiPy** easily with pip:
    pip install HSPiPy
 
 Usage
----------
+^^^^^^^^^^^^^^^
 
 Reading HSP Data
-^^^^^^^^^^^^^^^
+----------------
 
 To read HSP data from a CSV file, create an instance of the ``HSP``
 class and use the ``read`` method:
@@ -38,7 +38,7 @@ class and use the ``read`` method:
    hsp.read('path_to_your_hsp_file.csv')
 
 Calculating HSP
-^^^^^^^^^^^^^^^
+----------------
 
 Use the ``get`` method to calculate the Hansen Solubility Parameters
 (HSP) from your data:
@@ -48,7 +48,7 @@ Use the ``get`` method to calculate the Hansen Solubility Parameters
    hsp.get()
 
 Visualizing HSP
-^^^^^^^^^^^^^^^
+----------------
 
 Use the ``plot_3d`` and ``plot_2d`` methods
 to visualize the HSP data in 3D and 2D formats, respectively:
@@ -59,7 +59,7 @@ to visualize the HSP data in 3D and 2D formats, respectively:
    hsp.plot_2d()
 
 ``HSP`` class methods:
-^^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 +---------------------+---------------------------------------------------------+
 | Method              | Description                                             |
@@ -100,21 +100,21 @@ can access:
 +----------------+--------------------------------------------------------+
 
 Contributing
-----------------
+^^^^^^^^^^^^^^^
 
 Contributions are welcome! If you have any suggestions, feature
 requests, or bug reports, please open an issue on the `GitHub
 repository <https://github.com/Gnpd/HSPiPy/issues>`__.
 
 License
------------
+^^^^^^^^^^^^^^^
 
 This library is licensed under the MIT License. See the
 `LICENSE <https://github.com/Gnpd/HSPiPy/blob/main/LICENSE>`__ file for
 details.
 
 Acknowledgements
---------------------
+^^^^^^^^^^^^^^^^^
 
 HSPiPy was inspired by the well-known HSP software suit `Hansen
 Solubility Parameters in Practice
