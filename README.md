@@ -1,6 +1,7 @@
 # HSPiPy
-Hansen Solubility Parameters in Python.
 ================
+
+#### Hansen Solubility Parameters in Python.
 
 ### Introduction
 ---------------
@@ -22,7 +23,6 @@ pip install HSPiPy
 --------
 
 #### Reading HSP Data
----------------------
 
 To read HSP data from a CSV file, create an instance of the `HSP` class and use the `read` method:
 ```python
@@ -35,7 +35,6 @@ hsp.read('path_to_your_hsp_file.csv')
 
 
 #### Calculating HSP
---------------------
 
 Use the `get` method to calculate the Hansen Solubility Parameters (HSP) from your data:
 ```python
@@ -44,8 +43,7 @@ hsp.get()
 ```
 
 #### Visualizing HSP
-hsp.plot_3d()
-hsp.plot_2d()
+
 Use the `plot_3d` and `plot_2d` methods to visualize the HSP data in 3D and 2D formats, respectively:
 ```python
 hsp.plot_3d()

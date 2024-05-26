@@ -2,9 +2,9 @@ HSPiPy
 ======
 
 Hansen Solubility Parameters in Python.
-=======================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-### Introduction
+Introduction
 ----------------
 
 HSPiPy is a Python library designed for calculating and visualizing
@@ -12,7 +12,7 @@ Hansen Solubility Parameters (HSP). The library provides tools to
 compute HSP from a grid of solvent data and offers 2D and 3D plotting
 capabilities to visualize the solubility parameter space
 
-### Installation
+Installation
 ----------------
 
 Install **HSPiPy** easily with pip:
@@ -21,11 +21,11 @@ Install **HSPiPy** easily with pip:
 
    pip install HSPiPy
 
-### Usage
+Usage
 ---------
 
-#### Reading HSP Data
----------------------
+Reading HSP Data
+^^^^^^^^^^^^^^^
 
 To read HSP data from a CSV file, create an instance of the ``HSP``
 class and use the ``read`` method:
@@ -37,8 +37,8 @@ class and use the ``read`` method:
    hsp = HSP()
    hsp.read('path_to_your_hsp_file.csv')
 
-#### Calculating HSP
---------------------
+Calculating HSP
+^^^^^^^^^^^^^^^
 
 Use the ``get`` method to calculate the Hansen Solubility Parameters
 (HSP) from your data:
@@ -50,7 +50,7 @@ Use the ``get`` method to calculate the Hansen Solubility Parameters
 Visualizing HSP
 ^^^^^^^^^^^^^^^
 
-hsp.plot_3d() hsp.plot_2d() Use the ``plot_3d`` and ``plot_2d`` methods
+Use the ``plot_3d`` and ``plot_2d`` methods
 to visualize the HSP data in 3D and 2D formats, respectively:
 
 .. code:: python
@@ -59,7 +59,7 @@ to visualize the HSP data in 3D and 2D formats, respectively:
    hsp.plot_2d()
 
 ``HSP`` class methods:
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------------------+---------------------------------------------------------+
 | Method              | Description                                             |
@@ -95,25 +95,25 @@ can access:
 | ``hsp.error``  | Float - Error in the HSP calculation.                  |
 +----------------+--------------------------------------------------------+
 | ``hsp.inside`` | Numpy array - Solvents inside the solubility sphere.   |
-+--------------- +--------------------------------------------------------+
++----------------+--------------------------------------------------------+
 | ``hsp.outside``| Numpy array - Solvents outside the solubility sphere.  |
 +----------------+--------------------------------------------------------+
 
-### Contributing
+Contributing
 ----------------
 
 Contributions are welcome! If you have any suggestions, feature
 requests, or bug reports, please open an issue on the `GitHub
 repository <https://github.com/Gnpd/HSPiPy/issues>`__.
 
-### License
+License
 -----------
 
 This library is licensed under the MIT License. See the
 `LICENSE <https://github.com/Gnpd/HSPiPy/blob/main/LICENSE>`__ file for
 details.
 
-### Acknowledgements
+Acknowledgements
 --------------------
 
 HSPiPy was inspired by the well-known HSP software suit `Hansen
