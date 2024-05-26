@@ -1,4 +1,3 @@
-# %%
 import pandas as pd
 import numpy as np
 from hspcore import get_hsp, split_grid
@@ -140,16 +139,3 @@ class HSP:
     def plots(self):
         self.plot_3d()
         self.plot_2d()
-
-
-# %%
-hsp = HSP()
-
-hsp.read("./hsp_example.csv")
-
-hsp.get()
-
-hsp.plot_2d()
-
-
-# %%
