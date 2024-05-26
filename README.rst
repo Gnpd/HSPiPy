@@ -81,26 +81,26 @@ can access the calculated HSP parameters and related attributes through
 the properties of the HSP class instance. Below are the attributes you
 can access:
 
-+----------------+--------------------------------------------------------+
++----------------+---------------------------------------------------------+
 | Attribute       | Description                                            |
-+================+========================================================+
-| ``hsp.d``      | Float - Dispersion parameter of the HSP.               |
-+----------------+--------------------------------------------------------+
-| ``hsp.p``      | Float - Polar parameter of the HSP.                    |
-+----------------+--------------------------------------------------------+
-| ``hsp.h``      | Float - Hydrogen-bonding parameter of the HSP.         |
-+----------------+--------------------------------------------------------+
-| ``hsp.radius`` | Float - Radius of the solubility sphere.               |
-+----------------+--------------------------------------------------------+
-| ``hsp.error``  | Float - Error in the HSP calculation.                  |
-+----------------+--------------------------------------------------------+
-| ``hsp.inside`` | Numpy array - Solvents inside the solubility sphere.   |
-+----------------+--------------------------------------------------------+
-| ``hsp.outside``| Numpy array - Solvents outside the solubility sphere.  |
-+----------------+--------------------------------------------------------+
-| ``hsp.outside``| A Pandas DataFrame containing the solvent data with    |
-|                |columns for the solvent name, dispersion (D), polar (P),|
-|                | hydrogen-bonding (H), and score values.                |
++================+=========================================================+
+| ``hsp.d``      | Float - Dispersion parameter of the HSP.                |
++----------------+---------------------------------------------------------+
+| ``hsp.p``      | Float - Polar parameter of the HSP.                     |
++----------------+---------------------------------------------------------+
+| ``hsp.h``      | Float - Hydrogen-bonding parameter of the HSP.          |
++----------------+---------------------------------------------------------+
+| ``hsp.radius`` | Float - Radius of the solubility sphere.                |
++----------------+---------------------------------------------------------+
+| ``hsp.error``  | Float - Error in the HSP calculation.                   |
++----------------+---------------------------------------------------------+
+| ``hsp.inside`` | Numpy array - Solvents inside the solubility sphere.    |
++----------------+---------------------------------------------------------+
+| ``hsp.outside``| Numpy array - Solvents outside the solubility sphere.   |
++----------------+---------------------------------------------------------+
+| ``hsp.outside``| A Pandas DataFrame containing the solvent data with     |
+|                | columns for the solvent name, dispersion (D), polar (P),|
+|                | hydrogen-bonding (H), and score values.                 |
 +----------------+--------------------------------------------------------+
 
 Contributing
