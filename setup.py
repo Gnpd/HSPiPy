@@ -6,7 +6,7 @@ with open("README.rst", "r") as description:
 
 setup(
     name="HSPiPy",
-    version="0.3.1",
+    version="0.3.3",
     license="MIT",
     description="Hansen Solubility Parameters in Python",
     long_description_content_type="text/x-rst",
@@ -40,3 +40,4 @@ setup(
     python_requires=">=3.9",
     keywords="hansen solubility parameters chemistry solvents",
 )
+
