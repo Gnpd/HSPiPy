@@ -1,9 +1,11 @@
 name: Publish Python 🐍 distribution 📦 to PyPI
 
 on:
-  push:
-    tags:
-      - 'v*'  # Only publish on version tags, e.g. v0.3.3
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish'
+        required: true
 
 jobs:
   build-and-publish:
