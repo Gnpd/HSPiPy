@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from hspcore import get_hsp, split_grid
+from .hsp_core import get_hsp, split_grid
 import matplotlib.pyplot as plt
 
 

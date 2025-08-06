@@ -98,7 +98,7 @@ can access:
 +----------------+---------------------------------------------------------+
 | ``hsp.outside``| Numpy array - Solvents outside the solubility sphere.   |
 +----------------+---------------------------------------------------------+
-| ``hsp.outside``| A Pandas DataFrame containing the solvent data with     |
+| ``hsp.grid``   | A Pandas DataFrame containing the solvent data with     |
 |                | columns for the solvent name, dispersion (D), polar (P),|
 |                | hydrogen-bonding (H), and score values.                 |
 +----------------+---------------------------------------------------------+
