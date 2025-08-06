@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "HSPiPy"
 dynamic = ["version"]
 description = "Hansen Solubility Parameters in Python"
-readme = "README.rst"
+readme = "README.md"
 license = {text = "MIT"}
 authors = [
     {name = "Alejandro Gutierrez", email = "agutierrez@g-npd.com"}
