@@ -12,7 +12,7 @@ authors = [
     {name = "Alejandro Gutierrez", email = "agutierrez@g-npd.com"}
 ]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Developers", 
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Chemistry",
@@ -29,6 +29,7 @@ dependencies = [
     "pandas>=1.0.0",
     "matplotlib>=3.0.0", 
     "numpy>=1.18.0",
+    "scikit-learn>=1.0.0",
 ]
 keywords = ["hansen", "solubility", "parameters", "chemistry", "solvents"]
 

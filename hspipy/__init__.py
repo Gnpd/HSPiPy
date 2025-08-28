@@ -9,5 +9,6 @@ __author__ = "Alejandro Gutierrez"
 __email__ = "agutierrez@g-npd.com"
 
 from .hsp import HSP
+from .core import HSPEstimator
 
-__all__ = ["HSP"]
+__all__ = ["HSP", "HSPEstimator"]
