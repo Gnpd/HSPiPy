@@ -30,7 +30,7 @@ def WireframeSphere(
         Their shape is (n_meridians, n_circles_latitude).
     """
     if n_circles_latitude is None:
-        n_circles_latitude = max(n_meridians / 2, 4)
+        n_circles_latitude = max(n_meridians // 2, 4)
     u, v = np.mgrid[
         0 : 2 * np.pi : n_meridians * 1j, 0 : np.pi : n_circles_latitude * 1j
     ]
@@ -70,8 +70,8 @@ class HSP(HSPEstimator):
     and a simplified interface for typical HSP workflows. It maintains full
     sklearn compatibility while providing domain-specific functionality.
     '''
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, inside_limit=1, n_spheres=1):
+        super().__init__(inside_limit=inside_limit, n_spheres=n_spheres)
         self._reader = HSPDataReader()
         self.grid = None
         self.inside = None
@@ -136,6 +136,7 @@ class HSP(HSPEstimator):
             self.radius = np.array([s[3] for s in self.hsp_], dtype=float)
 
         self.error = self.error_
+        self.accuracy = self.accuracy_
         formatted_hsp = ["%.2f" % elem for elem in np.ravel(self.hsp)]
         formatted_radius = (
             ", ".join("%.3f" % r for r in np.ravel(self.radius))
@@ -155,7 +156,7 @@ class HSP(HSPEstimator):
             + "accuracy: "
             + str("%.4f" % self.accuracy_)
         )
-        return
+        return self.hsp, self.radius, self.error, self.accuracy  
            
     def plot_3d(self):
         """Create a 3D plot of the HSP space with spheres and solvents."""

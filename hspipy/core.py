@@ -2,6 +2,7 @@ import numpy as np
 from scipy.optimize import differential_evolution
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.cluster import KMeans
+from sklearn.metrics import accuracy_score
 from sklearn.utils.validation import check_is_fitted
 
 class HSPEstimator(BaseEstimator, TransformerMixin):
@@ -15,53 +16,51 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
     For plotting capabilities and simplified interface, use the HSP class
     which inherits from this estimator.
     """
-    DEFAULT_OPTIONS = {
-        'differential_evolution': {
-            'bounds': [(10, 30), (0, 30), (0, 30), (1, 20)],
-            'strategy': 'best1bin',
-            'maxiter': 2000,
-            'popsize': 15,
-            'tol': 1e-4,
-            'mutation': 0.075,
-            'recombination': 0.7,
-            'workers': 1,
-        }
-    }
 
-    def __init__(self, method='differential_evolution', inside_limit=1, n_spheres=1, options=None):
-        """
-        Hansen Solubility Parameters Estimator.
-
-        Parameters
-        ----------
-        method : str, default='differential_evolution'
-            Optimization method for fitting HSP spheres.
-        inside_limit : float, default=1
-            Threshold separating inside vs outside (y <= inside_limit treated as inside).
-        n_spheres : int, default=1
-            Number of HSP spheres to fit (1 or 2 supported).
-        options : dict or None
-            Method-specific optimizer parameter overrides.
-        """
+    def __init__(
+        self,
+        method='differential_evolution',
+        inside_limit=1,
+        n_spheres=1,
+        # Differential Evolution params
+        de_bounds=[(10, 30), (0, 30), (0, 30), (1, 20)],
+        de_strategy='best1bin',
+        de_maxiter=2000,
+        de_popsize=15,
+        de_tol=1e-8,
+        de_mutation=(0.5, 1),
+        de_recombination=0.7,
+        de_init='latinhypercube',
+        de_atol=0,
+        de_updating='immediate',
+        de_workers=1,
+    ):
         self.method = method
         self.inside_limit = inside_limit
         self.n_spheres = n_spheres
-
-        # Get default options for the method
-        default_options = self.DEFAULT_OPTIONS.get(method, {})
-        options = options or {}
-        extra_keys = set(options) - set(default_options)
-        if extra_keys:
-            raise ValueError(
-                f"Unknown parameters for method '{method}': {', '.join(extra_keys)}"
-            )
-        opts = {**default_options, **options}
-        self.options = opts
+        # DE params
+        self.de_bounds = de_bounds
+        self.de_strategy = de_strategy
+        self.de_maxiter = de_maxiter
+        self.de_popsize = de_popsize
+        self.de_tol = de_tol
+        self.de_mutation = de_mutation
+        self.de_recombination = de_recombination
+        self.de_init = de_init
+        self.de_atol = de_atol
+        self.de_updating = de_updating
+        self.de_workers = de_workers
 
         # Fitted attributes (scikit-learn convention: trailing underscore)
         self.hsp_ = None          # (D, P, H, R) Hansen Solubility Parameters
         self.error_ = None        # objective value (mean penalty)
 
+    @staticmethod
+    def binarize_labels(y, inside_limit=1):
+        """Convert labels to binary (1=inside, 0=outside) using inside_limit."""
+        y = np.asarray(y, dtype=float)
+        return ((y <= inside_limit) & (y != 0)).astype(int)
+    
     def _objective_single(self, HSP, X, y):
         '''
         Objective function for single sphere (n_spheres=1)
@@ -199,13 +198,26 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         """Fit using differential evolution"""
 
         # Binarize labels
-        y_bin = ((y <= self.inside_limit) & (y != 0)).astype(int)
+        y_bin = self.binarize_labels(y, self.inside_limit)
 
         X_good = X[y_bin == 1, :3]
         if X_good.shape[0] < self.n_spheres:
             raise ValueError("Not enough inside solvents to form the required number of spheres.")
        
-        options = self.options.copy()
+        
+        options = {
+            'bounds': self.de_bounds,
+            'strategy': self.de_strategy,
+            'maxiter': self.de_maxiter,
+            'popsize': self.de_popsize,
+            'tol': self.de_tol,
+            'mutation': self.de_mutation,
+            'recombination': self.de_recombination,
+            'init': self.de_init,
+            'atol': self.de_atol,
+            'updating': self.de_updating,
+            'workers': self.de_workers,
+            }
         
         if self.n_spheres == 1:
             objective = self._objective_single
@@ -229,7 +241,6 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         def fun(array):
             return objective(array, X, y_bin)
           
-        print(options)
         result = differential_evolution(
             func=fun,
             **options
@@ -270,33 +281,30 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
             raise ValueError(f"Unknown method: {self.method}")
     
     def predict(self, X):
-        """Predict using the HSP model.
-        
+        """Predict using the HSP model for 1 or 2 spheres.
+
         Parameters
         ----------
         X : array-like of shape (n_samples, 3)
             Vectors to predict
-        
+
         Returns
         -------
         y_pred : array-like of shape (n_samples,)
-            Predicted values
+            Predicted values (1 if inside any sphere, else 0)
         """
         check_is_fitted(self, ['hsp_', 'error_'])
         X = np.asarray(X, dtype=float)
-
         spheres = np.asarray(self.hsp_, dtype=float)
         Ds, Ps, Hs, Rs = spheres[:, 0], spheres[:, 1], spheres[:, 2], spheres[:, 3]
-        # Broadcast over spheres
-        dD = X[:, [0]] - Ds  # (n_samples, n_spheres)
-        dP = X[:, [1]] - Ps
-        dH = X[:, [2]] - Hs
+        # Calculate distances to all spheres
+        dD = X[:, None, 0] - Ds[None, :]
+        dP = X[:, None, 1] - Ps[None, :]
+        dH = X[:, None, 2] - Hs[None, :]
         dist = np.sqrt(4.0 * dD**2 + dP**2 + dH**2)  # (n_samples, n_spheres)
-        red = dist / Rs  # (n_samples, n_spheres)
-        red_min = red.min(axis=1)  # (n_samples,)
-
-        # Predict: 1 if inside (RED <= 1), else 0
-        y_pred = np.where(red_min <= 1.0, 1, 0)
+        red = dist / Rs[None, :]  # (n_samples, n_spheres)
+        # If inside any sphere, predict 1
+        y_pred = (red <= 1.0).any(axis=1).astype(int)
         return y_pred
 
     def transform(self, X):
@@ -325,26 +333,15 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         return red_min.reshape(-1, 1)
     
     def score(self, X, y):
-        """Returns the model accuracy on the given test data and labels.
-        
-        Parameters
-        ----------
-        X : array-like of shape (n_samples, 3)
-            Test samples
-        y : array-like of shape (n_samples,)
-            True labels for X
-            
-        Returns
-        -------
-        score : float
-            Mean accuracy of self.predict(X) with respect to y
-        """
+        """Returns the model accuracy on the given test data and labels."""
         check_is_fitted(self, ['hsp_', 'error_'])
         X = np.asarray(X, dtype=float)
         y = np.asarray(y, dtype=float)
-        y_bin = ((y <= self.inside_limit) & (y != 0)).astype(int)
-        y_pred = self.predict(X)
-        self.accuracy_ = np.mean(y_pred == y_bin)
+        # Binarize and filter out NaN
+        valid = ~np.isnan(y)
+        y_bin = self.binarize_labels(y[valid], self.inside_limit)
+        y_pred = self.predict(X[valid])
+        self.accuracy_ = accuracy_score(y_bin, y_pred)
         return self.accuracy_
 
     def fit_transform(self, X, y):
