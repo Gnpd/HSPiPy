@@ -106,7 +106,7 @@ Once you have calculated the HSP parameters using the get() method, you can acce
 ### Using scikit-learn style estimator
 ```python
 import numpy as np
-from hspipy.core import HSPEstimator
+from hspipy import HSPEstimator
 
 # Example dataset (D, P, H values with scores)
 X = np.array([
@@ -139,4 +139,5 @@ This library is licensed under the MIT License. See the [LICENSE](https://github
 ----------------
 
 HSPiPy was inspired by the well-known HSP software suit [Hansen Solubility Parameters in Practice (HSPiP)](https://www.hansen-solubility.com/HSPiP/) and by the HSP community.
+
 
