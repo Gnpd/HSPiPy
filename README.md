@@ -1,6 +1,6 @@
 # HSPiPy
 
-![version](https://img.shields.io/badge/version-1.0.0b1-blue.svg)
+[![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 
 #### Hansen Solubility Parameters in Python.
 
@@ -17,6 +17,14 @@ HSPiPy is a Python library designed for calculating and visualizing Hansen Solub
 * Support for single or multiple (up to 2) solubility spheres
 * Generate 2D and 3D visualizations of solubility spheres
 * Fully compatible with scikit-learn for machine learning workflows
+
+
+### Documentation
+---------------
+
+- Class reference:
+    - [HSP (high‑level helper)](docs/HSP.md)
+    - [HSPEstimator (scikit‑learn compatible)](docs/HSPEstimator.md)
 
 
 ### Installation
