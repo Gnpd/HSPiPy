@@ -163,6 +163,11 @@ class HSP(HSPEstimator):
         if not hasattr(self, 'hsp_') or self.hsp_ is None:
             raise ValueError("Model not fitted. Call get() first.")
         
+        if self.inside is None or self.outside is None:
+            # Split grid for plotting
+            hsp_grid = self.grid[["Solvent", "D", "P", "H", "Score"]].to_numpy()
+            self.inside, self.outside = split_grid(hsp_grid, self.inside_limit)
+        
         fig = plt.figure()
         fig.suptitle("3D HSP Plot")
         ax = plt.axes(projection="3d")
@@ -197,9 +202,16 @@ class HSP(HSPEstimator):
         ax.scatter(good_x, good_y, good_z, color="b", s=50)
         bad_x, bad_y, bad_z = get_solvent_points(self.outside)
         ax.scatter(bad_x, bad_y, bad_z, color="r", s=50)
+        ax.view_init(elev=30)
 
     def plot_2d(self):
         """Create 2D projections of the HSP space."""
+
+        if self.inside is None or self.outside is None:
+            # Split grid for plotting
+            hsp_grid = self.grid[["Solvent", "D", "P", "H", "Score"]].to_numpy()
+            self.inside, self.outside = split_grid(hsp_grid, self.inside_limit)
+
         fig, (ax1, ax2, ax3) = plt.subplots(ncols=3, figsize=(12, 3.5))
         fig.suptitle("2D HSP Subplots")
         good_x, good_y, good_z = get_solvent_points(self.inside)

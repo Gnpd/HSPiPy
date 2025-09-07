@@ -54,6 +54,8 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         # Fitted attributes (scikit-learn convention: trailing underscore)
         self.hsp_ = None          # (D, P, H, R) Hansen Solubility Parameters
         self.error_ = None        # objective value (mean penalty)
+        self.accuracy_ = None     # accuracy on training data
+        self.optimization_result_ = None  # result of the optimization process
 
     @staticmethod
     def binarize_labels(y, inside_limit=1):
@@ -250,6 +252,7 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         spheres = result.x.reshape(self.n_spheres, 4)
         self.hsp_ = np.array(spheres) 
         self.error_ = result.fun
+        self.optimization_result_ = result
         
         return self
     
