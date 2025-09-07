@@ -1,5 +1,5 @@
 import numpy as np
-from .core import HSPEstimator
+from .core.hsp_estimator import HSPEstimator
 from .readers import HSPDataReader
 import matplotlib.pyplot as plt
 
@@ -202,7 +202,7 @@ class HSP(HSPEstimator):
         ax.scatter(good_x, good_y, good_z, color="b", s=50)
         bad_x, bad_y, bad_z = get_solvent_points(self.outside)
         ax.scatter(bad_x, bad_y, bad_z, color="r", s=50)
-        ax.view_init(elev=30)
+        ax.view_init(elev=20)
 
     def plot_2d(self):
         """Create 2D projections of the HSP space."""

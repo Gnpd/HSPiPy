@@ -5,6 +5,8 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import accuracy_score
 from sklearn.utils.validation import check_is_fitted
 
+from .loss import HSPSingleSphereLoss, HSPDoubleSphereLoss
+
 class HSPEstimator(BaseEstimator, TransformerMixin):
     """
     Hansen Solubility Parameters estimator with sklearn compatibility.
@@ -22,14 +24,16 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         method='differential_evolution',
         inside_limit=1,
         n_spheres=1,
+        loss=None,
+        size_factor="n_solvents",
         # Differential Evolution params
         de_bounds=[(10, 30), (0, 30), (0, 30), (1, 20)],
         de_strategy='best1bin',
         de_maxiter=2000,
         de_popsize=15,
         de_tol=1e-8,
-        de_mutation=(0.5, 1),
-        de_recombination=0.7,
+        de_mutation=0.7,
+        de_recombination=0.3,
         de_init='latinhypercube',
         de_atol=0,
         de_updating='immediate',
@@ -38,6 +42,8 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         self.method = method
         self.inside_limit = inside_limit
         self.n_spheres = n_spheres
+        self.loss = loss
+        self.size_factor = size_factor
         # DE params
         self.de_bounds = de_bounds
         self.de_strategy = de_strategy
@@ -57,150 +63,16 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         self.accuracy_ = None     # accuracy on training data
         self.optimization_result_ = None  # result of the optimization process
 
-    @staticmethod
-    def binarize_labels(y, inside_limit=1):
+    def _binarize_labels(self, y):
         """Convert labels to binary (1=inside, 0=outside) using inside_limit."""
         y = np.asarray(y, dtype=float)
-        return ((y <= inside_limit) & (y != 0)).astype(int)
-    
-    def _objective_single(self, HSP, X, y):
-        '''
-        Objective function for single sphere (n_spheres=1)
-        '''
-
-        Ds, Ps, Hs, Rs = HSP[0], HSP[1], HSP[2], HSP[3]
-
-        # Vectorized distance calculation
-        dD = X[:, 0] - Ds
-        dP = X[:, 1] - Ps
-        dH = X[:, 2] - Hs
-        dist = np.sqrt(4.0 * dD**2 + dP**2 + dH**2)
-
-        # Initialize penalties
-        fi = np.ones_like(dist)
-
-        inside = (y == 1)
-        bad_inside = inside & (dist >= Rs)
-        fi[bad_inside] = np.exp(Rs - dist[bad_inside])
-      
-        outside = (y == 0)
-        good_outside = outside & (dist < Rs)
-        fi[good_outside] = np.exp(dist[good_outside] - Rs)
-
-        # DATAFIT = np.prod(fi) ** (1 / len(fi))
-        # Safe geometric mean
-        DATAFIT = np.exp(np.mean(np.log(fi)))
-
-        # Radius penalty: product of radii, same log-trick
-        # R_penalty = np.exp(-np.sum(np.log(Rs)) / n_samples)
-
-        OF = DATAFIT * Rs ** (-1 / len(fi))
-    
-        return 1 - float(OF)
-    
-    def _objective_double(self, HSP, X, y):
-        '''
-        Objective function for double sphere (n_spheres=2)
-        '''
-
-        D1, P1, H1, R1 = HSP[0], HSP[1], HSP[2], HSP[3]
-        D2, P2, H2, R2 = HSP[4], HSP[5], HSP[6], HSP[7]
-
-        # Check for sphere containment constraint
-        # Distance between centers
-        center_distance = np.sqrt(4.0 * (D1 - D2)**2 + (P1 - P2)**2 + (H1 - H2)**2)
-        
-        # Prevent one sphere from being completely inside another
-        # If center_distance + smaller_radius <= larger_radius, one is inside the other
-        min_radius = min(R1, R2)
-        max_radius = max(R1, R2)
-        
-        if center_distance + min_radius <= max_radius:
-            return 1e6  # Heavy penalty for containment
-        # Check if each sphere has at least one good solvent inside
-        inside_mask = (y == 1)
-        X_good = X[inside_mask]
-        
-        if len(X_good) > 0:
-            # Calculate distances for good solvents to each sphere
-            dD1_good = X_good[:, 0] - D1
-            dP1_good = X_good[:, 1] - P1
-            dH1_good = X_good[:, 2] - H1
-            dist1_good = np.sqrt(4.0 * dD1_good**2 + dP1_good**2 + dH1_good**2)
-            
-            dD2_good = X_good[:, 0] - D2
-            dP2_good = X_good[:, 1] - P2
-            dH2_good = X_good[:, 2] - H2
-            dist2_good = np.sqrt(4.0 * dD2_good**2 + dP2_good**2 + dH2_good**2)
-            
-            # Check if any good solvent is inside each sphere
-            sphere1_has_good = np.any(dist1_good <= R1)
-            sphere2_has_good = np.any(dist2_good <= R2)
-            
-            # Penalize if either sphere has no good solvents
-            if not sphere1_has_good or not sphere2_has_good:
-                return 1e5  # Heavy penalty for empty spheres
-        else:
-            # If no good solvents at all, return heavy penalty
-            return 1e6
-
-        # Vectorized distance calculation sphere 1
-        dD1 = X[:, 0] - D1
-        dP1 = X[:, 1] - P1
-        dH1 = X[:, 2] - H1
-        dist1 = np.sqrt(4.0 * dD1**2 + dP1**2 + dH1**2)
-
-        # Vectorized distance calculation sphere 2
-        dD2 = X[:, 0] - D2
-        dP2 = X[:, 1] - P2
-        dH2 = X[:, 2] - H2
-        dist2 = np.sqrt(4.0 * dD2**2 + dP2**2 + dH2**2)
-
-        inside = (y == 1)
-        outside = (y == 0)
-
-        # Penalties sphere 1
-        fi1 = np.ones_like(dist1)
-        bad_inside = inside & (dist1 >= R1)
-        fi1[bad_inside] = np.exp(R1 - dist1[bad_inside])
-        good_outside = outside & (dist1 < R1)
-        fi1[good_outside] = np.exp(dist1[good_outside] - R1)
-
-        # Penalties sphere 2
-        fi2 = np.ones_like(dist2)
-        bad_inside = inside & (dist2 >= R2)
-        fi2[bad_inside] = np.exp(R2 - dist2[bad_inside])
-        good_outside = outside & (dist2 < R2)
-        fi2[good_outside] = np.exp(dist2[good_outside] - R2)
-
-        # Combine penalties
-        fi = np.ones(len(y))
-
-        # For samples where y=1 AND any fi equals 1, keep fi_min = 1
-        inside_mask = (y == 1)
-        any_fi_equals_1 = np.any(np.column_stack([np.isclose(fi1, 1.0), np.isclose(fi2, 1.0)]), axis=1)
-        keep_ones = inside_mask & any_fi_equals_1
-        
-        # For all other cases, use minimum of fi values
-        use_min = ~keep_ones
-        fi[use_min] = np.minimum(fi1[use_min], fi2[use_min])
-
-        # DATAFIT = np.prod(fi) ** (1 / len(fi))
-        # Safe geometric mean
-        DATAFIT = np.exp(np.mean(np.log(fi)))
-
-        # Radius penalty: product of radii, same log-trick
-        # R_penalty = np.exp(-np.sum(np.log(Rs)) / n_samples)
-
-        OF = DATAFIT * (R1*R2) ** (-1 / len(fi))
-
-        return 1 - float(OF)
+        return ((y <= self.inside_limit) & (y != 0)).astype(int)
     
     def _differential_evolution_fit(self, X, y):
         """Fit using differential evolution"""
 
         # Binarize labels
-        y_bin = self.binarize_labels(y, self.inside_limit)
+        y_bin = self._binarize_labels(y, self.inside_limit)
 
         X_good = X[y_bin == 1, :3]
         if X_good.shape[0] < self.n_spheres:
@@ -222,12 +94,17 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
             }
         
         if self.n_spheres == 1:
-            objective = self._objective_single
+            objective = self.loss if self.loss is not None else HSPSingleSphereLoss(
+                inside_limit=self.inside_limit,
+                size_factor=self.size_factor
+            )
             options['x0'] = np.array([X_good.mean(axis=0)[0], X_good.mean(axis=0)[1], X_good.mean(axis=0)[2], 5.0])
 
         elif self.n_spheres == 2:
-            objective = self._objective_double
-
+            objective = self.loss if self.loss is not None else HSPDoubleSphereLoss(
+                inside_limit=self.inside_limit,
+                size_factor=self.size_factor
+            )
             base_bounds = options.get('bounds', [(10, 30), (0, 30), (0, 30), (1, 20)])
             options['bounds'] = base_bounds * self.n_spheres
 
@@ -342,7 +219,7 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         y = np.asarray(y, dtype=float)
         # Binarize and filter out NaN
         valid = ~np.isnan(y)
-        y_bin = self.binarize_labels(y[valid], self.inside_limit)
+        y_bin = self._binarize_labels(y[valid], self.inside_limit)
         y_pred = self.predict(X[valid])
         self.accuracy_ = accuracy_score(y_bin, y_pred)
         return self.accuracy_
