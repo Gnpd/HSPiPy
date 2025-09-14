@@ -233,9 +233,6 @@ class HSP(HSPEstimator):
         if legend:
             ax.legend()
 
-        plt.show()
-        return fig
-
 
     def plot_2d(self, legend=False):
         """Create 2D projections of the HSP space.
@@ -319,9 +316,7 @@ class HSP(HSPEstimator):
         if legend:
             ax3.legend()
         set_axes_equal(ax3)
-
-        plt.show()    
-        return fig
+ 
 
     def plots(self):
         """Show both 3D and 2D plots.
@@ -331,7 +326,6 @@ class HSP(HSPEstimator):
         tuple
             (fig_3d, fig_2d) matplotlib figure objects.
         """
-        fig_3d = self.plot_3d()
-        fig_2d = self.plot_2d()
-        plt.show()
-        return fig_3d, fig_2d
+        self.plot_3d()
+        self.plot_2d()
+
