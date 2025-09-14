@@ -37,9 +37,6 @@ Homepage = "https://github.com/Gnpd/HSPiPy"
 Repository = "https://github.com/Gnpd/HSPiPy"
 Issues = "https://github.com/Gnpd/HSPiPy/issues"
 
-[tool.setuptools]
-packages = ["hspipy"]
-
 [tool.setuptools.package-data]
 hspipy = ["*.csv", "*.png"]
 
