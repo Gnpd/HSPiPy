@@ -23,8 +23,8 @@ HSPiPy is a Python library designed for calculating and visualizing Hansen Solub
 ---------------
 
 - Class reference:
-    - [HSP (high‑level helper)](docs/HSP.md)
-    - [HSPEstimator (scikit‑learn compatible)](docs/HSPEstimator.md)
+    - [HSP (high‑level helper)](doc/HSP.md)
+    - [HSPEstimator (scikit‑learn compatible)](doc/HSPEstimator.md)
 
 
 ### Installation
@@ -103,11 +103,12 @@ Once you have calculated the HSP parameters using the get() method, you can acce
 | `hsp.d`        | Float — Dispersion component (δD) of the fitted Hansen Solubility Parameters (single-sphere only).                                      |
 | `hsp.p`        | Float — Polar component (δP) of the fitted Hansen Solubility Parameters (single-sphere only).                                           |
 | `hsp.h`        | Float — Hydrogen-bonding component (δH) of the fitted Hansen Solubility Parameters (single-sphere only).                                |
-| `hsp.radius`   | Float or array — Radius (or radii) of the solubility sphere(s).                                                                         | 
+| `hsp.radius`   | Float or array — Radius (or radii) of the solubility sphere(s).                                                                         |
+| `hsp.DATAFIT`  | Float — Hansen exponential penalty function result for wrong in and wrong out.                                                          |   
 | `hsp.error`    | Float — Objective function value from the optimization (lower is better; indicates the fitting error of the HSP sphere(s)).             |
-| `hsp.accuracy` | Float — Classification accuracy of the fitted model on the dataset (ratio of correctly predicted solvents inside/outside the sphere(s)). |
+| `hsp.accuracy` | Float — Classification accuracy of the fitted model on the dataset (ratio of correctly predicted solvents inside/outside the sphere(s)).|
 | `hsp.inside`   | List — Solvents classified as *inside* the solubility sphere(s), with their HSP values and scores.                                      | 
-| `hsp.outside`  | List — Solvents classified as *outside* the solubility sphere(s), with their HSP values and scores.                                     | 
+| `hsp.outside`  | List — Solvents classified as *outside* the solubility sphere(s), with their HSP values and scores.                                     |
 | `hsp.grid`     | Pandas DataFrame — The full input dataset, standardized with columns: `Solvent`, `D`, `P`, `H`, and `Score`.                            |
 
 
