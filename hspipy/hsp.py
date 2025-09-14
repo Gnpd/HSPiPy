@@ -40,17 +40,6 @@ def WireframeSphere(
     return sphere_x, sphere_y, sphere_z
 
 
-def get_solvent_points(grid):
-    """Extract H, D, P coordinates from grid data for plotting."""
-    x = []
-    y = []
-    z = []
-    for solvent, D, P, H, score in grid:
-        x.append(H)
-        y.append(D)
-        z.append(P)
-    return x, y, z
-
 def split_grid(grid, inside_limit=1):
     """Split grid into inside and outside solvents based on score."""
     inside = []
@@ -76,19 +65,20 @@ class HSP(HSPEstimator):
         self.grid = None
         self.inside = None
         self.outside = None
+        self.DATAFIT = None
+        self.d = self.p = self.h = None
+        self.hsp = self.radius = None
+        self.error = self.accuracy = None
 
     def read(self, path):
         """
         Read HSP data from various file formats.
         
         Supports CSV, HSD, and HSDX formats with automatic format detection.
-        
-        Parameters
-        ----------
-        path : str or Path
-            Path to the HSP data file
+
         """
         self.grid = self._reader.read(path)
+        return self     
 
     def get(self, inside_limit=1, n_spheres=1):
         """
@@ -101,6 +91,19 @@ class HSP(HSPEstimator):
             If None, uses the value from initialization.
         n_spheres : int, optional
             Number of spheres to fit. If None, uses value from initialization.
+        
+        Returns
+        -------
+        hsp : ndarray
+            Fitted HSP parameters.
+        radius : float or ndarray
+            Fitted sphere radius/radii.
+        error : float
+            Optimization error.
+        accuracy : float
+            Classification accuracy.
+        DATAFIT : float
+            DATAFIT value.
         """
         if not hasattr(self, "grid") or self.grid is None:
             raise ValueError("No data loaded. Call read() first.")
@@ -134,15 +137,21 @@ class HSP(HSPEstimator):
             # For multi-sphere, store all centers/radii
             self.hsp = np.array([s[:3] for s in self.hsp_], dtype=float)
             self.radius = np.array([s[3] for s in self.hsp_], dtype=float)
+            # For multi-sphere, individual d, p, h don't make sense
+            self.d = self.p = self.h = None
 
         self.error = self.error_
         self.accuracy = self.accuracy_
+        self.DATAFIT = self.datafit_
+
+        # Format output for printing
         formatted_hsp = ["%.2f" % elem for elem in np.ravel(self.hsp)]
         formatted_radius = (
             ", ".join("%.3f" % r for r in np.ravel(self.radius))
             if isinstance(self.radius, (np.ndarray, list)) and len(np.ravel(self.radius)) > 1
             else "%.3f" % self.radius
         )
+       
         print(
             "HSP: "
             + ", ".join(map(str, formatted_hsp))
@@ -155,23 +164,36 @@ class HSP(HSPEstimator):
             + "\n"
             + "accuracy: "
             + str("%.4f" % self.accuracy_)
+            + "\n"
+            + "DATAFIT: "
+            + str("%.4f" % self.datafit_)
         )
-        return self.hsp, self.radius, self.error, self.accuracy  
+        return self.hsp, self.radius, self.error, self.accuracy, self.DATAFIT
            
-    def plot_3d(self):
+    def plot_3d(self, legend=False):
         """Create a 3D plot of the HSP space with spheres and solvents."""
         if not hasattr(self, 'hsp_') or self.hsp_ is None:
-            raise ValueError("Model not fitted. Call get() first.")
-        
-        if self.inside is None or self.outside is None:
-            # Split grid for plotting
-            hsp_grid = self.grid[["Solvent", "D", "P", "H", "Score"]].to_numpy()
-            self.inside, self.outside = split_grid(hsp_grid, self.inside_limit)
-        
+            raise ValueError("Model not fitted. Call get() first.")     
+       
+        def set_axes_equal(ax):
+            '''Set 3D plot axes to equal scale so spheres appear undistorted.'''
+            x_limits = ax.get_xlim3d()
+            y_limits = ax.get_ylim3d()
+            z_limits = ax.get_zlim3d()
+            x_range = abs(x_limits[1] - x_limits[0])
+            y_range = abs(y_limits[1] - y_limits[0])
+            z_range = abs(z_limits[1] - z_limits[0])
+            max_range = max([x_range, y_range, z_range])
+            x_middle = np.mean(x_limits)
+            y_middle = np.mean(y_limits)
+            z_middle = np.mean(z_limits)
+            ax.set_xlim3d([x_middle - max_range/2, x_middle + max_range/2])
+            ax.set_ylim3d([y_middle - max_range/2, y_middle + max_range/2])
+            ax.set_zlim3d([z_middle - max_range/2, z_middle + max_range/2])
+
         fig = plt.figure()
         fig.suptitle("3D HSP Plot")
         ax = plt.axes(projection="3d")
-        ax.invert_yaxis()
         ax.set_xlabel("H")
         ax.set_ylabel("D")
         ax.set_zlabel("P")
@@ -198,24 +220,51 @@ class HSP(HSPEstimator):
             ax.scatter(center[0], center[1], center[2], color="g", s=50)
 
         # Draw solvent points
-        good_x, good_y, good_z = get_solvent_points(self.inside)
+        good_x, good_y, good_z = self.inside_[:, 2], self.inside_[:, 0], self.inside_[:, 1] # H, D, P
         ax.scatter(good_x, good_y, good_z, color="b", s=50)
-        bad_x, bad_y, bad_z = get_solvent_points(self.outside)
-        ax.scatter(bad_x, bad_y, bad_z, color="r", s=50)
+        bad_x, bad_y, bad_z = self.outside_[:, 2], self.outside_[:, 0], self.outside_[:, 1] # H, D, P
+
+        ax.scatter(good_x, good_y, good_z, color="b", s=50, label="Good solvents", alpha=0.7)
+        ax.scatter(bad_x, bad_y, bad_z, color="r", s=50, label="Bad solvents", alpha=0.7)
+
         ax.view_init(elev=20)
+        set_axes_equal(ax)
+        ax.invert_yaxis()
+        if legend:
+            ax.legend()
 
-    def plot_2d(self):
-        """Create 2D projections of the HSP space."""
+        plt.show()
+        return fig
 
-        if self.inside is None or self.outside is None:
-            # Split grid for plotting
-            hsp_grid = self.grid[["Solvent", "D", "P", "H", "Score"]].to_numpy()
-            self.inside, self.outside = split_grid(hsp_grid, self.inside_limit)
+
+    def plot_2d(self, legend=False):
+        """Create 2D projections of the HSP space.
+        Returns
+        -------
+        matplotlib.figure.Figure
+            Three-panel 2D visualization showing P vs H, H vs D, and P vs D projections.
+        """
+        if not hasattr(self, 'hsp_') or self.hsp_ is None:
+            raise ValueError("Model not fitted. Call get() first.")     
+       
+        def set_axes_equal(ax):
+            '''Set 2D plot axes to equal scale so spheres appear undistorted.'''
+            x_limits = ax.get_xlim()
+            y_limits = ax.get_ylim()
+            x_range = abs(x_limits[1] - x_limits[0])
+            y_range = abs(y_limits[1] - y_limits[0])
+            max_range = max([x_range, y_range])
+            x_middle = np.mean(x_limits)
+            y_middle = np.mean(y_limits)
+            ax.set_xlim([x_middle - max_range/2, x_middle + max_range/2])
+            ax.set_ylim([y_middle - max_range/2, y_middle + max_range/2])
+        
 
         fig, (ax1, ax2, ax3) = plt.subplots(ncols=3, figsize=(12, 3.5))
         fig.suptitle("2D HSP Subplots")
-        good_x, good_y, good_z = get_solvent_points(self.inside)
-        bad_x, bad_y, bad_z = get_solvent_points(self.outside)
+
+        good_x, good_y, good_z = self.inside_[:, 2], self.inside_[:, 0], self.inside_[:, 1]  # H, D, P
+        bad_x, bad_y, bad_z = self.outside_[:, 2], self.outside_[:, 0], self.outside_[:, 1]  # H, D, P
 
         # Prepare centers and radii
         if self.n_spheres == 1:
@@ -232,7 +281,6 @@ class HSP(HSPEstimator):
             centers_h = [sphere[2] for sphere in self.hsp_]  # H values
             radii = [sphere[3] for sphere in self.hsp_]      # radii
 
-
        # P vs H
         ax1.scatter(good_z, good_x, color="b", label="Good solvents")
         ax1.scatter(bad_z, bad_x, color="r", label="Bad solvents")
@@ -242,7 +290,9 @@ class HSP(HSPEstimator):
             ax1.add_patch(circle)
         ax1.set_xlabel("P")
         ax1.set_ylabel("H")
-        ax1.legend()
+        if legend:
+            ax1.legend()
+        set_axes_equal(ax1)
 
         # H vs D
         ax2.scatter(good_x, good_y, color="b", label="Good solvents")
@@ -253,7 +303,9 @@ class HSP(HSPEstimator):
             ax2.add_patch(circle)
         ax2.set_xlabel("H")
         ax2.set_ylabel("D")
-        ax2.legend()
+        if legend:
+            ax2.legend()
+        set_axes_equal(ax2)
 
         # P vs D
         ax3.scatter(good_z, good_y, color="b", label="Good solvents")
@@ -264,9 +316,22 @@ class HSP(HSPEstimator):
             ax3.add_patch(circle)
         ax3.set_xlabel("P")
         ax3.set_ylabel("D")
-        ax3.legend()
+        if legend:
+            ax3.legend()
+        set_axes_equal(ax3)
+
+        plt.show()    
+        return fig
 
     def plots(self):
-        """Show both 3D and 2D plots."""
-        self.plot_3d()
-        self.plot_2d()
+        """Show both 3D and 2D plots.
+        
+        Returns
+        -------
+        tuple
+            (fig_3d, fig_2d) matplotlib figure objects.
+        """
+        fig_3d = self.plot_3d()
+        fig_2d = self.plot_2d()
+        plt.show()
+        return fig_3d, fig_2d
