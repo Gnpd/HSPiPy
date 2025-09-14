@@ -1,6 +1,6 @@
-# HSPiPy
-
 [![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.1.0b1-blue.svg) 
+
+# HSPiPy
 
 #### Hansen Solubility Parameters in Python.
 
