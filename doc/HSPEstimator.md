@@ -17,7 +17,7 @@ The `HSPEstimator` fits Hansen Solubility Parameter spheres to solvent data and 
   Optimization method to use. Options:
   - `'classic'`: Classic grid-based search [1] adaptation (supports 1 or 2 spheres)
   - `'differential_evolution'`: Differential evolution global optimization. Uses [scipy.optimize.differential_evolution](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html).
-  - `Nelder-Mead`, `Powell`, `BFGS`, `L-BFGS-B`, `TNC`, `COBYLA`, `COBYQA`, `SLSQP`: Uses [scipy.optimize.minimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html).
+  - `Nelder-Mead`, `Powell`, `BFGS`, `L-BFGS-B`, `TNC`, `COBYLA`, `COBYQA`, `SLSQP`: Uses [scipy.optimize.minimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize).
   See the Discussion on adding more optimization algorithms:
   https://github.com/Gnpd/HSPiPy/discussions/2
 - `inside_limit`: `float`, default=1
@@ -64,7 +64,7 @@ The `HSPEstimator` fits Hansen Solubility Parameter spheres to solvent data and 
 
 ### Minimize Parameters
 - `min_options`:`dict` or `None`, default=None
-  Additional options for [scipy.optimize.minimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html).
+  Additional options for [scipy.optimize.minimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize).
 
 ## Attributes
 

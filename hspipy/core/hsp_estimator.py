@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.utils.validation import check_is_fitted
 
 from .loss import HSPSingleSphereLoss, HSPDoubleSphereLoss
-from .utils import compute_datafit, hansen_distance, hansen_pairwise_distance
+from .utils import compute_datafit, hansen_distance, hansen_center_distance
 
 class HSPEstimator(BaseEstimator, TransformerMixin):
     """
@@ -100,11 +100,11 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
                 5.0
             ])
         elif self.n_spheres == 2:
-            # Find the two most separated points among X_good
-            dists = hansen_pairwise_distance(X_good)
+            dists = squareform(pdist(X_good))
             idx = np.unravel_index(np.argmax(dists), dists.shape)
             centers = X_good[list(idx)]
-            return np.hstack((centers, np.full((self.n_spheres, 1), 2.0))).flatten()
+            initial_guess = np.hstack((centers, np.full((self.n_spheres, 1), 2.0)))
+            return initial_guess.flatten()
     
     def _get_bounds(self):
         """Get bounds for optimization based on number of spheres."""
@@ -203,161 +203,126 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
             })
         return self
   
-    def _classic_multi_fit(self, X, y):
-        if self.n_spheres < 2:
-            raise ValueError("classic_multi requires n_spheres >= 2.")
+    def _classic_two_fit(self, X, y):
+        """Classic HSP fit restricted to exactly 2 spheres."""
+        if self.n_spheres != 2:
+            raise ValueError("classic_two requires n_spheres == 2.")
         X = np.asarray(X, dtype=float)
 
         if np.sum(y == 1) == 0:
-            raise ValueError("No good solvents found for classic_multi.")
-        
+            raise ValueError("No good solvents found for classic_two.")
+
         nfev = 0
         nit_total = 0
 
-        def combine_datafit(sphere_distances, radii):
+        # --- Constraint-aware datafit ---
+        def combine_datafit(dists_list, radii, centers):
             nonlocal nfev
             nfev += 1
-            distances = np.stack(sphere_distances, axis=1)            # shape (n_samples, n_spheres)
-            R = np.asarray(radii).reshape((1, -1))          # shape (1, n_spheres)
-            return compute_datafit(distances, R, y)
+            distances = np.stack(dists_list, axis=1)  # (n_samples, 2)
+            R = np.asarray(radii).reshape((1, 2))
+            df = compute_datafit(distances, R, y)
 
-        def violates_hsp_sphere_inclusion(centers: list[np.ndarray], radii: list[float]) -> bool:
-            """
-            Check whether any HSP sphere is fully contained within another.
-
-            Parameters
-            ----------
-            centers : list[np.ndarray]
-                List of (δD, δP, δH) coordinates for sphere centers, shape (k,3).
-            radii : list[float]
-                Radii of the HSP spheres, shape (k,).
-
-            Returns
-            -------
-            bool
-                True if any sphere is contained inside another, False otherwise.
-            """
-            centers = np.asarray(centers, dtype=float)   # (n_spheres,3)
-            radii = np.asarray(radii, dtype=float)       # (n_spheres,)
-            if centers.shape[0] < 2:
-                return False
-            diffs = centers[:, None, :] - centers[None, :, :]   # (n_spheres,n_spheres,3)
-            dD = diffs[..., 0]; dP = diffs[..., 1]; dH = diffs[..., 2]
-            distance_matrix = np.sqrt(4.0 * dD**2 + dP**2 + dH**2)         # (n_spheres,n_spheres)
-            R1 = radii[:, None]
-            R2 = radii[None, :]
-            sphere_inclusion_matrix = (distance_matrix + np.minimum(R1, R2) <= np.maximum(R1, R2))
-            # ignore diagonal
-            np.fill_diagonal(sphere_inclusion_matrix, False)
-            # only upper triangle (i<j) matters; if any True -> violation
-            return np.any(np.triu(sphere_inclusion_matrix, k=1))
-
-        def each_has_good_inside(dists_list, radii):
-            dists = np.stack(dists_list, axis=1)   # (n_samples, n_spheres)
-            R = np.asarray(radii).reshape((1, -1)) # (1, n_spheres)
+            # Apply constraints as penalties
+            penalty = 0.0
+            # (1) Sphere containment
+            d = hansen_center_distance(centers[0], centers[1])
+            if d + min(radii) <= max(radii) + 1e-8:
+                penalty += 1000.0
+            # (2) Each sphere must contain at least two "good"
             inside = (y == 1)
-            if not np.any(inside):
-                return False
-            has_good = np.any(inside[:, None] & (dists <= R), axis=0)  # (n_spheres,)
-            return bool(np.all(has_good))
+            if np.any(inside):
+               # Count how many good solvents each sphere contains
+                good_counts = np.sum(inside[:, None] & (distances <= R), axis=0)
+                # Require at least 2 per sphere
+                if np.any(good_counts < 2):
+                    penalty += 1000.0
+            else:
+                penalty += 1000.0
 
-        def best_radius_for_sphere(dist_j, dists_list, radii, j):
+            # (3) Minimum radius to avoid collapse
+            min_radius = 1
+            if np.any(np.asarray(radii) < min_radius):
+                penalty += 1000.0
+
+            return df - penalty
+
+        def best_radius_for_sphere(dist_j, dists_list, radii, j, centers):
             # scan candidate radii for sphere j keeping others fixed
             dists = np.unique(dist_j)
-            candidates = np.r_[max(dists.min() - 1e-6, 0.0), dists, dists + 1e-6, dists.max() + 1.0]
+            candidates = np.r_[max(dists.min() - 1e-6, 0.0),
+                            dists,
+                            dists + 1e-6,
+                            dists.max() + 1.0]
             best_df = -np.inf
             best_R = radii[j]
             for R in candidates:
                 candidate_r = list(radii)
                 candidate_r[j] = R
-                df = combine_datafit(dists_list, candidate_r)
+                df = combine_datafit(dists_list, candidate_r, centers)
                 if df > best_df or (np.isclose(df, best_df) and R < best_R):
                     best_df = df
                     best_R = R
             return best_R, best_df
 
-        # Initialization: farthest-pair (n_spheres=2) or greedy farthest-point sampling (n_spheres>2)
+        # --- Initialization: farthest pair among good solvents ---
         X_good = X[y == 1, :3]
-        if X_good.shape[0] < self.n_spheres:
-            raise ValueError("Not enough good solvents to initialize the requested number of spheres.")
+        if X_good.shape[0] < 2:
+            raise ValueError("Not enough good solvents to initialize 2 spheres.")
 
-        # Start with the farthest pair
-        distance_matrix = hansen_pairwise_distance(X_good)
-        idx_pair = np.unravel_index(np.argmax(distance_matrix), distance_matrix.shape)
-        centers_idx = [idx_pair[0], idx_pair[1]] if self.n_spheres >= 2 else [idx_pair[0]]
+        initial_guess = self._get_initial_guess(X_good)  # shape (8,)
+        centers = [initial_guess[i*4:i*4+3].copy() for i in range(2)]
 
-        # If more than 2 spheres requested, add centers by greedy farthest-point
-        while len(centers_idx) < self.n_spheres:
-            # distance of each point to nearest selected center
-            min_d = np.min(distance_matrix[:, centers_idx], axis=1)
-            next_idx = int(np.argmax(min_d))
-            if next_idx in centers_idx:
-                # fallback in rare degenerate cases
-                next_idx = int(np.argmax(min_d + (~np.isin(np.arange(len(min_d)), centers_idx))*1e-12))
-            centers_idx.append(next_idx)
-
-        centers = [X_good[i].copy() for i in centers_idx]
         dists_list = [hansen_distance(X, c) for c in centers]
+        radii = [0.5, 0.5]
 
-        # Initialize all radii to small value 0.5
-        radii = [0.5 for _ in range(self.n_spheres)]
+        # Initial datafit
+        best_df = combine_datafit(dists_list, radii, centers)
 
-        # Evaluate initial DATAFIT; if constraints violated, slightly grow radii and re-evaluate
-        best_df = combine_datafit(dists_list, radii)
-        if violates_hsp_sphere_inclusion(centers, radii) or not each_has_good_inside(dists_list, radii):
-            radii = [r + 0.5 for r in radii]
-            best_df = combine_datafit(dists_list, radii)
-
-        # Classic cube schedule
+        # --- Classic cube schedule ---
         for edge in (1.0, 0.3, 0.1):
             h = 0.5 * edge
             improved = True
-            max_iter = 100
+            max_iter = 1000
             iter_count = 0
-            tol = 1e-6  # Minimum improvement threshold
+            tol = 1e-6
             while improved and iter_count < max_iter:
                 improved = False
                 signs = np.array([[sx, sy, sz] for sx in (-1.0, 1.0)
                                                 for sy in (-1.0, 1.0)
                                                 for sz in (-1.0, 1.0)])
                 iter_count += 1
-                # Alternate over spheres
-                for j in range(self.n_spheres):
+                for j in range(2):
                     best_local = None
                     best_local_df = best_df
                     best_local_R = radii[j]
                     for s in signs:
                         c = centers[j] + h * s
                         dist_j = hansen_distance(X, c)
-                        # prepare list with this candidate dists
                         cand_dists = list(dists_list)
                         cand_dists[j] = dist_j
-                        Rj, dfj = best_radius_for_sphere(dist_j, cand_dists, radii, j)
-                        # enforce constraints
+                        Rj, dfj = best_radius_for_sphere(dist_j, cand_dists, radii, j, centers)
                         cand_centers = list(centers)
                         cand_centers[j] = c
                         cand_radii = list(radii)
                         cand_radii[j] = Rj
-                        if violates_hsp_sphere_inclusion(cand_centers, cand_radii):
-                            continue
-                        if not each_has_good_inside(cand_dists, cand_radii):
-                            continue
-                        df_total = combine_datafit(cand_dists, cand_radii)
+                        df_total = combine_datafit(cand_dists, cand_radii, cand_centers)
                         if df_total > best_local_df or (np.isclose(df_total, best_local_df) and Rj < best_local_R):
                             best_local_df = df_total
                             best_local_R = Rj
                             best_local = (cand_dists, cand_centers, cand_radii)
-                    if best_local is not None and (best_local_df > best_df + tol or (np.isclose(best_local_df, best_df) and best_local_R < radii[j])):
+                    if best_local is not None and (best_local_df > best_df + tol or
+                                                (np.isclose(best_local_df, best_df) and best_local_R < radii[j])):
                         dists_list, centers, radii = best_local
                         best_df = best_local_df
                         improved = True
             nit_total += iter_count
 
-        self.hsp_ = np.array([[centers[i][0], centers[i][1], centers[i][2], radii[i]] for i in range(self.n_spheres)])
+        self.hsp_ = np.array([[centers[i][0], centers[i][1], centers[i][2], radii[i]] for i in range(2)])
         self.error_ = 1.0 - best_df
         self.datafit_ = best_df
         self.optimization_result_ = OptimizeResult({
-            'method': 'classic_multi',
+            'method': 'classic_two',
             'datafit': best_df,
             'fun': float(self.error_),
             'x': self.hsp_.flatten().tolist(),
@@ -387,6 +352,7 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
             x0,
             method=self.method,
             bounds=bounds if self.method in ['L-BFGS-B', 'TNC', 'SLSQP', 'trust-constr'] else None,
+            tol=1e-6,
             options=self.minimize_options
         )
 
@@ -471,7 +437,7 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         elif self.method == 'classic' and self.n_spheres == 1:
             return self._classic_fit(Xv, yv)
         elif self.method == 'classic' and self.n_spheres >= 2:
-            return self._classic_multi_fit(Xv, yv)
+            return self._classic_two_fit(Xv, yv)
         else:
             raise ValueError(f"Unknown method: {self.method}")
     
