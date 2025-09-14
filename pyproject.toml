@@ -45,3 +45,6 @@ hspipy = ["*.csv", "*.png"]
 
 [tool.setuptools.dynamic]
 version = {attr = "hspipy.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]

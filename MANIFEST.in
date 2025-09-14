@@ -2,3 +2,4 @@ include README.rst
 include LICENSE
 recursive-include hspipy *.csv
 recursive-include hspipy *.png
+recursive-include hspipy *.py
