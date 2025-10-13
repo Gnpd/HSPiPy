@@ -1,3 +1,5 @@
+[Home](index.md) | [HSP](HSP.md) | [HSPEstimator](HSPEstimator.md) | [Discovery](discovery.md)
+
 # HSP
 
 `class HSP`

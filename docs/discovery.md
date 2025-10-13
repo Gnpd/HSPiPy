@@ -1,8 +1,11 @@
+[Home](index.md) | [HSP](HSP.md) | [HSPEstimator](HSPEstimator.md) | [Discovery](discovery.md)
+
 ## Discovery Utilities
 
 The `hspipy.utils.discovery` module provides utilities to automatically discover estimators, displays, and functions in the `hspipy` package.
 
 ### List all estimators
+You can list all available estimators (classes compatible with scikit-learn’s API) using `all_estimators`:
 
 ```python
 from hspipy.utils.discovery import all_estimators
@@ -27,6 +30,7 @@ print(displays)
 ```
 
 ### List all functions
+You can list all utility functions provided by the package using `all_functions`:
 
 ```python
 from hspipy.utils.discovery import all_functions
@@ -35,3 +39,8 @@ functions = all_functions()
 print(functions)
 # Output: [('WireframeSphere', <function WireframeSphere at 0x00000265F870E020>), ('compute_datafit', <function compute_datafit at 0x00000265ADEC3CE0>), ...]
 ```
+
+## Notes
+
+- These discovery utilities are especially useful for introspection, documentation generation, and advanced usage.
+- As the library evolves, more estimators, displays, and functions may become available and will be automatically discoverable using these tools.
