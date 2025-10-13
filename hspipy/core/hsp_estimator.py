@@ -1,14 +1,15 @@
 import numpy as np
 from scipy.optimize import differential_evolution, minimize, OptimizeResult
 from scipy.spatial.distance import pdist, squareform
-from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.base import BaseEstimator, TransformerMixin, _fit_context
 from sklearn.metrics import accuracy_score
-from sklearn.utils.validation import check_is_fitted
+from sklearn.utils.validation import check_is_fitted,  check_array
+from sklearn.utils._param_validation import Interval, StrOptions, Real, Integral
 
 from .loss import HSPSingleSphereLoss, HSPDoubleSphereLoss
 from .utils import compute_datafit, hansen_distance, hansen_center_distance
 
-class HSPEstimator(BaseEstimator, TransformerMixin):
+class HSPEstimator(TransformerMixin, BaseEstimator):
     """
     Hansen Solubility Parameters estimator with sklearn compatibility.
     
@@ -18,9 +19,83 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
     
     For plotting capabilities and simplified interface, use the HSP class
     which inherits from this estimator.
+
+    Parameters
+    ----------
+    method : str, default='classic'
+        Optimization method to use.
+    inside_limit : float, default=1
+        Threshold for classifying solvents as inside/outside.
+    n_spheres : int, default=1
+        Number of spheres to fit.
+        
+    Attributes
+    ----------
+    hsp_ : ndarray of shape (n_spheres, 4)
+        Fitted Hansen Solubility Parameters (D, P, H, R) for each sphere.
+    error_ : float
+        Final optimization objective value.
+    n_features_in_ : int
+        Number of features seen during fit.
+        
+    Examples
+    --------
+    >>> from hspipy import HSPEstimator
+    >>> import numpy as np
+    >>> X = np.random.rand(100, 3) * 20  # D, P, H values
+    >>> y = np.random.randint(0, 2, 100)  # Binary labels
+    >>> estimator = HSPEstimator()
+    >>> estimator.fit(X, y)
+    >>> predictions = estimator.predict(X)
     """
      # Define default parameter ranges for optimization
     DEFAULT_BOUNDS = [(10, 30), (0, 30), (0, 30), (1, 20)]
+
+    _parameter_constraints = {
+        "method": [StrOptions({"classic", "differential_evolution", "Nelder-Mead", "Powell", "BFGS", "L-BFGS-B", "TNC", "COBYLA", "COBYQA", "SLSQP"})],
+        "inside_limit": [Interval(Real, 0, None, closed="right")],
+        "n_spheres": [Interval(Integral, 1, None, closed="left")],
+        "loss": [None, callable],
+        "size_factor": [None, StrOptions({"n_solvents"}), Interval(Real, 0, None, closed="right")],
+        "de_bounds": [None, list],
+        "de_strategy": [StrOptions({"best1bin"})],  # Add all valid options
+        "de_maxiter": [Interval(Integral, 1, None, closed="left")],
+        "de_popsize": [Interval(Integral, 1, None, closed="left")],
+        "de_tol": [Interval(Real, 0, None, closed="left")],
+        "de_mutation": [Interval(Real, 0, None, closed="left")],
+        "de_recombination": [Interval(Real, 0, 1, closed="both")],
+        "de_init": [StrOptions({"latinhypercube"})],  # Add all valid options
+        "de_atol": [Interval(Real, 0, None, closed="left")],
+        "de_updating": [StrOptions({"immediate"})],  # Add all valid options
+        "de_workers": [Interval(Integral, 1, None, closed="left")],
+        "min_options": [None, dict],
+    }
+
+    def _validate_data(self, X, y=None, reset=False):
+        """Validate input data with strict 3-feature requirement."""
+        X = check_array(
+            X,
+            accept_sparse=False,
+            dtype=float,
+            ensure_2d=True,
+            ensure_min_features=3,
+            ensure_non_negative=True,
+            ensure_all_finite=True,  # use force_all_finite=True for sklearn <1.6
+        )
+        if X.shape[1] != 3:
+            raise ValueError(
+                f"X must have exactly 3 features (D, P, H), but got {X.shape[1]} features."
+            )
+
+        if y is not None:
+            y = np.asarray(y, dtype=float)
+            if X.shape[0] != y.shape[0]:
+                raise ValueError(
+                    f"X and y have inconsistent numbers of samples: "
+                    f"X has {X.shape[0]} samples, y has {y.shape[0]} samples."
+                )
+            return X, y
+        return X
 
     def __init__(
         self,
@@ -44,13 +119,14 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         # Minimize params
         min_options=None,
     ):
+        super().__init__()
         self.method = method
         self.inside_limit = inside_limit
         self.n_spheres = n_spheres
         self.loss = loss
         self.size_factor = size_factor
         # DE params
-        self.de_bounds = de_bounds or self.DEFAULT_BOUNDS
+        self.de_bounds = de_bounds
         self.de_strategy = de_strategy
         self.de_maxiter = de_maxiter
         self.de_popsize = de_popsize
@@ -62,16 +138,7 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         self.de_updating = de_updating
         self.de_workers = de_workers
         # Minimize params
-        self.minimize_options = min_options or {}
-
-        # Fitted attributes (scikit-learn convention: trailing underscore)
-        self.hsp_ = None          # (D, P, H, R) Hansen Solubility Parameters
-        self.error_ = None        # objective value (mean penalty)
-        self.accuracy_ = None     # accuracy on training data
-        self.optimization_result_ = None  # result of the optimization process
-        self.inside_ = None  # solvents classified as inside (y<=inside_limit)
-        self.outside_ = None # solvents classified as outside (y>inside_limit)
-        self.datafit_ = None  # DATAFIT value of the fitted model
+        self.min_options = min_options
 
     def _binarize_labels(self, y):
         """Convert labels to binary (1=inside, 0=outside) using inside_limit."""
@@ -108,10 +175,11 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
     
     def _get_bounds(self):
         """Get bounds for optimization based on number of spheres."""
+        bounds = self.de_bounds if self.de_bounds is not None else self.DEFAULT_BOUNDS
         if self.n_spheres == 1:
-            return self.de_bounds
+            return bounds
         elif self.n_spheres == 2:
-            return self.de_bounds * self.n_spheres
+            return bounds * self.n_spheres
     
     def _get_datafit(self, X, y_bin):
         """Compute DATAFIT for the current model on given data."""
@@ -335,7 +403,6 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
 
     def _minimize_fit(self, X, y):
         """Fit using scipy.optimize.minimize with selected solver."""
-     
         X_good = X[y == 1, :3]
         if X_good.shape[0] < self.n_spheres:
             raise ValueError("Not enough inside solvents to form the required number of spheres.")
@@ -346,14 +413,15 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
 
         def objective(array):
             return loss_func(array, X, y)
-
+        
+        options = self.min_options if self.min_options is not None else {}
         result = minimize(
             objective,
             x0,
             method=self.method,
             bounds=bounds if self.method in ['L-BFGS-B', 'TNC', 'SLSQP', 'trust-constr'] else None,
             tol=1e-6,
-            options=self.minimize_options
+            options=options
         )
 
         self.hsp_ = result.x.reshape(self.n_spheres, 4)
@@ -365,7 +433,6 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
     
     def _differential_evolution_fit(self, X, y):
         """Fit using differential evolution"""
-
         X_good = X[y == 1, :3]
         if X_good.shape[0] < self.n_spheres:
             raise ValueError("Not enough inside solvents to form the required number of spheres.")
@@ -401,6 +468,7 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         
         return self
     
+    @_fit_context(prefer_skip_nested_validation=True)
     def fit(self, X, y):
         """Fit HSP model to training data.
         
@@ -416,9 +484,9 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
         self : object
             Returns self.
         """
-        X = np.asarray(X, dtype=float)
-        y = np.asarray(y, dtype=float)
-
+        X, y = self._validate_data(X, y, reset=True)
+       
+        # Filter out NaN values in y
         valid = ~np.isnan(y)
         Xv = X[valid]
         yv = self._binarize_labels(y[valid])  # Binarize labels
@@ -455,7 +523,7 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
             Predicted values (1 if inside any sphere, else 0)
         """
         check_is_fitted(self, ['hsp_', 'error_'])
-        X = np.asarray(X, dtype=float)
+        X = self._validate_data(X)
 
         spheres = np.asarray(self.hsp_, dtype=float)
         Ds, Ps, Hs, Rs = spheres[:, 0], spheres[:, 1], spheres[:, 2], spheres[:, 3]
@@ -486,7 +554,7 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
             RED values for each sample
         """
         check_is_fitted(self, ['hsp_', 'error_'])
-        X = np.asarray(X, dtype=float)
+        X = self._validate_data(X)
 
         spheres = np.asarray(self.hsp_, dtype=float)
         Ds, Ps, Hs, Rs = spheres[:, 0], spheres[:, 1], spheres[:, 2], spheres[:, 3]
@@ -516,6 +584,9 @@ class HSPEstimator(BaseEstimator, TransformerMixin):
 
 
 
-
-
-
+    def __sklearn_tags__(self):
+        tags = super().__sklearn_tags__()
+        # Set attributes directly
+        tags.input_tags.positive_only = True
+        tags.input_tags.sparse = False
+        return tags

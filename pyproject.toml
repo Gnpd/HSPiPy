@@ -32,6 +32,19 @@ dependencies = [
 ]
 keywords = ["hansen", "solubility", "parameters", "chemistry", "solvents"]
 
+[project.optional-dependencies]
+test = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=22.0",
+    "flake8>=4.0",
+    "isort>=5.0",
+]
+
 [project.urls]
 Homepage = "https://github.com/Gnpd/HSPiPy"
 Repository = "https://github.com/Gnpd/HSPiPy"
@@ -45,3 +58,18 @@ version = {attr = "hspipy.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["."]
+
+# Test configuration
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]

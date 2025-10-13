@@ -59,16 +59,10 @@ class HSP(HSPEstimator):
     and a simplified interface for typical HSP workflows. It maintains full
     sklearn compatibility while providing domain-specific functionality.
     '''
+    
     def __init__(self, inside_limit=1, n_spheres=1):
         super().__init__(inside_limit=inside_limit, n_spheres=n_spheres)
-        self._reader = HSPDataReader()
-        self.grid = None
-        self.inside = None
-        self.outside = None
-        self.DATAFIT = None
-        self.d = self.p = self.h = None
-        self.hsp = self.radius = None
-        self.error = self.accuracy = None
+
 
     def read(self, path):
         """
@@ -77,7 +71,8 @@ class HSP(HSPEstimator):
         Supports CSV, HSD, and HSDX formats with automatic format detection.
 
         """
-        self.grid = self._reader.read(path)
+        reader = HSPDataReader()
+        self.grid = reader.read(path)
         return self     
 
     def get(self, inside_limit=1, n_spheres=1):

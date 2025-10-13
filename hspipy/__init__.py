@@ -4,11 +4,11 @@ HSPiPy - Hansen Solubility Parameters in Python
 A Python package for calculating and visualizing Hansen Solubility Parameters.
 """
 
-__version__ = "1.1.1"
+__version__ = "1.1.2"
 __author__ = "Alejandro Gutierrez"
 __email__ = "agutierrez@g-npd.com"
 
 from .hsp import HSP
-from hspipy.core.hsp_estimator import HSPEstimator
+from .core.hsp_estimator import HSPEstimator
 
-__all__ = ["HSP", "HSPEstimator"]
+__all__ = ["HSP", "HSPEstimator", "__version__"]
