@@ -81,7 +81,11 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
             ensure_min_features=3,
             ensure_non_negative=True,
             ensure_all_finite=True,  # use force_all_finite=True for sklearn <1.6
-    )
+        )
+        if X.shape[1] != 3:
+            raise ValueError(
+                f"X must have exactly 3 features (D, P, H), but got {X.shape[1]} features."
+            )
 
         if y is not None:
             y = np.asarray(y, dtype=float)

@@ -7,7 +7,7 @@ from hspipy.utils.discovery import all_estimators
 
 def expected_failed_checks(estimator):
     if estimator.__class__.__name__ == "HSPEstimator" or estimator.__class__.__name__ == "HSP":
-        # These test do not take into acount that our estimators take exactly 3 features
+        # These test do not take into account that our estimators take exactly 3 features
         return {
             "check_n_features_in": "HSPEstimator requires exactly 3 features.",
             "check_estimators_overwrite_params": "HSPEstimator does not overwrite parameters.",
