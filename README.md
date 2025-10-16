@@ -1,4 +1,4 @@
-[![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.1.1-orange.svg) 
+[![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.1.2-orange.svg) 
 
 # HSPiPy
 
@@ -148,5 +148,6 @@ This library is licensed under the MIT License. See the [LICENSE](https://github
 ----------------
 
 HSPiPy was inspired by the well-known HSP software suit [Hansen Solubility Parameters in Practice (HSPiP)](https://www.hansen-solubility.com/HSPiP/) and by the HSP community.
+
 
 
