@@ -23,8 +23,8 @@ HSPiPy is a Python library designed for calculating and visualizing Hansen Solub
 ---------------
 
 - Class reference:
-    - [HSP (high‑level helper)](https://github.com/Gnpd/HSPiPy/blob/main/doc/HSP.md)
-    - [HSPEstimator (scikit‑learn compatible)](https://github.com/Gnpd/HSPiPy/blob/main/doc/HSPEstimator.md)
+    - [HSP (high‑level helper)](https://github.com/Gnpd/HSPiPy/blob/main/docs/HSP.md)
+    - [HSPEstimator (scikit‑learn compatible)](https://github.com/Gnpd/HSPiPy/blob/main/docs/HSPEstimator.md)
 
 
 ### Installation
@@ -148,6 +148,7 @@ This library is licensed under the MIT License. See the [LICENSE](https://github
 ----------------
 
 HSPiPy was inspired by the well-known HSP software suit [Hansen Solubility Parameters in Practice (HSPiP)](https://www.hansen-solubility.com/HSPiP/) and by the HSP community.
+
 
 
 
