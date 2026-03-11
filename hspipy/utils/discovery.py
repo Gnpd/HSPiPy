@@ -72,7 +72,11 @@ def all_estimators(type_filter=None):
             module_parts = module_name.split(".")
             if any(part in _MODULE_TO_IGNORE for part in module_parts):
                 continue
-            module = import_module(module_name)
+            try:
+                module = import_module(module_name)
+            except ImportError:
+                # Skip modules whose optional dependencies are not installed
+                continue
             classes = inspect.getmembers(module, inspect.isclass)
             classes = [
                 (name, est_cls) for name, est_cls in classes if not name.startswith("_")

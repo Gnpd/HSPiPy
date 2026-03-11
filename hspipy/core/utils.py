@@ -1,24 +1,51 @@
+from __future__ import annotations
+
 import numpy as np
+from numpy.typing import NDArray
 
-def hansen_center_distance(center1, center2):
+
+def hansen_center_distance(center1: NDArray, center2: NDArray) -> float:
+    """Weighted Euclidean distance between two HSP centers (4·ΔD² + ΔP² + ΔH²)^½."""
     d = np.asarray(center1) - np.asarray(center2)
-    return np.sqrt(4.0 * d[0]**2 + d[1]**2 + d[2]**2)
+    return float(np.sqrt(4.0 * d[0]**2 + d[1]**2 + d[2]**2))
 
-def hansen_distance(X, center):
+
+def hansen_distance(X: NDArray, center: NDArray) -> NDArray:
     """
     Compute Hansen distance from each row in X to a single center.
-    X: shape (n_samples, 3)
-    center: shape (3,)
-    Returns: shape (n_samples,)
+
+    The Hansen distance formula is: sqrt(4·ΔD² + ΔP² + ΔH²), where the
+    factor of 4 on the dispersion component (D) reflects its empirically
+    larger contribution to solubility differences.
+
+    Parameters
+    ----------
+    X : ndarray of shape (n_samples, 3)
+        Solvent coordinates (D, P, H).
+    center : ndarray of shape (3,)
+        Sphere center (D, P, H).
+
+    Returns
+    -------
+    ndarray of shape (n_samples,)
     """
     d = X - center[None, :]
     return np.sqrt(4.0 * d[:, 0]**2 + d[:, 1]**2 + d[:, 2]**2)
 
-def hansen_pairwise_distance(solvents):
+
+def hansen_pairwise_distance(solvents: NDArray) -> NDArray:
     """
     Compute pairwise Hansen distances for a set of solvents.
-    solvents: shape (n,3)
-    Returns: (n, n) matrix of Hansen distances.
+
+    Parameters
+    ----------
+    solvents : ndarray of shape (n, 3)
+        Solvent coordinates (D, P, H).
+
+    Returns
+    -------
+    ndarray of shape (n, n)
+        Symmetric matrix of pairwise Hansen distances.
     """
     solvents = np.asarray(solvents, dtype=float)
     diffs = solvents[:, None, :] - solvents[None, :, :]
@@ -27,13 +54,33 @@ def hansen_pairwise_distance(solvents):
     dH = diffs[..., 2]
     return np.sqrt(4.0 * dD**2 + dP**2 + dH**2)
 
-def compute_datafit(distances, radii, y):
+
+def compute_datafit(distances: NDArray, radii: NDArray | float, y: NDArray) -> float:
     """
-    Compute geometric mean fitness for 1 or more spheres.
-    distances: shape (n_samples,) for 1 sphere, (n_samples, n_spheres) for multi-sphere
-    radii: float for 1 sphere, array-like for multi-sphere
-    y: array-like, binary labels (1=inside, 0=outside)
-    Returns: float (DATAFIT)
+    Compute DATAFIT: the geometric mean of per-sample fitness scores.
+
+    Each sample gets a fitness value in (0, 1]:
+    - Correctly classified samples (good inside sphere, bad outside) → 1.0
+    - Good solvent outside sphere → exp(R - dist) < 1  (penalises miss distance)
+    - Bad solvent inside sphere  → exp(dist - R) < 1  (penalises intrusion depth)
+
+    The geometric mean (exp(mean(log(fitness)))) rewards solutions that are
+    uniformly good across all solvents rather than those that excel on a
+    subset while failing elsewhere.
+
+    Parameters
+    ----------
+    distances : ndarray of shape (n_samples,) or (n_samples, n_spheres)
+        Hansen distances from each sample to each sphere center.
+    radii : float or array-like of shape (n_spheres,)
+        Sphere radius/radii.
+    y : array-like of shape (n_samples,)
+        Binary labels (1 = good solvent, 0 = bad solvent).
+
+    Returns
+    -------
+    float
+        DATAFIT value in (0, 1]. A value of 1.0 indicates perfect classification.
     """
     inside = (y == 1)
     outside = ~inside

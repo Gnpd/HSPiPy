@@ -1,0 +1,1207 @@
+Name,dD,dP,dH,Mvol,CAS number,SMILES
+Acetaldehyde,14.7,12.5,7.9,56.5,75-07-0,CC([H])=O
+Acetaldoxime,16.3,4,20.2,61.2,107-29-9,C/C=N/O
+Acetamide,17.3,18.7,19.3,59,60-35-5,CC(N)=O
+Acetanilide,20.6,14.4,13.5,131,103-84-4,CC(=O)NC1=CC=CC=C1
+Acetic Acid,14.5,8,13.5,57.6,64-19-7,CC(O)=O
+Acetic Anhydride,16,11.7,10.2,95,108-24-7,CC(OC(C)=O)=O
+Acetone,15.5,10.4,7,73.8,67-64-1,CC(C)=O
+Acetonecyanhydrin,16.6,12.2,15.5,91.8,75-86-5,CC(C)(O)C#N
+Acetonemethyloxime,14.7,4.6,4.6,96.7,3376-35-0,CC(=NOC)C
+Acetonitrile,15.3,18,6.1,52.9,75-05-8,CC#N
+Acetophenone,18.8,9,4,117.4,98-86-2,CC(C1=CC=CC=C1)=O
+Acetoxime,16.3,3.7,10.9,80.2,127-06-0,CC(=NO)C
+N-Acetyl Caprolactam,18.9,8.7,4.8,155,1888-91-1,CC(N(CCCCC1)C1=O)=O
+N-Acetylmorpholine,18.3,9.8,7.8,115.6,1696-20-4,CC(=O)N1CCOCC1
+N-Acetyl Piperidine,18.5,10,6.5,125.8,618-42-8,CC(=O)N1CCCCC1
+N-Acetyl Pyrrolidone,17.8,13.1,8.3,110.9,932-17-2,CC(=O)N1CCCC1=O
+Acetylacetone,16.1,10,6.2,103.1,123-54-6,CC(CC(C)=O)=O
+Acetylbromide,16.7,10.6,5.2,74,506-96-7,CC(Br)=O
+Acetylchloride,16.2,11.2,5.8,71.3,75-36-5,CC(Cl)=O
+Acetylene (Ethyne),14.4,4.2,11.9,42.2,74-86-2,[H]C#C[H]
+Acetylfluoride,14.7,14,5.7,62,557-99-3,O=C(F)C
+Acrolein,15.5,10,8.6,67.2,107-02-8,C=CC=O
+Acrylamide,15.8,12.1,12.8,76.2,79-06-1,C=CC(N)=O
+Acrylic Acid,16.6,6.4,10,68.9,79-10-7,C=CC(O)=O
+Acrylonitrile,16,12.8,6.8,66.2,107-13-1,C=CC#N
+Acrylylchloride,16.2,11.6,5.4,81.3,814-68-6,C=CC(=O)Cl
+Allyl Acetate,15.7,4.5,8,108.5,591-87-7,CC(OCC=C)=O
+Allyl Acetic Acid,16.7,4.7,11.3,102.1,591-80-0,C=CCCC(=O)O
+Allylacetonitrile (4-Pentenenitrile),16.3,11.2,5,98.5,592-51-8,C=CCCC#N
+Allyl Alcohol,16.2,10.8,16.8,68.5,107-18-6,C=CCO
+Allyl Amine,15.5,5.7,10.6,74.9,107-11-9,C=CCN
+Allyl Bromide (3-Bromoprene),16.5,7.3,4.9,86.5,106-95-6,C=CCBr
+Allyl Chloride,17,6.2,2.3,82.3,107-05-1,C=CCCl
+Allyl Cyanide,16,14.3,5.6,80.5,109-75-1,C=CCC#N
+Allyl Ethylether,15,4.8,5.1,112.6,557-31-3,CCOCC=C
+Allyl Fluoride,14.9,6.4,1,71.5,818-92-8,C=CCF
+Allyl Formate,15.7,5.4,8.8,91,1838-59-1,C=CCOC=O
+Allyl Iodide,18.3,6.4,3.3,90.8,556-56-9,C=CCI
+Allyl Isocyanide,16.1,13,5.4,84.5,2835-21-4,C=CC[N+]#[C-]
+Allyl Isothiocyanate,17,11.3,8.5,98,57-06-7,C=CCN=C=S
+HCFC123,15,5.4,1,104.9,306-83-2,C(C(F)(F)F)(Cl)Cl
+Allyl Mercaptan,16.4,6.2,7.9,80.2,870-23-5,C=CCS
+Allyl Methyl Ether,15,4.3,5.9,93.7,627-40-7,COCC=C
+Ammonia,13.7,16.7,18.8,25,7664-41-7,[H]N([H])[H]
+Amyl Acetate,15.8,3.3,6.1,148,628-63-7,O=C(OCCCCC)C
+Aniline,20.1,5.8,11.2,91.6,62-53-3,NC1=CC=CC=C1
+p-Anisidine (Methoxy Aniline),19.9,6.5,11.3,113.3,104-94-9,COC1=CC=C(N)C=C1
+Anisole,17.8,4.4,6.9,109.2,100-66-3,COC1=CC=CC=C1
+Azidoethane,15.9,8.9,12.9,79,871-31-8,CCN=[N+]=[N-]
+Benzaldehyde,19.4,7.4,5.3,101.9,100-52-7,O=C(C1=CC=CC=C1)[H]
+Benzene,18.4,0,2,89.5,71-43-2,C1=CC=CC=C1
+"1,3-Benzenediol",18.6,8.1,20.3,93.6,108-46-3,OC1=CC(O)=CC=C1
+Benzoic Acid,20,6.9,10.8,112.4,65-85-0,OC(C1=CC=CC=C1)=O
+Benzonitrile,18.8,12,3.3,103,100-47-0,N#CC1=CC=CC=C1
+Benzophenone,19.5,7.2,5.1,167.9,119-61-9,O=C(C2=CC=CC=C2)C1=CC=CC=C1
+Benzoyl Chloride,19.3,6.8,4.5,116.4,98-88-4,ClC(C1=CC=CC=C1)=O
+Benzyl Alcohol,18.4,6.3,13.7,103.8,100-51-6,OCC1=CC=CC=C1
+Benzyl Butyl Phthalate,19,11.2,3.1,306,85-68-7,CCCCOC(=O)C1=CC=CC=C1C(=O)OCC2=CC=CC=C2
+Benzyl Chloride,18.8,7.1,2.6,115.4,100-44-7,ClCC1=CC=CC=C1
+Benzyl Methacrylate,16.8,4.1,4.1,167.8,2495-37-6,CC(=C)C(=O)OCC1=CC=CC=C1
+N-Benzyl Pyrrolidone,18.2,6.1,5.6,160,5291-77-0,C1CC(=O)N(C1)CC2=CC=CC=C2
+HCFC 134a,16.1,4,0,74.2,811-97-2,C(C(F)(F)F)F
+2-Bromo Allyl Alcohol,17.1,9.9,16.2,84.5,598-19-6,C=C(CO)Br
+2-Bromo Propene,16.1,6,4.9,88.8,557-93-7,BrC(C)=C
+1-Bromo Propene (Cis),16.3,6.4,5,84.7,590-13-6,CC=CBr
+4-Bromo-1-Butene,16.5,6,4.5,102,5162-44-7,C=CCCBr
+"4-Bromo-1,2-Butadiene",17,6.5,4.7,93.3,18668-68-3,BrCC=C=C
+Bromoacetylene,15.7,9.9,5.6,67.7,593-61-3,C#CBr
+Bromobenzene,19.2,5.5,4.1,105.6,108-86-1,BrC1=CC=CC=C1
+Bromochloromethane,17.3,5.7,3.5,67.2,74-97-5,ClCBr
+Bromoethylene,15.9,6.3,5.4,69.8,593-60-2,C=CBr
+Bromoform,20,5,7,87.9,75-25-2,[H]C(Br)(Br)Br
+1-Bromonaphthalene,20.6,3.1,4.1,140.1,90-11-9,BrC2=CC=CC1=CC=CC=C12
+Bromoprene,16.9,6.4,4.7,95.2,1822-86-2,C=C(C=C)Br
+3-Bromopropyne,18.1,6.5,5.3,75.3,106-96-7,BrCC#C
+2-Bromothiophene,20.1,5.2,4.6,96.8,1003-09-4,C1=CSC(=C1)Br
+Bromotrifluoromethane (Freon 1381),14.3,2.4,0,74.7,75-63-8,FC(F)(F)Br
+"1,2-Butadiene",15,1.7,6.2,81.6,590-19-2,C=C=CC
+"1,3-Butadiene",14.8,2.8,5.6,83,106-99-0,C=CC=C
+"1,3-Butadiene-1-Chloro",15.6,8.5,2,92.2,627-22-5,C=CC=CCl
+"2,3-Butadiene-1-ol",16.2,6.6,16.8,76.5,18913-31-0,C=C=CCO
+"1,3-Butadiene-1,2-Di-Chloro",17,10.7,2.8,102.5,3574-40-1,C=CC(=CCl)Cl
+Butadiene-4-Cyano,16.2,11.7,5.2,93.7,1615-70-9,C=CC=CC#N
+Butadienedioxide,18.3,14.4,6.2,77.8,1464-53-5,C1(C2OC2)CO1
+Butadione,15.7,5.1,6.8,87.8,431-03-8,CC(C(C)=O)=O
+"1,4-Butandiol Diacrylate",16.8,9.1,4.2,194.4,1070-70-8,C=CC(=O)OCCCCOC(=O)C=C
+Butane,14.1,0,0,96.5,106-97-8,CCCC
+"1,3-Butanediol",16.5,8.1,20.9,90,107-88-0,CC(O)CCO
+1-Butanethiol,16.3,5.3,4.5,107.8,109-79-5,CCCCS
+1-Butanol,16,5.7,15.8,92,71-36-3,CCCCO
+2-Butanol,15.8,5.7,14.5,92,78-92-2,CC(O)CC
+1-Butene,13.2,1.3,3.9,89.6,106-98-9,C=CCC
+2-Butene (Cis),14.7,1.3,4.1,87.4,590-18-1,C\C=C/C
+2-Butene (Trans),14.6,0,2.9,89.3,624-64-6,C\C=C\C
+3-Butenenitrile,16.2,14.3,5.6,80.5,109-75-1,C=CCC#N
+1-Butenyl Methyl Ether,15.1,5.3,5.2,111.9,4696-30-4,C=CCCOC
+2-Butenyl Methyl Ether (Cis),15.2,3.4,5,118.8,25125-85-3,C/C=C\COC
+2-Butenyl Methyl Ether (Trans),15.3,4.4,4.3,110.4,10034-14-7,COC/C=C/C
+Butoxy Ethoxy Propanol,15.5,6.5,10.2,185.9,39332-55-3,CCCCOCC(COCC)O
+n-Butyl Acetate,15.8,3.7,6.3,132.6,123-86-4,CC(OCCCC)=O
+sec-Butyl Acetate,15,3.7,7.6,134,105-46-4,CC(CC)OC(C)=O
+n-Butyl Acrylate,15.6,6.2,4.9,143.2,141-32-2,O=C(C=C)OCCCC
+n-Butyl Amine,16.2,4.5,8,98.8,109-73-9,CCCCN
+Butyl Isopropenyl Ether,14.8,5.3,5,145.7,22022-33-9,CCCCOC(C)=C
+Butyl Lactate,15.8,6.5,10.2,149,138-22-7,O=C(C(O)C)OCCCC
+n-Butyl Methacrylate,15.4,5.9,5.2,159.7,97-88-1,C=C(C)C(OCCCC)=O
+N-n-Butyl Pyrrolidone,17.5,9.9,5.8,148,3470-98-2,O=C1CCCN1CCCC
+"2,3-Butylene Carbonate",18,16.8,3.1,105.5,4437-70-1,O=C1OC(C)C(C)O1
+Butyleneoxide,16.3,6.2,5.9,87.5,106-88-7,CCC1CO1
+2-Butynedinitrile,15.2,16.2,8,78.4,1071-98-3,N#CC#CC#N
+Butyric Acid,15.7,4.8,12,92.6,107-92-6,OC(CCC)=O
+?-Butyrolactone (GBL),18,16.6,7.4,76.5,96-48-0,O=C1CCCO1
+Butyronitrile,15.3,12.4,5.1,87.9,109-74-0,CCCC#N
+Butyrylchloride,16.8,9.4,4.8,103.6,141-75-3,CCCC(=O)Cl
+Caprolactone (Epsilon),18,15,7.4,110.8,502-44-3,O=C1OCCCCC1
+Carbon Dioxide (Fit = 1.0),15.7,6.3,5.7,37.2,124-38-9,O=C=O
+Carbon Disulfide (0 Dipole Moment),20.2,0,0.6,60.6,75-15-0,S=C=S
+Carbon Disulfide (P By Group Cont.),19.9,5.8,0.6,60.6,75-15-0,S=C=S
+Carbon Tetrachloride (0 Dipole Moment),17.8,0,0.6,97.1,56-23-5,ClC(Cl)(Cl)Cl
+Carbonyl Sulfide,17.4,3.7,0,51,463-58-1,S=C=O
+Carbonyl Cyanide,15,6.3,8,71.2,922-64-5,C=C(C#N)C#N
+Chloral,17.2,7.4,7.6,97.5,75-87-6,O=C[C](Cl)(Cl)Cl
+Chlorine,17.3,10,0,45.5,7782-50-5,ClCl
+1-Chloro-1-Fluoro Ethylene,16,6.9,4,67.6,2317-91-1,FC(Cl)=C
+Chloro Acetaldehyde,16.2,14,9,64.9,107-20-0,C(C=O)Cl
+Chloro Acetic Acid,17.7,10.4,12.3,68.8,79-11-8,OC(CCl)=O
+3-Chloro Allyl Alcohol,17.2,10.3,16.5,78.6,29560-84-7,C(C=CCl)O
+2-Chloro Allyl Alcohol,17.1,10.2,16.4,79.6,5976-47-6,C=C(CO)Cl
+?-Chloro Methyl Acrylate,15.9,7.3,8.5,101.4,80-63-7,C=C(C(=O)OC)Cl
+2-Chloro Propene (Isopropenyl Chloride),15.5,6.7,2.2,84.9,557-98-2,CC(=C)Cl
+Chlorotrifluoroethylene (Ctfe),15.3,6.3,0,79.4,79-38-9,F/C(F)=C(Cl)\F
+1-Chloro Vinyl Ethyl Ether,16.8,6.5,5.7,104.5,54722-81-5,C=C(OCC)Cl
+1-Chloro-1-Nitroethane,16.8,13.5,4.7,85.1,598-92-5,CC([N+](=O)[O-])Cl
+3-Chloro-1-Propanol,17.5,5.7,14.7,84.2,627-30-5,OCCCCl
+"4-Chloro-1,2-Butadiene",16.6,8,6.7,89.5,25790-55-0,C=C=CCCl
+1-Chloro-2-Butene,16.2,7.7,2,97.4,591-97-9,CC=CCCl
+3-Chloro-2-Methyl Propene,16.2,5.6,2,98.8,563-47-3,CC(CCl)=C
+1-Chloro-2-Methyl Propene,16.1,7.1,4.2,95.6,513-37-1,C/C(C)=C/Cl
+Chloroacetone,16.8,9.6,5.5,80.5,78-95-5,CC(CCl)=O
+Chloroacetonitrile,17.4,13.6,2,63.3,107-14-2,C(C#N)Cl
+Chloroacetylchloride,17.5,9.2,5.5,80.2,79-04-9,ClC(CCl)=O
+Chloroacetylene,16.2,2.1,2.5,63.7,593-63-5,C#CCl
+4-Chloroanisole,19.6,7.8,6.7,122.5,623-12-1,COC1=CC=C(Cl)C=C1
+4-Chlorobenzaldehyde,19.9,7.2,5.6,113.4,104-88-1,O=CC1=CC=C(Cl)C=C1
+Chlorobenzene,19,4.3,2,102.1,108-90-7,ClC1=CC=CC=C1
+4-Chlorobenzyl Alcohol,19.6,7.5,13,117.7,873-76-7,OCC1=CC=C(Cl)C=C1
+3-Chlorobenzylchloride,19.9,9.3,2.6,117.7,620-20-2,ClCC1=CC(Cl)=CC=C1
+"1,2-Chlorobromoethylene",17.2,6.6,2.3,78.7,05/09/3018,C(=CBr)Cl
+1-Chlorobutane,16.2,5.5,2,104.5,109-69-3,ClCCCC
+Chlorocyclopropane,17.6,7.2,2.2,84.9,7393-45-5,C1CC1Cl
+Chlorodifluoromethane (Freon 22),12.3,6.3,5.7,61.2,75-45-6,FC(Cl)([H])F
+N-Chlorodimethylamine,16,7.8,7.9,87.4,1585-74-6,CN(C)Cl
+Chloroform,17.8,3.1,5.7,80.5,67-66-3,ClC(Cl)(Cl)[H]
+Bis(Chloromethyl)Ether,17.2,8.2,7.6,87.7,542-88-1,ClCOCCl
+Chloromethylsulfide,16.6,6.4,2,95,3592-44-7,ClCSCCl
+Chloronitromethane,17.4,13.5,5.5,65.1,1794-84-9,C([N+](=O)[O-])Cl
+2-Chlorophenol,19,5.5,13.9,102.4,95-57-8,OC1=CC=CC=C1Cl
+Chloroprene,16.1,5.4,2.1,93,126-99-8,C=C(Cl)C=C
+2-Chloropropenal,17.1,12.9,8.1,75.5,683-51-2,C=C(C=O)Cl
+1-Chloropropene,15.3,6.9,2.2,82.3,590-21-6,C/C=C/Cl
+2-Chloropropenoic Acid,19.1,9.4,12.4,86.6,598-79-8,C=C(C(=O)O)Cl
+3-Chloropropionaldehyde,17,13.3,8.2,73,19434-65-2,C(CCl)C=O
+3-Chloropropionitrile,17.3,15.9,6.1,77.4,542-76-7,ClCCC#N
+3-Chloropropyne,16.7,7.4,2.3,72.8,624-65-7,C#CCCl
+4-Chlorothiophenol,20.8,8.6,10.6,100,106-54-7,C1=CC(=CC=C1S)Cl
+m-Cresol,18.5,6.5,13.7,105,108-39-4,OC1=CC=CC(C)=C1
+Crotonaldehyde,16.2,14.9,7.4,82.5,123-73-9,C\C=C\C=O
+Crotonic Acid,16.8,8.7,12,84.6,107-93-7,O=C(O)\C=C\C
+Crotonlactone,19,19.8,9.6,76.4,497-23-4,O=C1OCC=C1
+Trans-Crotononitrile,16.4,18.8,5.5,83.2,627-26-9,CC=CC#N
+Cyanamid (Carbamonitrile),15.5,27.6,16.8,32.8,420-04-2,C(#N)N
+Cyanogen,15.1,11.8,0,54.6,460-19-5,N#CC#N
+Cyanogen Bromide,18.3,15.2,0,52.6,506-68-3,C(#N)Br
+CyanogeN\Chloride,15.6,14.5,0,51.4,506-77-4,C(#N)Cl
+Cyclobutanone,18.3,11.4,5.2,73.4,1191-95-3,O=C1CCC1
+Cyclodecanone,16.8,8,4.1,161,1502-06-3,O=C1CCCCCCCCC1
+Cycloheptanone,17.2,10.6,4.8,118.2,502-42-1,O=C1CCCCCC1
+Cyclohexane,16.8,0,0.2,108.9,110-82-7,C1CCCCC1
+Cyclohexanol,17.4,4.1,13.5,105.7,108-93-0,OC1CCCCC1
+Cyclohexanone,17.8,8.4,5.1,104.2,108-94-1,O=C1CCCCC1
+Cyclohexylamine,17.2,3.1,6.5,115,108-91-8,NC1CCCCC1
+Cyclohexylchloride,17.3,5.5,2,118.6,542-18-7,C1CCC(CC1)Cl
+Cyclooctanone,17,9.6,4.5,131.7,502-49-8,O=C1CCCCCCC1
+Cyclopentane,16.4,0,1.8,94.6,287-92-3,C1CCCC1
+Cyclopentanone,17.9,11.9,5.2,89.1,120-92-3,O=C1CCCC1
+Cyclopentene,16.7,3.8,1.7,88.9,142-29-0,C1=CCCC1
+Cyclopropene,17.2,2.4,2,50,2781-85-3,C1=CC1
+Cyclopropane,17.3,0,0,69.9,75-19-4,C1CC1
+Cyclopropylmethylketone,17,11.1,4.6,93.6,765-43-5,CC(=O)C1CC1
+Cyclopropylnitrile,18.6,16.2,5.7,75.4,5500-21-0,C1CC1C#N
+Cis-Decahydronaphthalene,17.6,0,0,154.6,493-01-6,[H][C]12[C](CCCC2)([H])CCCC1
+Trans-Decahydronaphthalene,18,0,0,159.3,493-02-7,[H][C]12[C](CCCC2)([H])CCCC1
+Decane,15.7,0,0,195.9,124-18-5,CCCCCCCCCC
+1-Decanol,16,4.7,10.5,191.8,112-30-1,CCCCCCCCCCO
+Di-Isopropyl Sulfoxide,17,11.5,7.4,159.9,2211-89-4,CC(C)S(=O)C(C)C
+Di p-Tolyl Sulfoxide,20.3,11.4,3.1,209,1774-35-2,CC1=CC=C(C=C1)S(=O)C2=CC=C(C=C2)C
+Di-n-Butyl Sulfoxide,16.4,10.5,6.1,195,2168-93-6,CCCCS(=O)CCCC
+Di-n-Propyl Sulfoxide,17,13,7.4,159.9,4253-91-2,CCCS(=O)CCC
+Di-(2-Methoxyethyl) Ether,15.7,6.1,6.5,142.9,111-96-6,COCCOCCOC
+Di-Isobutyl Ketone,16,3.7,4.1,177.4,108-83-8,CC(C)CC(CC(C)C)=O
+Di-(2-Chloro-Isopropyl) Ether,19,8.2,5.1,146,108-60-1,CC(CCl)OC(C)CCl
+Di-2-Ethylhexyl Amine,15.6,0.8,3.2,301.5,106-20-7,CCCCC(CC)CNCC(CC)CCCC
+"1,3-Dichloro-2-Butene",16.9,7.8,2.7,107.7,926-57-8,CC(=CCCl)Cl
+"1,4-Dichloro-2-Butene",17.8,7.6,2,97.8,764-41-0,C(C=CCCl)Cl
+Di-Isobutyl Carbinol,14.9,3.1,10.8,178.7,108-82-7,CC(C)CC(CC(C)C)O
+Diacetone Alcohol,15.8,8.2,10.8,124.3,123-42-2,CC(CC(C)(O)C)=O
+Diallyl Amine,15.6,4.5,6.7,124.3,124-02-7,C=CCNCC=C
+Diallyl Ether,15.3,4.4,5.3,118.8,557-40-4,C=CCOCC=C
+Dibenzyl Ether,19.6,3.4,5.2,190.6,103-50-4,C1(COCC2=CC=CC=C2)=CC=CC=C1
+"1,1-Dibromoethylene",16.2,4.8,7,85.3,593-92-0,C=C(Br)Br
+Dibromomethane (Methylene Dibromide),19,6.4,7,69.8,74-95-3,C(Br)Br
+"1,1-Dibromoethane",18.5,8.4,8.8,91.9,557-91-5,CC(Br)Br
+"1,2-Dibromoethylene",17,4.9,3,82.7,540-49-8,Br/C=C/Br
+"2,3-Dibromoprene",17.7,11.8,6.4,110,34994-48-4,C=C(C(Br)=C)Br
+Di-n-Butyl Ether,15.2,3.4,3.2,170.4,142-96-1,CCCCOCCCC
+"N,N-Dibutyl Formamide",15.5,8.9,6.2,182,761-65-9,CCCCN(CCCC)C=O
+Dibutyl Phthalate,17.8,8.6,4.1,267.2,84-74-2,O=C(OCCCC)C1=CC=CC=C1C(OCCCC)=O
+Dibutyl Sebacate,16.7,4.5,4.1,337.3,109-43-3,O=C(OCCCC)CCCCCCCCC(OCCCC)=O
+Butyl Stearate,14.5,3.7,3.5,399.3,123-95-5,O=C(OCCCC)CCCCCCCCCCCCCCCCC
+"1,2-Dichloroethylene (Cis)",17,8,3.2,76.6,156-59-2,C(=CCl)Cl
+"N,N-Dichloromethyl Amine",16.5,7.5,8,90.8,7651-91-4,ClCNCCl
+"2,3-Dichloropropene",16.2,7.8,3,92.4,78-88-6,C=C(Cl)CCl
+"1,2-Dichloropropene (Cis)",17,8.5,2.9,93.9,6923-20-2,Cl/C=C(C)\Cl
+"1,2-Dichlorovinyl Ethyl Ether",16.9,10.5,6,117.8,42345-82-4,ClC(OCC)=CCl
+"2,3-Dichloro-1,3-Butadiene",17.1,2.3,2.8,104,1653-19-6,C=C(C(=C)Cl)Cl
+Dichloroacetaldehyde,16.7,9.1,7.5,80,79-02-7,C(=O)C(Cl)Cl
+"1,1-Dichloroacetone",17.1,7.6,5.4,97.3,513-88-2,CC(C(Cl)Cl)=O
+Dichloroacetonitrile,17.4,9.4,6.4,80.3,3018-12-0,C(#N)C(Cl)Cl
+"2,6-Dichloroanisole",19.8,8.4,6.5,137.1,1984-65-2,COC1=C(Cl)C=CC=C1Cl
+o-Dichlorobenzene,19.2,6.3,3.3,113,95-50-1,ClC1=C(Cl)C=CC=C1
+Di-(2-Chloroethyl) Ether,18.8,9,5.7,117.2,111-44-4,ClCCOCCCl
+Dichlorodifluoromethane (Freon 12),14.9,2,0,81.3,75-71-8,ClC(F)(F)Cl
+"1,1-Dichloroethane",16.5,7.8,3,84.7,75-34-3,CC(Cl)Cl
+"N,N-Dichloroethyl Amine",16.8,7.6,7.7,98.3,334-22-5,ClCCNCCCl
+"1,1-Dichloroethylene",16.4,5.2,2.4,80.4,75-35-4,C=C(Cl)Cl
+HCFC 141b,15.7,4,1,95,1717-00-6,ClC(Cl)(F)C([H])([H])[H]
+Dichloromethyl Methyl Ether,17.1,12.9,6.5,90.5,03/02/4885,COC(Cl)Cl
+Dichloromonofluoromethane (Freon21),15.8,3.1,5.7,75.4,75-43-4,FC(Cl)Cl
+"2,3-Dichloronitrobenzene",19.7,12.6,4.4,132.5,3209-22-1,[O-][N+](C(C=CC=C1Cl)=C1Cl)=O
+"2,5-Dichlorophenol",20,6.3,12.1,119,583-78-8,C1=CC(=C(C=C1Cl)O)Cl
+"1,1-Dichloropropane",16.1,7.8,3.5,100.4,78-99-9,CCC(Cl)Cl
+"1,1-Dichloropropene",16.9,6.7,2.9,93.5,563-58-6,CC=C(Cl)Cl
+"1,2-Dichlorotetrafluoroethane (Freon 114)",12.6,1.8,0,117.6,76-14-2,ClC(F)(F)C(F)(F)Cl
+"3,4-Dichlorotoluene",19.8,9.8,2.5,128.7,95-75-0,ClC(C=C(C)C=C1)=C1Cl
+Diethanolamine,17.2,7,19,96.2,111-42-2,OCCNCCO
+"1,1-Diethoxy Ethane",15,3.4,4,143.9,105-57-7,CC(OCC)OCC
+"N,N-Diethyl Acetamide",16.4,11.3,7.5,124.5,685-91-6,CCN(CC)C(=O)C
+Diethyl Amine,14.9,2.3,6.1,104.1,109-89-7,CCNCC
+p-Diethyl Benzene,18,0,0.6,156.4,105-05-5,CCC1=CC=C(C=C1)CC
+Diethyl Carbonate,15.1,6.3,3.5,121.7,105-58-8,O=C(OCC)OCC
+Diethyl Ether,14.5,2.9,4.6,104.7,60-29-7,CCOCC
+"N,N-Diethyl Formamide",16.4,11.4,9.2,111.4,617-84-5,CCN(C=O)CC
+Diethyl Ketone,15.8,7.6,4.7,106.4,96-22-0,O=C(CC)CC
+Diethyl Phthalate,17.6,9.6,4.5,199.7,84-66-2,O=C(OCC)C1=CC=CC=C1C(OCC)=O
+Diethyl Sulfate,15.7,12.7,5.1,131.7,64-67-5,O=S(OCC)(OCC)=O
+Diethyl Sulfide,16.8,3.1,2,108.4,352-93-2,CCSCC
+2-(Diethylamino)Ethanol,15.7,5.8,12,133.2,100-37-8,CCN(CC)CCO
+Diethyldisulfide,17,6.7,5.7,123.7,110-81-6,CCSSCC
+Diethylene Glycol,16.6,12,19,95.3,111-46-6,OCCOCCO
+Diethylene Glycol Butyl Ether Acetate,16,4.1,8.2,208.2,124-17-4,CCCCOCCOCCOC(=O)C
+Diethylene Glycol Hexyl Ether,16,6,10,204.3,112-59-4,CCCCCCOCCOCCO
+Diethylene Glycol Methyl t-Butyl Ether,16,7.2,7.2,193.9,52788-79-1,COCCOCCOC(C)(C)C
+Diethylene Glycol Monobutyl Ether,16,7,10.6,170.4,112-34-5,CCCCOCCOCCO
+Diethylene Glycol Monoethyl Ether,16.1,9.2,12.2,136.3,111-90-0,CCOCCOCCO
+Diethylene Glycol Monoethyl Ether Acetate,16.2,5.1,9.2,175.1,112-15-2,CC(OCCOCCOCC)=O
+Diethylene Glycol Monomethyl Ether,16.2,7.8,12.6,118.2,111-77-3,OCCOCCOC
+Diethylene Glycol Monopropyl Ether,16,7.2,11.3,153.9,6881-94-3,CCCOCCOCCO
+Diethylenetriamine,16.7,7.1,14.3,108.1,111-40-0,NCCNCCN
+"1,1-Difluoroethane",14.9,9.3,2.9,65.2,75-37-6,CC(F)F
+"1,1-Difluoroethylene",15,5.7,3.6,56.3,75-38-7,C=C(F)F
+Dihexyl Phthalate,17,7.6,3.6,332.3,84-75-3,CCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCC
+Dihydrogen Disulfide,17.3,6.3,10.7,49.6,13465-07-1,SS
+Dihydropyran,17.5,5.5,5.7,91.2,110-87-2,C1CCOC=C1
+Ethane (Liq. B.P.),15.6,0,0,55.2,74-84-0,[H]C([H])([H])C([H])([H])[H]
+Di-Isodecyl Phthalate,16.6,6.2,2.6,462.4,26761-40-0,O=C(OCCCCCCCC(C)C)C1=CC=CC=C1C(OCCCCCCCC(C)C)=O
+Di-Isoheptyl Phthalate,16.8,7.2,3.4,364.9,71888-89-6,O=C(OCCCCC(C)C)C1=CC=CC=C1C(OCCCCC(C)C)=O
+Di-Isononyl Adipate,16.7,1.8,4.9,433.7,33703-08-1,CC(C)CCCCCCOC(=O)CCCCC(=O)OCCCCCCC(C)C
+Di-Isononyl Phthalate,16.6,6.6,2.9,432.4,28553-12-0,O=C(OCCCCCCC(C)C)C1=C(C(OCCCCCCC(C)C)=O)C=CC=C1
+Diketene,16.2,14.5,7.8,80.1,674-82-8,C=C(O1)CC1=O
+"1,1-Dimethoxy Ethane",15.1,4.9,4.9,106.7,534-15-6,CC(OC)OC
+"N,N-Dimethyl Acetamide",16.8,11.5,9.4,93,127-19-5,CC(N(C)C)=O
+Dimethyl Acetylene,15.1,3.4,7.6,78.9,503-17-3,CC#CC
+Dimethyl Amine,15.3,4.8,11.2,67.3,124-40-3,CNC
+"N,N-Dimethyl Butyramide",16.4,10.6,7.4,127.8,760-79-2,CCCC(=O)N(C)C
+Dimethyl Carbonate,15.5,8.6,9.7,84.7,616-38-6,O=C(OC)OC
+Dimethyl Cellosolve,15.4,6,6,104.9,110-71-4,COCCOC
+Dimethyl Disulfide,17.6,7.8,6.5,89.1,624-92-0,CSSC
+Dimethyl Ethanolamine,16.1,9.2,14,101.1,108-01-0,CN(C)CCO
+Dimethyl Ether,15.2,6.1,5.7,70.2,115-10-6,COC
+Dimethyl Formamide (DMF),17.4,13.7,11.3,77.4,68-12-2,[H]C(N(C)C)=O
+"1,1-Dimethyl Hydrazine",15.3,5.9,11,76,57-14-7,CN(C)N
+Dimethyl Ketene,15.2,7.4,4.8,87.6,598-26-5,CC(=C=O)C
+Dimethyl Phthalate,18.6,10.8,4.9,163.4,131-11-3,O=C(OC)C1=CC=CC=C1C(OC)=O
+Dimethyl Sulfide,16.1,6.4,7.4,73.7,75-18-3,CSC
+Dimethyl Sulfone,19,19.4,12.3,75,67-71-0,C[S](C)(=O)=O
+Dimethyl Sulfoxide (DMSO),18.4,16.4,10.2,71.3,67-68-5,O=S(C)C
+Diethylhexyl Phthalate (Dioctyl Phthalate),16.6,7,3.1,398.5,117-81-7,CCCCC(CC)COC(=O)c1ccccc1C(=O)OCC(CC)CCCC
+"1,4-Dioxane",17.5,1.8,9,85.7,123-91-1,C1COCCO1
+"1,3-Dioxolane",18.1,6.6,9.3,69.9,646-06-0,C1OCCO1
+Dipropyl Amine,15.3,1.4,4.1,136.9,142-84-7,CCCNCCC
+Dipropylene Glycol,16.5,10.6,17.7,131.8,2396-61-4,OCCCOCCCO
+Dipropylene Glycol Methyl Ether,15.5,5.7,11.2,156.1,112-28-7,OCCCOCCCOC
+Dipropylene Glycol Monomethyl Ether Acetate,16.3,4.9,8,194.9,88917-22-0,COCCCOCCCOC(C)=O
+Ditridecyl Phthalate,16.6,5.4,1.9,558.3,119-06-2,CCCCCCCCCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCCCCCCCCC
+p-Divinyl Benzene,18.6,1,7,142.8,105-06-6,C=CC1=CC=C(C=C1)C=C
+Divinylsulfide,16.5,4.6,5.6,93.6,627-51-0,C=CSC=C
+Dodecane,16,0,0,228.6,112-40-3,CCCCCCCCCCCC
+Eicosane,16.5,0,0,363.7,112-95-8,CCCCCCCCCCCCCCCCCCCC
+Epichlorohydrin,17.5,7.6,7.6,78.4,106-89-8,ClCC1CO1
+"1,2-Epoxy-2-Propene",16.5,8.6,6.7,70,40079-14-9,C=C1OC1
+"3,4-Epoxy-1-Butene",16.6,7.7,7.4,80.7,930-22-3,C=CC1CO1
+Epsilon-Caprolactam,19.4,13.8,3.9,110.5,105-60-2,O=C1CCCCCN1
+"1,2-Ethane Dithiol",17.9,7.2,8.7,84.2,540-63-6,C(CS)S
+Ethanesulfonylchloride,17.7,14.9,6.8,94.7,594-44-5,CCS(=O)(=O)Cl
+Ethanethiol (Ethyl Mercaptan),15.7,6.5,7.1,74.3,75-08-1,CCS
+Ethanol,15.8,8.8,19.4,58.6,64-17-5,CCO
+Ethanolamine,17,15.5,21,60.3,141-43-5,OCCN
+Ethoxyethyl Propionate,16.2,3.3,8.8,155.5,14272-48-1,CCC(OCCOCC)=O
+Ethyl Acetate,15.8,5.3,7.2,98.6,141-78-6,CC(OCC)=O
+Ethyl Acetylene,15.1,3.4,5,81.5,107-00-6,C#CCC
+Ethyl Acrylate,15.5,7.1,5.5,109.2,140-88-5,O=C(C=C)OCC
+Ethyl Amine,15,5.6,10.7,65.6,75-04-7,CCN
+Ethyl Amyl Ketone,16.2,4.5,4.1,156,106-68-3,CCC(CCCCC)=O
+Ethyl Benzene,17.8,0.6,1.4,122.8,100-41-4,CCC1=CC=CC=C1
+Ethyl Bromide,16.5,8.4,2.3,74.6,74-96-4,CCBr
+Ethyl Butyl Ketone,16.2,5,4.1,140.2,106-35-4,O=C(CC)CCCC
+Ethyl Carbamate,16.8,10.1,13,91.2,51-79-6,NC(OCC)=O
+Ethyl Carbylamine,15.6,15.2,5.8,74.4,624-79-3,CC[N+]#C
+Ethyl Chloride,15.7,6.1,2.9,70.8,75-00-3,ClCC
+Ethyl Chloroformate,16.4,11,8,96.3,541-41-3,O=C(OCC)Cl
+Ethyl Cinnamate,18.4,8.2,4.1,166.8,103-36-6,O=C(OCC)/C=C/C1=CC=CC=C1
+2-Ethyl Croton Aldehyde,16.1,8,5.5,115.2,19780-25-7,CCC(=CC)C=O
+Ethyl Cyanoacrylate,15.2,10.3,9,117.1,7085-85-0,CCOC(=O)C(=C)C#N
+Ethyl Ethynylether,15.4,7.9,5.9,87.6,927-80-0,CCOC#C
+Ethyl Formate,15.5,8.4,8.4,80.9,109-94-4,[H]C(OCC)=O
+2-Ethyl-Hexanol,15.9,3.3,11.8,156.9,104-76-7,OCC(CC)CCCC
+2-Ethyl Hexyl Acetate,15.8,2.9,5.1,198.3,103-09-3,O=C(OCC(CC)CCCC)C
+2-Ethyl Hexyl Acrylate,15.3,4.3,3,209.2,103-11-7,CCC(CCCC)COC(C=C)=O
+Ethyl Hypochlorite,15.7,8.6,6.5,79.5,624-85-1,CCOCl
+Ethyl Iodide,17.5,7,6,81.2,75-03-6,CCI
+Ethyl Isocyanate,15.4,12,2.5,78.7,109-90-0,CCN=C=O
+Ethyl Isopropenyl Ether,14.8,3.5,5.1,113.3,926-66-9,CCOC(=C)C
+Ethyl Isothiocyanate,17.2,14.7,9,87.1,542-85-8,CCN=C=S
+Ethyl Lactate,16,7.6,12.5,115,97-64-3,CCOC(=O)C(C)O
+Ethyl Methacrylate,15.8,7.2,7.5,125.7,97-63-2,O=C(C(C)=C)OCC
+Ethyl Methyl Sulfide,17.1,4.8,2.5,91,624-89-5,CSCC
+Ethyl Thiocyanate,15.4,13.4,5.4,87.1,542-90-5,CCSC#N
+1-Ethyl Vinyl Ethyl Ether,15.3,4.2,4.6,125.6,1528-20-7,CCOC(CC)=C
+Ethyl Vinylether,14.9,4.9,5.6,94.9,109-92-2,CCOC=C
+Ethyl Vinylketone,15.8,11.3,4.5,99.3,1629-58-9,CCC(=O)C=C
+2-Ethyl-1-Butanol,15.8,4.3,13.5,123.3,97-95-0,CCC(CO)CC
+Ethyl-1-Propynylether,15.9,6.4,5.4,101.6,14273-06-4,CCOC#CC
+"2-Ethyl-1,3-Butadiene",15.3,1.6,3.8,115.2,3404-63-5,CCC(=C)C=C
+Ethylene Carbonate,18,21.7,5.1,66,96-49-1,O=C1OCCO1
+Ethylene Chlorohydrin,16.9,8.8,17.2,67.3,107-07-3,C(CCl)O
+Ethylene Cyanohydrin,17.2,18.8,17.6,68.3,109-78-4,OCCC#N
+Ethylene Dibromide,19.2,3.5,8.6,86.6,106-93-4,BrCCBr
+Ethylene Dichloride,18,7.4,4.1,79.4,107-06-2,C(CCl)Cl
+Ethylene Glycol,17,11,26,55.9,107-21-1,OCCO
+Ethylene Glycol Butyl Ether Acetate,15.3,7.5,6.8,171.2,112-07-2,CCCCOCCOC(=O)C
+Ethylene Glycol Di-t-Butyl Ether,14.7,4.1,8.2,210,26547-47-7,CC(C)(C)OCCOC(C)(C)C
+Ethylene Glycol Diacetate,16.2,4.7,9.8,132.7,111-55-7,CC(OCCOC(C)=O)=O
+Ethylene Glycol Methyl t-Butyl Ether,15.3,5.1,8.2,157.4,66728-50-5,CC(C)(C)OCCOC
+Ethylene Glycol Mono 2-Ethyl Hexyl Ether,16,4.1,10.5,194.7,1559-35-9,CCCCC(CC)COCCO
+Ethylene Glycol Mono t-Butyl Ether,15.3,6.1,10.8,131,7580-85-0,CC(C)(C)OCCO
+Ethylene Glycol Monobutyl Ether,16,5.1,12.3,131.8,111-76-2,CCCCOCCO
+Ethylene Glycol Monoethyl Ether,15.9,7.2,14,97.5,110-80-5,CCOCCO
+Ethylene Glycol Monoethyl Ether Acetate,15.9,4.7,10.6,136.1,111-15-9,CCOCCOC(=O)C
+Ethylene Glycol Monoisobutyl Ether,15.2,4.9,9.6,132.5,4439-24-1,CC(C)COCCO
+Ethylene Glycol Monoisopropyl Ether,16,8.2,13.1,115.8,109-59-1,OCCOC(C)C
+Ethylene Glycol Monomethyl Ether,16,8.2,15,79.3,109-86-4,COCCO
+Ethylene Glycol Monomethyl Ether Acetate,15.9,5.5,11.6,121.6,110-49-6,COCCOC(C)=O
+Ethylene Methyl Sulfonate,16.9,9.3,9.6,97.9,4672-49-5,O=S(OCCOS(=O)(C)=O)(C)=O
+Ethylene Oxide,15.6,10,11,49.7,75-21-8,C1CO1
+Ethylene Sulfide,19.3,9,6.5,59.5,420-12-2,C1CS1
+Ethylenediamine,16.6,8.8,17,67.3,107-15-3,NCCN
+Ethyleneimine,17.7,11,9.8,51.8,151-56-4,C1CN1
+Ethylidene Acetone,16.2,12.1,4.5,99,625-33-2,CC=CC(=O)C
+Ethynyl Propyl Ether,15.4,3.8,5.4,104.1,42842-08-0,C#COCCC
+Ethynyl Methyl Ether,15.8,8.1,6.5,70.1,6443-91-0,COC#C
+1-Fluoro Acrylic Acid,16,8.7,13,90,430-99-9,C=C(C(O)=O)F
+1-Fluoro Acrylonitrile,14.1,15.4,5.7,88.8,430-49-9,C(=CF)C#N
+Fluorobenzene,18.1,6.1,2,94.3,462-06-6,FC1=CC=CC=C1
+Fluoroethylene,15.2,7,1,54,75-02-5,C=CF
+Fluoromethane,13.4,10.6,9.5,40.7,593-53-3,CF
+Fluoroprene,14.2,5.8,1,85.5,381-61-3,C=CC(=C)F
+Formaldehyde,12.8,14.4,15.4,36.9,50-00-0,O=C([H])[H]
+Formamide,17.2,26.2,19,39.9,75-12-7,[H]C(N)=O
+Formic Acid,14.6,10,14,37.9,64-18-6,[H]C(O)=O
+HCFC 225ca,14.9,3.5,1,130.8,422-56-0,FC(F)(F)C(F)(F)C(Cl)(Cl)[H]
+N-Formyl Hexamethylene Imine,18.5,10.4,7.6,127,25114-81-2,O=CN1CCCCCC1
+N-Formyl Piperidine,18.7,10.6,7.8,111.5,2591-86-8,C1CCN(CC1)C=O
+Fumaronitrile,16.7,13.6,7.8,83,764-42-1,C(=CC#N)C#N
+Furan,17,1.8,5.3,73.1,110-00-9,C1=CC=CO1
+Furfural,18.6,14.9,5.1,83.2,98-01-1,[H]C(C1=CC=CO1)=O
+Furfuryl Alcohol,17.4,7.6,15.1,87.1,98-00-0,OCC1=CC=CO1
+Glycerol,17.4,11.3,27.2,73.4,56-81-5,OC(CO)CO
+Glycidyl Methacrylate,16.3,8.5,5.7,136.4,106-91-2,CC(=C)C(=O)OCC1CO1
+Glyoxal (Ethandial),15,17,13.3,51.4,107-22-2,O=CC=O
+Heptane,15.3,0,0,147,142-82-5,CCCCCCC
+1-Heptene,15,1.1,2.6,141.7,592-76-7,CCCCCC=C
+n-Heptyl Acetate,15.8,2.9,5.5,182.7,112-06-1,CC(OCCCCCCC)=O
+Hexadecane,16.3,0,0,294.2,544-76-3,CCCCCCCCCCCCCCCC
+"Hexafluoro-1,3-Butadiene",13.8,0,0,104.3,685-63-2,C(=C(F)F)(C(=C(F)F)F)F
+Hexafluoro Isopropanol,17.2,4.5,14.7,105.3,920-66-1,C(C(F)(F)F)(C(F)(F)F)O
+Hexamethylphosphoramide,18.5,11.6,8.7,175.7,680-31-9,O=[P](N(C)C)(N(C)C)N(C)C
+Hexane,14.9,0,0,131.4,110-54-3,CCCCCC
+1-Hexene,14.7,1.1,3,125.8,592-41-6,C=CCCCC
+Hexyl Acetate,15.8,2.9,5.9,166.1,142-92-7,CC(OCCCCCC)=O
+"Hexane 1,6 Diol",15.7,8.4,17.8,128.5,629-11-8,C(CCCO)CCO
+Hexylene Glycol Diacetate,15.3,4.5,7.2,204.3,6222-17-9,O=C(C)OCCCCCCOC(C)=O
+Hydrazine,14.2,8.3,8.9,31.9,302-01-2,NN
+HydrogeN\Cyanide,12.3,17.6,9,39.8,74-90-8,C#N
+Hydrogen Sulfide,17.9,6,10.2,35.9,04/06/7783,[H]S[H]
+Hydroxyethyl Acrylate,16,13.2,13.4,115.2,818-61-1,C=CC(OCCO)=O
+"4-Iodo-1,2-Butadiene",17.4,6.3,6.2,105.1,29871-57-6,ICC=C=C
+Iodobenzene,19.9,5.6,6.1,112,591-50-4,IC1=CC=CC=C1
+Iodoprene,17.2,2.5,6.2,104.2,19221-28-4,C=C(I)C=C
+Isoamyl Acetate,15.3,3.1,7,150.2,123-92-2,CC(OCCC(C)C)=O
+Isobutyl Acetate,15.1,3.7,6.3,133.8,110-19-0,CC(C)COC(C)=O
+Isobutyl Alcohol,15.1,5.7,15.9,92.9,78-83-1,CC(C)CO
+Isobutyl Isobutyrate,15.1,2.8,5.8,169.8,97-85-8,O=C(C(C)C)OCC(C)C
+Isobutylene,14.5,2,1.5,95.4,115-11-7,C=C(C)C
+Isobutyleneoxide,16.1,4.8,5.8,90,558-30-5,CC1(CO1)C
+Isocyanic Acid,15.8,10.5,13.6,37.7,75-13-8,C(=N)=O
+Isooctyl Alcohol,14.4,7.3,12.9,156.6,26952-21-6,CC(CCCCCO)C
+Isopentane,13.8,0,0,117.1,78-78-4,CCC(C)C
+Isophorone,17,8,5,150.3,78-59-1,CC(CC(C)=CC1=O)(C1)C
+"Isoprene (2-Methyl-1,3-Butadiene)",14.7,1.4,4.1,100.8,78-79-5,CC(=C)C=C
+Isopropyl Acetate,14.9,4.5,8.2,117.6,108-21-4,CC(OC(C)C)=O
+Isopropyl Amine (2-Propan Amine),14.8,4.4,6.6,86.8,75-31-0,CC(C)N
+Isopropyl Chloride (2-Chloro Propane),15,8,2,91.7,75-29-6,CC(Cl)C
+Isopropyl Ether,15.1,3.2,3.2,141.8,108-20-3,CC(C)OC(C)C
+Isopropyl Palmitate,16.2,3.9,3.7,330,142-91-6,CCCCCCCCCCCCCCCC(OC(C)C)=O
+Isovaleraldehyde,14.7,9.5,5,106,590-86-3,CC(C)CC=O
+Isoxazole,18.8,13.4,11.2,64.1,288-14-2,C1=CON=C1
+Ketene,15.4,7.3,5.8,53,463-51-4,C=C=O
+Lauryl Methacrylate,14.4,2.2,5.1,293.1,142-90-5,CCCCCCCCCCCCOC(=O)C(=C)C
+Malononitrile,17,18.4,6.7,62.9,109-77-3,N#CCC#N
+Mesityl Oxide,16.4,7.2,5,115.2,141-79-7,C/C(C)=C/C(C)=O
+Mesitylene,18,0.6,0.6,139.5,108-67-8,CC1=CC(C)=CC(C)=C1
+Methacrylaldehyde,15,10.3,7.1,84.2,78-85-3,O=CC(C)=C
+Methacrylamide,15.8,11,11.6,76,79-39-0,CC(=C)C(=O)N
+Methacrylic Acid,15.8,2.8,12,85.3,79-41-4,CC(C(O)=O)=C
+Methacrylonitrile,15.8,9.5,5.4,84.4,126-98-7,CC(C#N)=C
+Methanol,14.7,12.3,22.3,40.6,67-56-1,OC([H])([H])[H]
+"1-Methoxy-1,3-Butadiene",15.5,8.3,5.4,101.8,3036-66-6,COC=CC=C
+Methoxyhexanone (Pentoxone),15.3,6,5.9,143.5,107-70-0,CC(=O)CC(C)(C)OC
+o-Methoxyphenol (Guaiacol),18,7,12,110.8,90-05-1,COC1=CC=CC=C1O
+3-Methoxypropionitrile,16.6,14.4,7.8,91,110-67-8,COCCC#N
+2-Methyl (Cis) Acrylic Acid,16.8,5.2,12.4,83.9,503-64-0,C/C=C\C(O)=O
+2-Methyl-1-Butanol,16,5.1,14.3,108.3,137-32-6,CC(CO)CC
+Methyl 1-Propenyl Ether,15,4.3,5.7,93.5,7319-16-6,CC=COC
+Methyl Acetate,15.5,7.2,7.6,79.8,79-20-9,CC(OC)=O
+Methyl Acetylene,15.1,3.8,9.2,59.6,74-99-7,CC#C
+Ethyl Butyl Ether,14.5,3.9,4.7,137.2,628-81-9,CCOCCCC
+Methyl Acrylate,15.3,6.7,9.4,90.7,96-33-3,O=C(OC)C=C
+3-Methyl Allyl Alcohol,16,6,15.5,84.4,504-61-0,CC=CCO
+Methyl Allyl Cyanide,16.4,11.3,5.1,97.7,16529-56-9,CC(C=C)C#N
+Methyl Amine,14.4,7,16,44.7,74-89-5,N[C]([H])([H])[H]
+Methyl Amyl Acetate,15.2,3.1,6.8,167.4,108-84-9,CC(C)CC(C)OC(=O)C
+Methyl Benzoate,18.9,8.2,4.7,125.5,93-58-3,O=C(OC)C1=CC=CC=C1
+Methyl Bromide,17,8.8,2.6,55.1,74-83-9,BrC([H])([H])[H]
+Methyl Butyl Ketone,15.3,6.1,4.1,124.1,591-78-6,CC(CCCC)=O
+Methyl Chloride,15.3,9.9,3.9,50.1,74-87-3,Cl[C]([H])([H])[H]
+Methyl Chloroformate,16.3,9.5,8.5,77.9,79-22-1,COC(=O)Cl
+Methyl Cyclohexane,16,0,1,128.2,108-87-2,CC1CCCCC1
+3-Methyl Cyclohexanone,17.7,7.7,4.7,122.5,591-24-2,O=C1CC(C)CCC1
+2-Methyl Cyclohexanone,17.6,7.8,4.7,121.3,583-60-8,CC(CCCC1)C1=O
+Methyl Ethyl Ether,14,4.7,6,86.7,540-67-0,COCC
+Methyl Ethyl Ketone (MEK),16,9,5.1,90.2,78-93-3,CC(CC)=O
+Methyl Ethyl Ketoxime,14.7,4.9,7.8,94.8,96-29-7,CCC(=NO)C
+Methyl Formate,15.3,8.4,10.2,62.1,107-31-3,[H]C(OC)=O
+Methyl Glyoxal,15.5,16.1,9.7,68.9,78-98-8,CC(=O)C=O
+Methyl Hydrazine,16.2,8.7,14.8,52.7,60-34-4,CNN
+Methyl Hydroperoxide,15,15,30,48.2,3031-73-0,COO
+1-Methyl Imidazole,19.7,15.6,11.2,79.5,616-47-7,CN1C=CN=C1
+Methyl Iodide,17.5,7.7,5.3,62.7,74-88-4,[H]C([H])([H])I
+Methyl Isoamyl Ketone,16,5.7,4.1,141.3,110-12-3,CC(CCC(C)C)=O
+Methyl Isobutyl Carbinol,15.4,3.3,12.3,127.2,108-11-2,CC(C)CC(C)O
+Methyl Isobutyl Ketone (MIBK),15.3,6.1,4.1,125.8,108-10-1,CC(CC(C)C)=O
+Methyl Isocyanate,15.6,11.5,2.5,61.6,624-83-9,CN=C=O
+Methyl Isopropenyl Ketone,15.9,12.1,4.5,99.4,814-78-8,CC(C(C)=O)=C
+Methyl Isothiocyanate,17.3,16.2,10.1,68.4,556-61-6,CN=C=S
+3-Methyl Isoxazole,19.4,14.8,11.8,57.7,30842-90-1,CC1=NOC=C1
+Methyl Mercaptan,16.6,7.7,8.6,54.2,74-93-1,SC([H])([H])[H]
+Methyl Methacrylate,15.8,6.5,5.4,106.7,80-62-6,C=C(C)C(OC)=O
+Methyl n-Amyl Ketone,16.2,5.7,4.1,140.8,110-43-0,CC(CCCCC)=O
+Methyl n-Propyl Ketone,16,7.6,4.7,107.3,107-87-9,CC(CCC)=O
+1-Methyl Naphthalene,19.7,0.8,4.7,139.9,90-12-0,CC1=C(C=CC=C2)C2=CC=C1
+Methyl Nitrate,15.8,14,4.8,63.8,598-58-3,O=[N+]([O-])OC
+Methyl Oleate,16.2,3.8,4.5,340.7,112-62-9,CCCCCCCC\C=C/CCCCCCCC(OC)=O
+Methyl Propionate,15.5,6.5,7.7,97,554-12-1,O=C(OC)CC
+Methyl Salicylate,18.1,8,13.9,129.5,119-36-8,O=C(OC)C1=CC=CC=C1O
+HCFC 225cb,13.1,2.9,1,165,507-55-1,ClC(F)(F)C(F)(F)C(F)([H])Cl
+Methyl Sulfolane,19,17.4,5.3,113,872-93-5,CC1CCS(=O)(=O)C1
+Methyl Thiocyanate,17.3,15,6,68.5,556-64-9,CSC#N
+Methyl Vinyl Ether,14.9,5.3,6.3,75.4,107-25-5,C=COC
+Methyl Vinyl Ketone,15.6,12.5,5,81.2,78-94-4,CC(C=C)=O
+1-Methyl Vinyl Methyl Ether,14.8,4.2,5.6,96.1,116-11-0,C=C(OC)C
+Methyl Vinyl Sulfide,16.4,4.9,6,82.1,1822-74-8,CSC=C
+Methyl Vinyl Sulfone,16.8,19.6,4.8,87.6,02/02/3680,CS(=O)(=O)C=C
+3-Methyl-1-Butene,14,1.4,3.8,111.8,563-45-1,C=CC(C)C
+2-Methyl-1-Butene,14.5,1.8,1.3,108.7,563-46-2,CC(CC)=C
+2-Methyl-1-Chloro Acrolein,17.1,10.6,7.3,91.7,53175-28-3,ClC(C=O)=CC
+Methyl-1-Propynyl Ether,15.7,6.3,5.9,85.4,13169-01-2,COC#CC
+"3-Methyl-1,2-Butadiene",15.1,2.5,4.5,100.1,598-25-4,CC(C)=C=C
+"2-Methyl-1,3-Dioxolane",17.3,4.8,5.8,89.8,497-26-7,CC1OCCO1
+2-Methyl-2-Butene,14.7,2,2.9,107.3,513-35-9,C/C(C)=C\C
+N-Methyl-2-Pyrrolidone (NMP),18,12.3,7.2,96.6,872-50-4,CN1C(CCC1)=O
+Methyl-t-Butyl Ether,14.8,4.3,5,119.8,1634-04-4,CC(C)(C)OC
+Methylal (Dimethoxy Methane),15,1.8,8.6,89.1,109-87-5,COCOC
+Methylene Dichloride (Dichloromethane),17,7.3,7.1,64.4,75-09-2,[H]C(Cl)(Cl)[H]
+Methylene Diiodide (Diiodomethane),22,3.9,5.5,81,75-11-6,[H]C(I)I[H]
+Morpholine,18,4.9,11,87.5,110-91-8,C1COCCN1
+Water Complete Misc. (R=13.0),18.1,17.1,16.9,18,7732-18-5,[H]O[H]
+Glycerol Triacetate,16.5,4.5,9.1,189,102-76-1,CC(OCC(OC(C)=O)COC(C)=O)=O
+Naphthalene,19.2,2,5.9,131,91-20-3,C12=CC=CC=C1C=CC=C2
+Nitrobenzene,20,10.6,3.1,102.7,98-95-3,O=[N+]([O-])C1=CC=CC=C1
+Nitroethane,16,15.5,4.5,72,79-24-3,CC[N+]([O-])=O
+Nitroethylene,16.3,16.6,5,59.9,3638-64-0,C=C[N+](=O)[O-]
+Nitromethane,15.8,18.8,6.1,54.1,75-52-5,[H][C]([H])([N+]([O-])=O)[H]
+1-Nitropropane,16.6,12.3,5.5,89.5,108-03-2,O=[N+]([O-])CCC
+2-Nitropropane,16.2,12.1,4.1,90.6,79-46-9,CC(C)[N+]([O-])=O
+Nonane,15.7,0,0,179.6,111-84-2,CCCCCCCCC
+Nonyl Phenol,16.5,4.1,9.2,232.2,104-40-5,CCCCCCCCCC1=CC=C(C=C1)O
+Nonyl Phenoxy Ethanol,16.7,10.2,8.4,275,27986-36-3,CCCCCCCCCC1=CC=CC=C1OCCO
+Octane,15.5,0,0,163.4,111-65-9,CCCCCCCC
+Octanoic Acid,15.7,3.3,8.2,159.5,124-07-2,CCCCCCCC(O)=O
+1-Octanol,16,5,11.2,158.2,111-87-5,CCCCCCCCO
+2-Octanol,16.1,4.9,11,159.4,123-96-6,CC(O)CCCCCC
+1-Octene,15.3,1,2.4,158,111-66-0,CCCCCCC=C
+Oleic Acid,16,2.8,6.2,319.7,112-80-1,CCCCCCCCC=CCCCCCCCC(=O)O
+Oleyl Alcohol,16.5,2.6,8,316,143-28-2,CCCCCCCC=CCCCCCCCCO
+Oxalylchloride,16.1,3.8,7.5,85.8,79-37-8,C(=O)(C(=O)Cl)Cl
+"1,3-Pentadiene (Trans)",15,2.5,4,101.5,2004-70-8,CC=CC=C
+Pentane,14.5,0,0,116,109-66-0,CCCCC
+1-Pentanol,15.9,5.9,13.9,108.6,71-41-0,CCCCCO
+4-Pentenal,15.5,8.1,6.8,98.7,2100-17-6,C=CCCC=O
+1-Pentene,13.9,1.4,3.8,110.4,109-67-1,C=CCCC
+Perfluoro Ethylene (Tetrafluoro Ethylene,15.1,0,0,65.8,116-14-3,C(=C(F)F)(F)F
+Perfluoro Dimethylcyclohexane,12.4,0,0,217.4,374-77-6,C1(C(C(C(C(C1(F)F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(C(F)(F)F)F
+Perfluoroheptane,12,0,0,227.3,335-57-9,FC(C(F)(F)C(F)(F)C(F)(F)F)(F)C(F)(F)C(F)(F)C(F)(F)F
+Perfluoromethylcyclohexane,12.4,0,0,196,355-02-2,FC(C1(F)F)(C(F)(F)C(F)(F)C(F)(F)C1(F)F)C(F)(F)F
+Phenol,18.5,5.9,14.9,88.9,108-95-2,OC1=CC=CC=C1
+2-Phenoxy Ethanol,17.8,5.7,14.3,124.7,122-99-6,OCCOC1=CC=CC=C1
+Bis-(M-Phenoxyphenyl) Ether,19.6,3.1,5.1,373,748-30-1,C1=CC=C(C=C1)OC2=CC(=CC=C2)OC3=CC=CC(=C3)OC4=CC=CC=C4
+Phosgene,16.4,5.3,5.3,70.5,75-44-5,O=C(Cl)Cl
+Phosphorus Trichloride,18.4,3.6,0,87.6,02/12/7719,ClP(Cl)Cl
+Phthalic Anhydride,20,14.4,4.1,115,85-44-9,O=C(O2)C1=CC=CC=C1C2=O
+"1,2-Propadiene (Allene)",15.3,3,6.8,60.4,463-49-0,C=C=C
+2-Propanethiol,16.3,6.8,6.5,94.1,75-33-2,CC(S)C
+1-Propanethiol,16.1,5.8,5.7,90.5,107-03-9,CCCS
+1-Propanol,16,6.8,17.4,75.1,71-23-8,CCCO
+2-Propanol,15.8,6.1,16.4,76.9,67-63-0,OC(C)C
+Propargylaldehyde,16.2,11.9,8.7,60,624-67-9,C#CC=O
+ß-Propiolactone,17,18.2,9,63.1,57-57-8,O=C1OCC1
+Propionaldehyde,15.3,11.1,6.9,73.4,123-38-6,CCC=O
+"Propionaldehyde - 2,3-Epoxy",17.5,13.4,9.8,63.2,765-34-4,C1C(O1)C=O
+Propionamide,16.7,14.6,11.5,78.9,79-05-0,NC(CC)=O
+Propionic Acid,14.7,5.3,12.4,75,79-09-4,CCC(O)=O
+Propionitrile,15.3,14.3,5.5,70.9,107-12-0,CCC#N
+Propionylchloride,16.1,10.3,5.3,86.9,79-03-8,CCC(=O)Cl
+n-Propyl Acetate,15.3,4.3,7.6,115.8,109-60-4,CC(OCCC)=O
+Propyl Amine,16,4.9,8.6,83,107-10-8,CCCN
+Propyl Chloride,16,7.8,2,88.8,540-54-5,ClCCC
+Propyl Methacrylate,15.5,6.6,7,142.8,2210-28-8,O=C(OCCC)C(C)=C
+Propylene,13.3,1.6,1.5,69,115-07-1,C=CC
+Propylene Carbonate,20,18,4.1,85.2,108-32-7,O=C1OC(C)CO1
+Propylene Glycol,16.8,10.4,21.3,73.7,57-55-6,CC(O)CO
+Propylene Glycol Mono-t-Butyl Ether,15.3,6.1,10.8,152.7,57018-52-7,CC(COC(C)(C)C)O
+Propylene Glycol Monobutyl Ether,15.3,4.5,9.2,132,5131-66-8,CCCCOCC(C)O
+Propylene Glycol Monoethyl Ether,15.7,6.5,10.5,115.6,1569-02-4,CCOCC(C)O
+Propylene Glycol Monoethyl Ether Acetate,15.6,6.3,7.7,155.1,54839-24-6,CCOCC(C)OC(=O)C
+Propylene Glycol Monoisobutyl Ether,15.1,4.7,9.8,132.2,23436-19-3,CC(C)COCC(C)O
+Propylene Glycol Monomethyl Ether,15.6,6.3,11.6,98.2,107-98-2,OC(C)COC
+Propylene Glycol Monomethyl Ether Acetate,15.6,5.6,9.8,137.1,108-65-6,CC(COC)OC(=O)C
+Propylene Glycol Monophenyl Ether,17.4,5.3,11.5,143.2,770-35-4,CC(COC1=CC=CC=C1)O
+Propylene Glycol Monopropyl Ether,15.8,7,9.2,130.3,1569-01-3,CCCOCC(C)O
+Propylene Oxide,15.2,8.6,6.7,67.6,75-56-9,CC1CO1
+Propynonitrile,15.5,17,6.3,62.5,1070-71-9,C#CC#N
+Pyridazine,20.2,17.4,11.7,72.6,289-80-5,C1=CC=CN=N1
+Pyridine,19,8.8,5.9,80.9,110-86-1,C1=CN=CC=C1
+2-Pyrrolidone,18.2,12,9,76.8,616-45-5,O=C1CCCN1
+Pyrrole,19.2,11,10,69.5,109-97-7,C1=CC=CN1
+Pyruvonitrile,15.9,18.9,8,70.9,631-57-2,CC(=O)C#N
+Quinoline,20.5,5.6,5.7,118.5,91-22-5,C1(C=CC=N2)=C2C=CC=C1
+Stearic Acid,16.3,3.3,5.5,336.5,57-11-4,CCCCCCCCCCCCCCCCCC(O)=O
+Styrene,18.6,1,4.1,115.7,100-42-5,C=CC1=CC=CC=C1
+Succinaldehyde (Butanedial),16.8,9.8,10.5,81.2,638-37-9,C(CC=O)C=O
+Succinic Anhydride,18.6,17.5,16,64.5,108-30-5,O=C(CC1)OC1=O
+Succinonitrile,18.2,17,7.9,81,110-61-2,N#CCCC#N
+Sulfolane (Tetramethylene Sulfone),17.8,17.4,8.7,95.3,126-33-0,O=[S]1(CCCC1)=O
+Sulfur Dicyanide,18.1,13.5,0,60,627-52-1,C(#N)SC#N
+t-Butyl Alcohol,15.2,5.1,14.7,95.8,75-65-0,O[C](C)(C)C
+"1,1,2,2-Tetrabromoethane",21,7,8.2,117,79-27-6,[H]C(Br)(C([H])(Br)Br)Br
+"1,1,2,2-Tetrachloropropane",17.9,6.7,3.3,123.7,13116-60-4,CC(C(Cl)Cl)(Cl)Cl
+"1,1,2,2-Tetrachloroethane",18.8,5.1,5.3,105.8,79-34-5,ClC(Cl)C(Cl)Cl
+Tetrachloroethylene,18.3,5.7,0,102.8,127-18-4,Cl/C(Cl)=C(Cl)/Cl
+Tetraethylorthosilicate,13.9,4.3,0.6,224,78-10-4,CCO[Si](OCC)(OCC)OCC
+Tetrahydrofuran (THF),16.8,5.7,8,81.9,109-99-9,C1CCOC1
+Tetrahydronaphthalene,19.6,2,2.9,136.7,119-64-2,C12=CC=CC=C1CCCC2
+Tetrahydropyran,16.4,6.3,6,97.8,142-68-7,C1CCOCC1
+Tetrahydrothiapyran,18.5,6.3,8.9,103.6,1613-51-0,C1CCSCC1
+Tetramethylene Sulfide,18.6,6.7,6,88.3,110-01-0,C1CCSC1
+Tetramethylene Sulfoxide,18.2,11,9.1,90,1600-44-8,C1CCS(=O)C1
+Tetramethylurea,16.7,8.2,11,120.4,632-22-4,O=C(N(C)C)N(C)C
+2-Thiabutane,16.2,5.9,5.3,91,624-89-5,CSCC
+Thiazole,20.5,18.8,10.8,70.9,288-47-1,C1=CN=CS1
+Thioacetamide,17.5,20.6,20.2,75,62-55-5,CC(=S)N
+Thioacetic Acid,17,6.7,8.9,71.5,507-09-5,CC(=O)S
+?-Thiobutyrolactone,19,6.9,6.2,86.6,1003-10-7,C1CC(=O)SC1
+Thiocyanic Acid,16.8,8.9,10.9,51.7,463-56-9,C(#N)S
+Thionyl Chloride,16.9,6.4,6.1,73,07/09/7719,O=S(Cl)Cl
+Thiophene,18.9,2.4,7.8,79.5,110-02-1,C1=CC=CS1
+Thiourea,20,19.4,14.8,90.6,62-56-6,NC(N)=S
+"1,4-Thioxane",19,6.6,7.7,93.5,15980-15-1,C1CSCCO1
+Tigaldehyde,16.2,12.9,6.8,96.6,497-03-0,CC=C(C)C=O
+Toluene,18,1.4,2,106.6,108-88-3,CC1=CC=CC=C1
+Tolylene Diisocyanate,19.3,7.9,6.1,143.5,86-91-9,CC1=C(C=C(C=C1)N=C=O)N=C=O
+"1,2,3-Triazole",20.7,8.8,15,58.2,288-36-8,C1=CN=NN1
+"1,1,2-Tribromo Ethylene",18.3,9.4,8,97.8,598-16-3,C(=C(Br)Br)Br
+Tri-n-Butyl Phosphate,16.3,6.3,4.3,274,126-73-8,CCCCOP(=O)(OCCCC)OCCCC
+"3,3,3-Trichloro Propene",17.7,15.5,3.4,106.2,2233-00-3,C=CC(Cl)(Cl)Cl
+"1,1,2-Trichloro Propene",17.7,15.7,3.4,104.8,21400-25-9,CC(=C(Cl)Cl)Cl
+"1,2,3-Trichloro Propene",17.8,7.8,3.4,105,96-19-5,C(C(=CCl)Cl)Cl
+Trichloroacetonitrile,16.4,7.4,6.1,100,545-06-2,ClC(Cl)(Cl)C#N
+Trichlorobiphenyl,19.2,5.3,4.1,187,55702-46-0,C1=CC=C(C=C1)C2=C(C(=C(C=C2)Cl)Cl)Cl
+"1,1,1-Trichloroethane",16.8,4.3,2,99.3,71-55-6,CC(Cl)(Cl)Cl
+"1,1,2-Trichloroethane",18.2,5.3,6.8,92.9,79-00-5,ClC(Cl)CCl
+Trichloroethylene,18,3.1,5.3,90.1,79-01-6,[H]/C(Cl)=C(Cl)\Cl
+Trichlorofluoromethane (Freon 11),15.3,2,0,92.8,75-69-4,FC(Cl)(Cl)Cl
+"2,4,5-Trichlorothiophenol",21,4.5,9.1,145,3773-14-6,C1=C(C(=CC(=C1Cl)Cl)Cl)S
+"1,1,2-Trichlorotrifluoroethane (Freon113)",14.7,1.6,0,119.2,76-13-1,FC(F)(Cl)C(Cl)(Cl)F
+Tricresyl Phosphate,19,12.3,4.5,316.2,1330-78-5,O=P(OC2=C(C)C=CC=C2)(OC3=C(C)C=CC=C3)OC1=C(C)C=CC=C1
+Tridecyl Alcohol,16.2,3.1,9,241.5,112-70-9,CCCCCCCCCCCCCO
+Triethanolamine,17.3,7.6,21,133,102-71-6,OCCN(CCO)CCO
+Triethylamine,15.5,0.4,1,139.7,121-44-8,CCN(CC)CC
+Triethylene Glycol,16,12.5,18.6,134.2,112-27-6,OCCOCCOCCO
+Triethylene Glycol Monooleyl Ether,16,3.1,8.4,418.5,5274-66-8,OCCOCCOCCOCCCCCCCC/C=C\CCCCCCCC
+Triethylphosphate,16.7,11.4,9.2,170.8,78-40-0,O=P(OCC)(OCC)OCC
+Trifluoroacetic Acid,15.6,9.7,11.4,77.1,76-05-1,OC(C(F)(F)F)=O
+"1,1,1-Trifluoroethane",14.6,10,0,71.6,420-46-2,CC(F)(F)F
+Trifluoromethane (Freon 23),14.4,8.7,6.3,48.6,75-46-7,C(F)(F)F
+Triisononyl Trimellilate,16.6,5.7,2.2,602.9,53894-23-8,O=C(OCCCCCCC(C)C)C1=CC(C(OCCCCCCC(C)C)=O)=C(C(OCCCCCCC(C)C)=O)C=C1
+Triisooctyl Trimellitate,16.6,6,2.5,553.1,27251-75-8,O=C(OCCCCCC(C)C)C1=CC(C(OCCCCCC(C)C)=O)=C(C(OCCCCCC(C)C)=O)C=C1
+Trimethyl Amine,14.6,3.4,1.8,90.2,75-50-3,CN(C)C
+"2,2,4-Trimethyl-1,3-Pentanediol Monoisobutyrate (Texanol)",15.1,6.1,9.8,227.4,25265-77-4,CC(C)C(C(C)(C)COC(=O)C(C)C)O
+Trimethylbenzene,18,1,1,137.3,95-63-6,CC1=CC(=C(C=C1)C)C
+HCFC 253eb,14.6,7.3,1,103.1,460-35-5,ClCCC(F)(F)F
+Trimethylene Sulfide,18.8,7.8,9.4,72.8,287-27-4,S1CCC1
+"2,2,4-Trimethylpentane",14.1,0,0,165.5,540-84-1,CC(C)(C)CC(C)C
+Trimethylphosphate,15.7,10.5,10.2,116.6,512-56-1,O=[P](OC)(OC)OC
+Tripropylene Glycol Monomethyl Ether,15.3,5.5,10.4,213.5,30373-82-1,CC(COC(COC(COC)C)C)O
+Valeronitrile,15.3,11,4.8,104.6,110-59-8,CCCCC#N
+Vinyl 2-Chloro Ethyl Ether,16.3,6.7,5.8,101.7,110-75-8,C=COCCCl
+Vinyl 2-Methoxy Ethyl Ether,15.9,6.7,6.8,96.2,1663-35-0,COCCOC=C
+Vinyl Acetate,16,7.2,5.9,92.9,108-05-4,O=C(OC=C)C
+Vinyl Acetylene,16,1.7,8,74.3,689-97-4,C=CC#C
+Vinyl Allyl Ether,14.9,6.5,5.3,105.4,3917-15-5,C=CCOC=C
+Vinyl Butyl Sulfide,16,5,5.4,136.7,4789-70-2,C=CSCCCC
+Vinyl Butyrate,15.6,3.9,6.9,126.5,123-20-6,O=C(OC=C)CCC
+Vinyl Chloride,16,6.5,2.4,64.7,75-01-4,C=CCl
+Vinyl Crotonate,15.9,5,9,118.8,14861-06-4,CC=CC(=O)OC=C
+Vinyl Ether,14.8,4.2,5.8,95.9,109-93-3,C=COC=C
+Vinyl Ethyl Sulfide,16.4,5.8,6.3,101.3,627-50-9,CCSC=C
+Vinyl Formate,15.3,6.5,9.7,75.5,692-45-5,C=COC=O
+Vinyl Iodide (Iodoethene),18,5.5,7.3,75.6,593-66-8,C=CI
+Vinyl Propionate,15.6,8,4.7,109.6,105-38-4,O=C(CC)OC=C
+Vinyl Propyl Ether,14.9,3.5,5.2,113,764-47-6,CCCOC=C
+Vinyl Pyrrolidone,16.4,9.3,5.9,106.9,88-12-0,C=CN1CCCC1=O
+Vinyl Silane,15.5,2.6,4,89.4,7291-09-0,C=C[Si]
+Vinyl Trifluoro Acetate,13.9,4.3,7.6,116.4,433-28-3,C=COC(=O)C(F)(F)F
+Vinyl Trimethyl Silane,14.5,1,2.5,145.3,754-05-2,C[Si](C)(C)C=C
+Vinylenecarbonate,17.3,18.1,9.6,86,872-36-6,C1=COC(=O)O1
+Water,15.5,16,42.3,18,7732-18-5,[H]O[H]
+p-Xylene,17.8,1,3.1,121.1,106-42-3,CC1=CC=C(C)C=C1
+o-Xylene,17.8,1,3.1,121.1,95-47-6,CC1=C(C)C=CC=C1
+Anethole (Trans),18.5,4.3,6,150.7,104-46-1,C/C=C/C1=CC=C(OC)C=C1
+"3,4-Dichloro Alpha,Alpha,a-Trifluorotoluene",20,4.7,2.4,145.5,328-84-7,C1=CC(=C(C=C1C(F)(F)F)Cl)Cl
+"1,2,4-Trichlorobenzene",20.2,4.2,3.2,125.5,120-82-1,C1=CC(=C(C=C1Cl)Cl)Cl
+"2,4,6-Trichlorophenol",20.3,5.1,10.8,132.5,88-06-2,OC(C(Cl)=CC(Cl)=C1)=C1Cl
+Thiophenol,20,4.5,10.3,102.4,108-98-5,C1=CC=C(C=C1)S
+Salicylaldehyde,19,10.5,12,106.3,90-02-8,O=C([H])C1=C(O)C=CC=C1
+Glycerol Tributyrate,16.3,2.5,7,293,60-01-5,CCCC(=O)OCC(COC(=O)CCC)OC(=O)CCC
+Hexachloroacetone,18.3,3,3,151.9,116-16-5,O=C(C(Cl)(Cl)Cl)C(Cl)(Cl)Cl
+"1,2,4,5-Tetrachlorobenzene",21.2,10.7,3.4,116.2,95-94-3,ClC(C=C(Cl)C(Cl)=C1)=C1Cl
+Lactic Acid (dl),17,8.3,28.4,73.8,50-21-5,CC(C(=O)O)O
+o-Bromostyrene,19.5,5.2,5.3,130,2039-88-5,C=CC1=CC=CC=C1Br
+p-Chlorostyrene,18.7,4.3,3.9,128.3,1073-67-2,C=CC1=CC=C(Cl)C=C1
+o-Chlorostyrene,18.7,4.7,3.9,126.8,2039-87-4,C=CC1=CC=CC=C1Cl
+o-Bromotoluene,19.3,5,4.2,119,95-46-5,BrC(C=CC=C1)=C1C
+p-Bromotoluene,19.3,6.8,4.1,122.4,106-38-7,BrC1=CC=C(C)C=C1
+p-Dichlorobenzene,19.7,5.6,2.7,117.4,106-46-7,ClC1=CC=C(Cl)C=C1
+m-Dichlorobenzene,19.2,5.1,2.7,114.5,541-73-1,ClC1=CC(Cl)=CC=C1
+Butyl Benzoate,18.3,5.6,5.5,178.1,136-60-7,O=C(C1=CC=CC=C1)OCCCC
+o-n-Butyltoluene,17.6,0.1,1,171.3,1595-11-5,CCCCC1=CC=CC=C1C
+p-n-Butyltoluene,17.4,0.1,1,174.2,1595-05-7,CC1=CC=C(CCCC)C=C1
+"1,2-Diethyl Benzene",17.7,0.1,1,153.3,135-01-3,CCC1=CC=CC=C1CC
+n-Butyl Cyclohexane,16.2,0,0.6,176.2,1678-93-9,CCCCC1CCCCC1
+n-Butyl Cyclopentane,16.4,0,1,161.6,2040-95-1,CCCCC1CCCC1
+3-n-Butyl Toluene,17.4,0.1,1,173.7,1595-04-6,CCCCC1=CC=CC(=C1)C
+n-Butylbenzene,17.4,0.1,1.1,156.5,104-51-8,CCCCC1=CC=CC=C1
+1-Decene,15.6,1,2.2,190.2,872-05-9,C=CCCCCCCCC
+2-Ethyl-1-Butene,14.9,1.7,3.5,122.9,760-21-4,C=C(CC)CC
+3-Butoxybutanol,15.9,5.5,10.6,166.3,NA,CC(OCCCC)CCO
+2-Bromobutane,16.3,7.7,4.4,109.4,78-76-2,CC(Br)CC
+"1,4-Butanediol",16.6,11,20.9,88.9,110-63-4,OCCCCO
+Ethylene Glycol Mono Benzyl Ether,17.8,5.9,12.2,143,622-08-2,C1=CC=C(C=C1)COCCO
+2-Methyl-2-Butanol,15.3,6.1,13.3,109.6,75-85-4,CCC(C)(O)C
+2-Pentanol,15.6,6.4,13.3,109.6,6032-29-7,CC(O)CCC
+2-Decanol,15.8,3.9,10,192.8,1120-06-5,CC(O)CCCCCCCC
+2-Cyclopentenyl Alcohol,18.1,7.6,15.6,86.2,3212-60-0,OC1CCC=C1
+Di-2-Ethylhexyl Ether,15.9,2.6,2.5,300.5,10143-60-9,CCCCC(CC)COCC(CC)CCCC
+Dipropyl Ketone,15.8,7.6,4.9,140.2,123-19-3,CCCC(CCC)=O
+"2,3-Dichloropropanol",17.5,9.2,14.6,95.2,616-23-9,C(C(CCl)Cl)O
+"1,3-Dichloro-2-Propanol",17.5,9.9,14.6,95.5,96-23-1,C(C(CCl)O)Cl
+Methyl Silane,15.5,3.3,0,75.2,992-94-9,C[Si]
+Formyl Fluoride,15,10.1,8.6,56.5,1493-02-3,C(=O)F
+Vinyl Amine,15.7,7.2,11.8,51.8,593-67-9,C=CN
+Bromotrichloro Methane #1,18.3,0.8,0,99.4,75-62-7,BrC(Cl)(Cl)Cl
+Bromotrichloro Methane #2-Gc,18.3,8.1,6,99.4,75-62-7,BrC(Cl)(Cl)Cl
+Bromotrichloro Methane #3,18.3,8.1,0,99.4,75-62-7,BrC(Cl)(Cl)Cl
+Propylene Chlorohydrin,16.8,9.8,15.3,85.4,127-00-4,CC(CCl)O
+Butyl-6-Methyl-3-Cyclohexene Carboxylate,16.1,2.5,5.7,209.1,NA,CC1C(C(OCCCC)=O)CC=CC1
+Bromomethyl Methyl Ether,16.9,8.5,7,81.6,13057-17-5,COCBr
+"1,1-Diallyloxyethane",15.4,5.1,4.8,163.3,20682-69-3,C=CCOC(OCC=C)C
+2-Chlorobutane,15.8,7.6,2,106.8,78-86-4,CC(Cl)CC
+HFC 245fa,15.4,3,0,100.1,460-73-1,C(C(F)F)C(F)(F)F
+Ethylene Glycol Butyl Ethyl Ether,15.3,4.9,4.6,175.5,4413-13-2,CCCCOCCOCC
+Ethylene Glycol Butyl Methyl Ether,15.5,5.2,4.9,157.2,13343-98-1,CCCCOCCOC
+Isoamyl Alcohol (3-Methyl-1-Butanol),15.8,5.2,13.3,109.3,123-51-3,CC(C)CCO
+Diethylene Glycol Divinyl Ether,16,7.3,7.9,164.1,764-99-8,C=COCCOCCOC=C
+2-Chloroethyl Ethyl Ether,16.3,7.9,4.6,109.5,628-34-2,CCOCCCl
+Diethylene Glycol Dibutyl Ether,15.8,4.7,4.4,247.8,112-73-2,CCCCOCCOCCOCCCC
+Ethylene Glycol Dibutyl Ether,15.7,4.5,4.2,209.5,112-48-1,CCCCOCCOCCCC
+Di-(2-Chloroethoxy) Methane,17.1,10.2,7.1,141.1,111-91-1,C(CCl)OCOCCCl
+Ethylene Glycol Diethyl Ether,15.4,5.4,5.2,141.6,629-14-1,CCOCCOCC
+3-Ethoxy Propionaldehyde,16,8.8,7.4,112.1,2806-85-1,CCOCCC=O
+Diethylene Glycol Diethyl Ether,15.8,5.9,5.6,179.5,112-36-7,CCOCCOCCOCC
+"1,3-Dimethoxy Butane",15.6,5.5,5.2,140,10143-66-5,CC(CCOC)OC
+n-Butyl Salicylate,17.9,4.8,11.7,181.7,2052-14-4,CCCCOC(=O)C1=CC=CC=C1O
+"1-Acetoxy-1,3-Butadiene",16.1,4.4,8.3,118.4,1515-76-0,CC(=O)OC=CC=C
+2-Chloroallylidene Diacetate,16.7,7.3,8.8,160.2,5459-90-5,CC(=O)OC(C(=C)Cl)OC(=O)C
+Butyric Anhydride,15.8,10.3,4.5,164.4,106-31-0,O=C(CCC)OC(CCC)=O
+n-Butyl Aceto Acetate,16.6,5.8,7.3,164.3,591-60-6,CCCCOC(=O)CC(=O)C
+Allyl Acetoacetate,15.9,6.9,8.6,137.8,1118-84-9,CC(=O)CC(=O)OCC=C
+Isobutyl Acrylate,15.5,6.2,5,144.9,106-63-8,O=C(C=C)OCC(C)C
+Ethylene Glycol Mono Ethyl Ether Acrylate,15.9,5.1,9.3,147.7,106-74-1,CCOCCOC(=O)C=C
+2-Chloroethyl Acetate,16.7,9.6,8.8,107.5,542-58-5,CC(=O)OCCCl
+Di Butyl Fumarate,16.7,3,6.7,232.7,105-75-9,O=C(OCCCC)\C=C\C(OCCCC)=O
+n-Butyl Butyrate,15.6,2.9,5.6,166.7,109-21-7,O=C(CCC)OCCCC
+Ethylene Glycol Dimethyl Ether,15.4,6.3,6,104.9,110-71-4,COCCOC
+1-Ethoxy Ethoxy-2-Propanol,15.4,6.3,6,156,4043-59-8,OC(COCC)COCC
+"1,1-Diethoxy Butane",15.4,4.9,4.6,177.6,3658-95-5,CCCC(OCC)OCC
+HFC 338pcc,13.7,0,0,127.9,377-36-6,C(C(C(C(F)F)(F)F)(F)F)(F)F
+Diphenyl Sulfone,21.1,14.4,3.4,174.3,127-63-9,O=[S](C1=CC=CC=C1)(C2=CC=CC=C2)=O
+2-Chlorocyclohexanone,18.5,13,5.1,113.9,822-87-7,O=C1C(Cl)CCCC1
+4-Methoxy Benzonitrile,19.4,16.7,5.4,121,874-90-8,N#CC1=CC=C(OC)C=C1
+"2,5-Dimethyl Pyrrole",18.3,7.6,6.8,101.8,625-84-3,CC1=CC=C(C)N1
+"2,2,6,6-Tetrachlorocyclohexanone",19.5,14,6.3,138.8,3776-30-5,C1CC(C(=O)C(C1)(Cl)Cl)(Cl)Cl
+p-Nitro Toluene,19.5,11,3.6,121.9,99-99-0,CC1=CC=C([N+]([O-])=O)C=C1
+2-Acetyl Thiophene,19.1,12.2,9.3,108,88-15-3,CC(C1=CC=CS1)=O
+Isobutyl Sulfoxide,16.3,10.5,6.1,195,3085-40-3,CC(C)CS(=O)CC(C)C
+o-Chlorothiophenol,20.2,7,10,113.4,02/03/6320,C1=CC=C(C(=C1)S)Cl
+Pentachlorophenol,21.5,6.9,12.8,134.7,87-86-5,OC1=C(Cl)C(Cl)=C(Cl)C(Cl)=C1Cl
+Ethylene Glycol Sulfite,20,15.9,5.1,75.1,3741-38-6,C1COS(=O)O1
+4-Methoxy Acetophenone,18.9,11.2,7,137.8,100-06-1,CC(C1=CC=C(OC)C=C1)=O
+4-Ethoxy Acetophenone,18.8,10.3,6.4,162.6,1676-63-7,CCOC1=CC=C(C=C1)C(=O)C
+"2,3,4-Trifluoro Nitrobenzene",19.5,7.7,3.5,122,771-69-7,C1=CC(=C(C(=C1[N+](=O)[O-])F)F)F
+Methyl-p-Toluate,19,6.5,3.8,140.4,99-75-2,O=C(OC)C1=CC=C(C)C=C1
+p-Chloro Acetophenone,19.6,7.6,4,129.7,99-91-2,CC(C1=CC=C(Cl)C=C1)=O
+HFC-43-10mee,11.6,0,0,159.5,138495-42-8,C(C(C(F)(F)F)F)(C(C(F)(F)F)(F)F)F
+p-Fluoroanisole,18.7,7.3,6.7,113.2,459-60-9,COC1=CC=C(C=C1)F
+o-Bromoanisole,19.8,8.4,6.7,124.5,578-57-4,COC1=CC=CC=C1Br
+"3,4-Dichloronitrobenzene",20.1,7.2,4.1,130.6,99-54-7,[O-][N+](C1=CC(Cl)=C(Cl)C=C1)=O
+o-Bromochlorobenzene,20.3,7.7,4.6,116.9,694-80-4,BrC(C=CC=C1)=C1Cl
+p-Bromonitrobenzene,20.9,9.9,5.9,103.7,586-78-7,O=[N+](C(C=C1)=CC=C1Br)[O-]
+o-Dibromobenzene,20.7,6.5,5.3,120,583-53-9,BrC(C=CC=C1)=C1Br
+p-Bromobenzoyl Chloride,20.2,6.5,5.5,137.2,586-75-4,C1=CC(=CC=C1C(=O)Cl)Br
+p-Bromobenzonitrile,20.4,9.3,5.8,113.8,623-00-7,N#CC1=CC=C(Br)C=C1
+"Benzal Chloride (Alpha,a-Dichlorobenzene)",19,7.6,2.4,134.2,98-87-3,ClC(Cl)C1=CC=CC=C1
+o-Chlorofluorobenzene,19.4,8.7,2,104.9,348-51-6,C1=CC=C(C(=C1)F)Cl
+p-Chloronitrobenzene,20.2,8.9,3.9,121.4,100-00-5,[O-][N+](C1=CC=C(Cl)C=C1)=O
+o-Difluorobenzene,18,9,1,98.5,367-11-3,FC(C=CC=C1)=C1F
+4-Chlorobenzonitrile,19.5,8,4.1,125.1,623-03-0,N#CC1=CC=C(Cl)C=C1
+p-Chlorobenzoyl Chloride,19.9,6.7,5.1,127.1,122-01-0,C1=CC(=CC=C1C(=O)Cl)Cl
+6-Chloro-2-Nitrotoluene,20.3,9.6,3.8,132,83-42-1,[O-][N+](C(C=CC=C1Cl)=C1C)=O
+p-Chlorotoluene,19.1,6.2,2.6,119.1,106-43-4,CC1=CC=C(Cl)C=C1
+1-Bromo-4-Ethoxy Benzene,19.5,7.7,5.3,140,588-96-5,CCOC1=CC=C(Br)C=C1
+1-Chloro-4-Ethoxy Benzene,19.3,6.3,4.4,139.2,622-61-7,CCOC1=CC=C(C=C1)Cl
+1-Chloro-2-Ethoxy Benzene,19.2,8.1,4.4,138.7,614-72-2,CCOC1=CC=CC=C1Cl
+Pentachlorocyclopropane,18.5,10.5,3.7,128.5,6262-51-7,C1(C(C1(Cl)Cl)(Cl)Cl)Cl
+4-Chloro-2-Nitrotoluene,19.9,11.8,3.8,132,89-59-8,[O-][N+](C(C=C(Cl)C=C1)=C1C)=O
+4-Fluoropropiophenone,19.6,7.1,3.5,138.8,582-83-2,CCCC(=O)C1=CC=C(C=C1)F
+Pentafluorobenzophenone,19.3,8.1,5.4,185.5,652-29-9,CC(=O)C1=C(C(=C(C(=C1F)F)F)F)F
+"2,4-Dichloronitrobenzene",20.4,8.7,4.2,133.4,611-06-3,[O-][N+](C1=CC=C(Cl)C=C1Cl)=O
+"2,4-Difluoronitrobenzene",19.4,11,3.7,109.6,446-35-5,C1=CC(=C(C=C1F)F)[N+](=O)[O-]
+"2,4-Dichloro-3-Fluoronitrobenzene",19.9,7.2,4.2,140,393-79-3,C1=CC(=C(C(=C1[N+](=O)[O-])Cl)F)Cl
+"1,3-Dichloro-2-Fluorobenzene",19.4,9.1,2.7,117.1,05/05/2268,C1=CC(=C(C(=C1)Cl)F)Cl
+"2,5-Dichlorobenzotrifluoride",20,4.7,2.4,145.5,320-50-3,C1=CC(=C(C=C1Cl)C(F)(F)F)Cl
+4-Fluoro-3-Nitrobenzofluoride,19.4,7.2,3.7,108.4,364-74-9,FC1=CC([N+]([O-])=O)=C(F)C=C1
+"2,4-Dichloro-5-Nitrobenzotrifluoride",19.9,7.6,3.7,162,400-70-4,C1=C(C(=CC(=C1[N+](=O)[O-])Cl)Cl)C(F)(F)F
+"2,6-Difluorobenzonitrile",18.8,11.2,3.2,111.6,1897-52-5,C1=CC(=C(C(=C1)F)C#N)F
+"3,5-Difluorobenzonitrile",18.8,11.2,3.2,111.6,64248-63-1,C1=C(C=C(C=C1F)F)C#N
+Indole,20.5,7.5,6.5,108.3,120-72-9,C1(C=CC=C2)=C2NC=C1
+Skatole,20,7.1,6.2,122.6,83-34-1,CC1=CNC2=C1C=CC=C2
+"1,5-Dichloropentane",18,7.8,1.5,128.7,628-76-2,ClCCCCCCl
+2-Chloroethyl Ethyl Sulfide,17.2,5,6.1,116.9,693-07-2,CCSCCCl
+Methane (Liquid B.P.),14,0,0,38,74-82-8,[H]C([H])([H])[H]
+Dimethoxymethane,15,1.8,8.6,89.1,109-87-5,COCOC
+Glycerol Trioleate,16,3.8,3.2,967.7,122-32-7,CCCCCCCC/C=C\CCCCCCCC(OCC(OC(CCCCCCC\C=C/CCCCCCCC)=O)COC(CCCCCCC/C=C\CCCCCCCC)=O)=O
+Dimethyl Methyl Phosphonate,16.7,13.1,7.5,106.9,756-79-6,COP(=O)(C)OC
+Di-Isopropyl Methyl Phosphonate,16.4,10,5.7,184.4,1445-75-6,CC(C)OP(=O)(C)OC(C)C
+Methyl Phosphonic Difluoride,14,14,8.4,73.9,676-99-3,CP(=O)(F)F
+Di-Isopropyl Phosphonofluoridate,15.7,10.2,5.9,174.5,55-91-4,CC(C)OP(=O)(OC(C)C)F
+4-Vinyl Pyridine,18.1,7.2,6.8,107.3,100-43-6,C=CC1=CC=NC=C1
+"N,N,N,N-Tetramethylthiourea",17.3,6,10.5,132.2,2782-91-4,CN(C(N(C)C)=S)C
+Di-Isobutyl Sulfoxide,16.3,10.5,6.1,195,3085-40-3,O=S(CC(C)C)CC(C)C
+"2,4-Dichlorobenzaldehyde",19.7,8.8,5.4,135.7,874-42-0,C1=CC(=C(C=C1Cl)Cl)C=O
+4-(Trifluoromethyl) Acetophenone,18.8,6.1,3.5,151.7,709-63-7,CC(=O)C1=CC=C(C=C1)C(F)(F)F
+"3,4-Dichlorophenyl Acetonitrile",20.5,10.8,4.4,148.8,3218-49-3,C1=CC(=C(C=C1CC#N)Cl)Cl
+"2,6-Dimethyl Phenol",19.1,4.9,12.9,137.1,576-26-1,CC1=C(C(=CC=C1)C)O
+"3,4-Dimethyl Phenol",19.2,6,13.4,122.5,95-65-8,CC1=C(C=C(C=C1)O)C
+Phenyl Acetonitrile,19.5,12.3,3.8,115.8,140-29-4,N#CCC1=CC=CC=C1
+"2,6-Dichlorophenol",20.1,7.5,10.9,119,87-65-0,C1=CC(=C(C(=C1)Cl)O)Cl
+4-Chlorobenzotrichloride,20.3,5.5,3.5,153.8,5216-25-1,C1=CC(=CC=C1C(Cl)(Cl)Cl)Cl
+5-Bromo-2-Nitrobenzotrifluoride,20,6,4.9,150.1,344-38-7,C1=CC(=C(C=C1Br)C(F)(F)F)[N+](=O)[O-]
+"1,3,5-Trioxane",18.7,9.2,8.6,76.7,110-88-3,C1OCOCO1
+Triethylene Glycol Monomethyl Ether,16.2,7.6,12.5,160,112-35-6,OCCOCCOCCOC
+Propylene Glycol Monoisopropyl Ether,15.5,6.1,11,134.6,3944-36-3,OC(COC(C)C)C
+Water 1% Soluble In - Ro=18.1,15.1,20.4,16.5,18,7732-18-5,[H]O[H]
+Urea For Ro Equal 19.4,20.9,18.7,26.4,48.8,57-13-6,O=C(N)N
+Trichloroacetic Acid,18.3,7,13,101.6,76-03-9,ClC(Cl)(Cl)C(O)=O
+Carbon Tetrachloride (P By Group Cont.),16.1,8.3,0,97.1,56-23-5,ClC(Cl)(Cl)Cl
+HFE 7000,13,4.2,1,141.9,375-03-1,COC(F)(C(F)(C(F)(F)F)F)F
+Ethane,15.5,0,0,55.2,74-84-0,[H]C([H])([H])C([H])([H])[H]
+Acridine,20,5.9,2,155.4,260-94-6,C12=CC=CC=C1N=C3C(C=CC=C3)=C2
+Benzotrichloride,19.4,3.2,3.2,142.8,98-07-7,ClC(Cl)(C1=CC=CC=C1)Cl
+Bicyclohexyl,17,0,0,188.4,92-51-3,C2(CCCCC2)C1CCCCC1
+Biphenyl,19.7,1,2,155.3,92-52-4,C1(C2=CC=CC=C2)=CC=CC=C1
+Carbazole (Diphenylenimine),21.7,6.4,6.2,152,86-74-8,C1(C=CC=C3)=C3NC2=C1C=CC=C2
+1-Chloronaphthalene,20.5,4.9,2.5,138.9,90-13-1,ClC1=C(C=CC=C2)C2=CC=C1
+Cyclohexene,17.2,1,2,101.9,110-83-8,C1=CCCCC1
+Cyclohexyl Benzene,18.7,0,1,170.7,827-52-1,C1(C2=CC=CC=C2)CCCCC1
+DDT,20,5.5,3.1,268.8,50-29-3,ClC(Cl)(Cl)C(C2=CC=C(Cl)C=C2)C1=CC=C(Cl)C=C1
+"1,3-Dichloro Propane",18,8.2,3,95.7,142-28-9,ClCCCCl
+Diphenylamine,20,3.3,5.9,159.7,122-39-4,C1(NC2=CC=CC=C2)=CC=CC=C1
+Diphenylmethane,19.5,1,1,167.9,101-81-5,C1(CC2=CC=CC=C2)=CC=CC=C1
+Fluorene,21.3,1.7,1.7,128.2,86-73-7,C1(C=CC=C3)=C3CC2=C1C=CC=C2
+Isopropyl Benzene (Cumene),18.1,1.2,1.2,139.9,98-82-8,CC(C)C1=CC=CC=C1
+Methyl Phenyl Sulfide,19.6,4.8,4.7,117.4,100-68-5,CSC1=CC=CC=C1
+Phenetole (Ethyl Phenyl Ether),18.4,4.5,4,127.2,103-73-1,CCOC1=CC=CC=C1
+Phenyl Acetate,19.8,5.2,6.4,126.9,122-79-2,CC(OC1=CC=CC=C1)=O
+"1,1,1,2-Tetrachloroethane",18,4.4,4.2,109.5,630-20-6,ClC(Cl)(Cl)C([H])([H])Cl
+"1,2,3-Trichloropropane",17.8,12.3,3.4,106.5,96-18-4,ClC(CCl)CCl
+"1,2,3,4-Tetramethylbenzene",18.8,0.5,0.5,149.1,488-23-3,CC(C(C)=CC=C1C)=C1C
+"1,2,3,5-Tetramethylbenzene",18.6,0.5,0.5,151.4,527-53-7,CC(C(C)=CC(C)=C1)=C1C
+a-Methyl Styrene,18.5,2.4,2.4,130.6,98-83-9,CC(C1=CC=CC=C1)=C
+Benzyl Ethyl Ether,18.4,3.8,3.8,144.1,539-30-0,CCOCC1=CC=CC=C1
+"1,2-Methylenedioxybenzene (G.C.)",19,6.7,5.9,114.8,274-09-9,C1OC2=CC=CC=C2O1
+"1,2-Dimethoxybenzene",19.2,4.4,9.4,127.7,91-16-7,COC1=C(OC)C=CC=C1
+"2,2',5,5'-Tetrathiafulvalen",21,8.2,8.4,204,31366-25-3,C/2(SC=CS2)=C1SC=CS\1
+Benzoin,19.9,9.7,10.7,187.7,119-53-9,C1=CC=C(C=C1)C(C(=O)C2=CC=CC=C2)O
+"2,3-Benzofuran (Cumaron)",18.7,5.1,5.7,110.2,271-89-6,C1(C=CO2)=C2C=CC=C1
+Benzisoxazole,20.6,11.5,8.8,100.7,271-58-9,C12=CC=CC=C1ON=C2
+Benzimidazole,20.6,14.9,11,102.7,51-17-2,C1=CC=C2C(=C1)NC=N2
+"1,1,3,3-Tetramethoxypropane",15,7.1,6.8,164.7,102-52-3,COC(CC(OC)OC)OC
+1-Naphthol,19.7,6.3,12.3,131.7,90-15-3,OC2=CC=CC1=CC=CC=C12
+Terephthalic Acid,20,7.4,12.8,117,100-21-0,O=C(C1=CC=C(C(O)=O)C=C1)O
+Fenchene(A),16.9,1.5,3.1,157.3,471-84-1,CC1(C2CCC1C(=C)C2)C
+Tricyclene,16.9,0,0,139.4,508-32-7,CC3(C)C1CC2C(C23C)C1
+2-Pinene (dl),16.9,1.8,3.1,159,80-56-8,CC1=CCC2C(C1C2)(C)C
+"Pyrogallol (1,2,3-Trihydroxybenzene)",20.7,10.7,21.1,110,87-66-1,OC1=CC=CC(O)=C1O
+2-Methyl Pyrazine,18.3,12.3,10.5,91.4,109-08-0,CC1=NC=CN=C1
+Benzyl Acetate,18.3,5.7,6,143.7,140-11-4,CC(OCC1=CC=CC=C1)=O
+"1,2-Dihydroxybenzene (Catechol)",20,11.3,21.8,81.9,120-80-9,C1=CC=C(C(=C1)O)O
+4-Hydroxy Benzaldehyde,19.4,15.2,14.5,107.2,123-08-0,C1=CC(=CC=C1C=O)O
+Vinyl Carbitol,16.3,7.5,13.8,129.2,929-37-3,OCCOCCOC=C
+Vinyl Ethyl Carbitol,15.9,6,6.6,171.9,10143-53-0,CCOCCOCCOC=C
+Vinyl 2-Ethylhexyl Ether,15.6,3.4,4.2,194.2,103-44-6,CCCCC(CC)COC=C
+Vinyl Isobutyl Ether,15.1,4.1,5.1,131.3,109-53-5,CC(C)COC=C
+Vinyl Isopropyl Ether,14.7,3.5,5.2,115.3,926-65-8,CC(C)OC=C
+Vinyl S-Ethyl Mercapto Ethyl Ether,16.4,7,6,139.7,NA,C=CSCCOCC
+Vinyl S-Butyl Mercapto Ethyl Ether,16.5,5,5.8,174,NA,C=CSCCCCOCC
+Vinyl Butyl Carbitol,16,5,6,206.2,NA,CCCCOCCOCCOC=C
+Vinyl-2-Ethyl Hexanoate,15.6,2.7,5.8,196,94-04-2,O=C(OC=C)C(CC)CCCC
+2-Vinyl Toluene,18.6,1,3.8,130.2,611-15-4,CC1=CC=CC=C1C=C
+"1,4-Dihydroxybenzene (1,4-Benzenediol)",21,10.2,27.2,82.7,123-31-9,C1=CC(=CC=C1O)O
+Trinitrotoluene (TNT) (DM),19.5,3.5,4.4,155.1,118-96-7,CC1=C(C=C(C=C1[N+](=O)[O-])[N+](=O)[O-])[N+](=O)[O-]
+Trinitrotoluene (TNT) (G.C.),19.5,10,4.5,155.1,118-96-7,CC1=C(C=C(C=C1[N+](=O)[O-])[N+](=O)[O-])[N+](=O)[O-]
+Cyclopentadiene,17,1.9,2,82.9,542-92-7,C1=CCC=C1
+n-Tetradecane,16.2,0,0,261.3,629-59-4,CCCCCCCCCCCCCC
+Octadecane,16.4,0,0,328.2,593-45-3,CCCCCCCCCCCCCCCCCC
+Isoamyl Propionate,15.7,5.2,5.6,165.7,105-68-0,CCC(OCCC(C)C)=O
+Propyl Formate,15.5,7.1,8.6,97.9,110-74-7,CCCOC=O
+Butyl Formate,15.7,6.5,9.2,115.2,592-84-7,CCCCOC=O
+Ethyl Butyrate,15.5,5.6,5,132.9,105-54-4,CCCC(OCC)=O
+Ethyl Capronate,15.5,3.2,5.9,149.6,123-66-0,CCCCCC(OCC)=O
+1-Hexanol,15.9,5.8,12.5,125.2,111-27-3,CCCCCCO
+1-Heptanol,16,5.3,11.7,141.8,111-70-6,CCCCCCCO
+1-Nonanol,16,4.8,11,174.9,143-08-8,CCCCCCCCCO
+Tetranitromethane,15.5,8.5,7,120.6,509-14-8,O=[N+]([O-])C([N+]([O-])=O)([N+]([O-])=O)[N+]([O-])=O
+Trinitromethane,15.5,10.3,7.3,94.6,517-25-9,C([N+](=O)[O-])([N+](=O)[O-])[N+](=O)[O-]
+n-Propyl Nitrate,15.8,11.3,4.1,99.7,627-13-4,CCCO[N+](=O)[O-]
+4-Nitrophenol,20,14.5,14.2,93.1,100-02-7,OC1=CC=C([N+]([O-])=O)C=C1
+Ethylene Dinitrate,16.2,18,6,102.6,628-96-6,C(CO[N+](=O)[O-])O[N+](=O)[O-]
+"2,4-Dinitrotoluene",20,13.1,4.9,137.2,121-14-2,CC1=C(C=C(C=C1)[N+](=O)[O-])[N+](=O)[O-]
+3-Nitroaniline,21.4,17.7,10.6,134.6,99-09-2,NC1=CC=CC([N+]([O-])=O)=C1
+"1,2-Dinitrobenzene",20.6,11.6,3.9,132.9,528-29-0,[O-][N+](C(C=CC=C1)=C1[N+]([O-])=O)=O
+"3,4-Dinitrophenol",19.5,12.8,14.3,140,577-71-9,C1=CC(=C(C=C1O)[N+](=O)[O-])[N+](=O)[O-]
+"3,5-Dinitrophenol",19.5,12.9,14.4,140,586-11-8,C1=C(C=C(C=C1[N+](=O)[O-])O)[N+](=O)[O-]
+"1,3-Propane Sultone",18.4,16,9,87.7,1120-71-4,C1COS(=O)(=O)C1
+"2,2,2-Trifluoro Ethanol",15.4,8.3,16.4,72.3,75-89-8,C(C(F)(F)F)O
+Dichloroacetic Acid,18.2,8.1,12.2,83,79-43-6,OC(C(Cl)Cl)=O
+2-Ethylhexyl Amine,15.7,4.2,6.1,163.3,20352-67-4,CCNCCCCCC
+HFE 7100,13.7,2.2,1,164.5,163702-07-6,COC(C(C(C(F)(F)F)(F)F)(F)F)(F)F
+Hexamethylenetetramine,19.4,7,16,105.3,100-97-0,N1(CN3C2)CN(C3)CN2C1
+Anisidine (2-Methoxyaniline),19.5,5.4,11.4,112.2,90-04-0,COC(C=CC=C1)=C1N
+2-Chloro-4-Methylaniline,19.7,7.4,8.9,123,615-65-6,ClC(C=C(C)C=C1)=C1N
+N-Methylaniline,19.5,6,7.8,109.1,100-61-8,CNC1=CC=CC=C1
+"2,4-Dimethylaniline",19.2,5.2,8.7,123.7,95-68-1,CC(C=C(C)C=C1)=C1N
+2-Toluidine,19.4,5.8,9.4,107.7,95-53-4,CC1=C(N)C=CC=C1
+Ethyl Benzoate,17.9,6.2,6,144.1,93-89-0,O=C(OCC)C1=CC=CC=C1
+1-Chloro Pentane,16,6.9,1.9,121.4,543-59-9,CCCCCCl
+Di-n-Propyl Ether,15.1,3.2,3.2,137.6,111-43-3,CCCOCCC
+Di-n-Pentyl Ether,15.6,3.1,3,203,693-65-2,CCCCCOCCCCC
+N-Methyl Acetamide,16.9,17,13,76.9,79-16-3,CC(NC)=O
+1-Chlorohexane,16.1,6.2,1.7,138.1,544-10-5,ClCCCCCC
+N-(2-Hydroxyethyl)-2-Pyrrolidone,18,9.2,15.7,113.4,02/11/3445,C1CC(=O)N(C1)CCO
+N-Ethyl-2-Pyrrolidone,18,12,7,113.9,2687-91-4,CCN1CCCC1=O
+Benzothiazole,20.6,5.2,8.4,108.5,95-16-9,C12=CC=CC=C1SC=N2
+t-Butyl Acetate,15,3.7,6,134.8,540-88-5,CC(C)(C)OC(C)=O
+Vinyl Butyl Ether,15.2,4.1,5.1,129.4,111-34-2,CCCCOC=C
+N-Methyl Formamide,17.4,18.8,15.9,59.1,123-39-7,O=CNC
+N-Ethyl Formamide,16.2,10,14,76.5,627-45-2,CCNC=O
+Allyl Isopropyl Ether,15,4.1,7.1,129,6140-80-3,CC(C)OCC=C
+N-Cyclohexyl-2-Pyrrolidone,18.2,6.8,6.5,163,6837-24-7,C1CCC(CC1)N2CCCC2=O
+2-Chloro-2-Methyl Propane,15.6,7.6,2,110,507-20-0,Cl[C](C)(C)C
+Benzyl Amine,19,4.6,9.4,109.2,100-46-9,NCC1=CC=CC=C1
+Methyl-4-Toluenesulfonate,19.6,15.3,3.8,152.6,80-48-8,CC1=CC=C(C=C1)S(=O)(=O)OC
+Coumarin,20,12.5,6.7,117.1,91-64-5,O=C2C=CC1=CC=CC=C1O2
+"9,10-Phenanthrenequinone",20.3,17.1,4.8,148.2,84-11-7,O=C2C(C=CC=C3)=C3C1=CC=CC=C1C2=O
+Cetyl Alcohol (1-Hexadecanol),16.4,3.7,8.1,296.4,36653-82-4,CCCCCCCCCCCCCCCCO
+2-Chloro-5-Methyl Phenol,19,7.7,13.1,117.4,615-74-7,OC1=C(Cl)C=CC(C)=C1
+Paraldehyde,16,5,6,134.1,123-63-7,CC1OC(C)OC(C)O1
+Diethyl Malonate,16.1,7.7,8.3,152.5,105-53-3,O=C(OCC)CC(OCC)=O
+Maleic Anhydride,19.5,13.3,11.9,74.1,108-31-6,O=C(C=C1)OC1=O
+Trichloromethylsilane,16.5,6.6,3.5,117.4,75-79-6,C[Si](Cl)(Cl)Cl
+Citraconic Anhydride,19.2,17,11.2,89.9,616-02-4,CC(C(O1)=O)=CC1=O
+Chloro Maleic Anhydride,20.4,17.3,11.5,89.5,96-02-6,C1=C(C(=O)OC1=O)Cl
+2-Nitrothiophene,19.7,16.2,8.2,94.6,609-40-5,O=[N+](C1=CC=CS1)[O-]
+Pyrazole,20.2,10.4,12.4,68.1,288-13-1,C1=CNN=C1
+N-Methyl Pyrrolidine,16.8,2.8,6.7,106.9,120-94-5,CN1CCCC1
+"2,5-Dimethoxytetrahydrofuran",16.8,7.2,8.2,129.6,696-59-3,COC1CCC(O1)OC
+2-Chlorothiophene,19.2,6.2,8,92.2,96-43-5,ClC1=CC=CS1
+3-Hydroxy Tetrahydrofuran,18.9,9.4,16.3,80,453-20-3,OC1COCC1
+"2-Methoxy-1,3-Dioxolane",17.8,8.4,7.7,95.3,19693-75-5,COC1OCCO1
+2-Furonitrile,18.4,15,8.2,87.5,617-90-3,C1=COC(=C1)C#N
+2-Methylfuran,17.3,2.8,7.4,89.7,534-22-5,CC1=CC=CO1
+2-Methoxy Tetrahydropyrane,17.2,6.6,6,105.1,6581-66-4,COC1OCCCC1
+2-Methyl Tetrahydrofuran,16.9,5,4.3,100.2,96-47-9,CC1CCCO1
+Methyl Furoate,17.4,6.9,9.7,107,611-13-2,O=C(C1=CC=CO1)OC
+"2,5-Tetrahydrofuran Dimethanol",17.9,8.5,18.9,114.5,104-80-3,C1CC(OC1CO)CO
+"2,4-Dichloroaniline",20.9,6.2,10,103.4,554-00-7,C1=CC(=C(C=C1Cl)Cl)N
+3-Methoxy Butyl Acetate,15.3,4.1,8.1,153.9,4435-53-4,CC(CCOC(=O)C)OC
+3-Methyl-3-Methoxy Butyl Acetate,15.3,3.8,7.7,168.6,103429-90-9,CC(=O)OCCC(C)(C)OC
+3-Methoxy Butanol,15.3,5.4,13.6,113.2,2517-43-3,OCCC(OC)C
+Ethylene Glycol Mono n-Propyl Ether,16.1,8.7,13.5,115,2807-30-9,CCCOCCO
+n-Pentyl Propionate,15.8,5.2,5.7,165.3,624-54-4,CCCCCOC(=O)CC
+n-Butyl Propionate,15.7,5.5,5.9,149.3,590-01-2,O=C(CC)OCCCC
+Dipropylene Glycol Mono n-Butyl Ether,15.7,6.5,10,211.2,29911-28-2,CCCCOCC(C)OCC(C)O
+Dipropylene Glycol Mono n-Propyl Ether,15.6,6.1,11,185.6,29911-27-1,CCCOCC(C)OCC(C)O
+Ethyl Propionate,15.5,6.1,4.9,115.6,105-37-3,O=C(CC)OCC
+1-Tetradecene,16.1,0.5,1.9,255.8,1120-36-1,C=CCCCCCCCCCCCC
+m-Chloroaniline,20.2,7.3,9.8,105.3,108-42-9,ClC1=CC(N)=CC=C1
+3-Heptanol,15.9,5.4,11.7,141.2,589-82-2,CCC(O)CCCC
+Styrene Oxide (Phenyl Oxirane),19.4,5.8,6.6,114.2,96-09-3,C1(C2OC2)=CC=CC=C1
+Dibutyl Amine,15,3,4.3,170.7,111-92-2,CCCCNCCCC
+Ethyl Aceto Acetate (Keto),16.5,7.3,8.3,127.3,141-97-9,CC(CC(OCC)=O)=O
+Thioglycolic Acid (Mercapto Acetic Acid),16,13.5,20,69.8,68-11-1,SCC(O)=O
+Allyl Methacrylate,15.2,4.1,7.5,135.8,96-05-9,CC(=C)C(=O)OCC=C
+"1,4-Dichlorobutane",18.3,7.7,2.8,111.9,110-56-5,C(CCCl)CCl
+Tri-n-Butyl Borate,16.7,1.8,4.6,269.5,688-74-4,CCCCOB(OCCCC)OCCCC
+1-Methoxy-2-Nitrobenzene,19.6,12.7,5.5,123.1,91-23-6,COC(C=CC=C1)=C1[N+]([O-])=O
+Hexanoic Acid,16.3,4.2,11.5,126.3,142-62-1,CCCCCC(O)=O
+Pentanoic Acid,15,4.1,10.3,109.5,109-52-4,OC(CCCC)=O
+HFE 7500,13.3,2,1,215,297730-93-9,CCOC(C(C(C(F)(F)F)(F)F)(F)F)(C(C(F)(F)F)(C(F)(F)F)F)F
+Oxetane (Trimethylene Oxide),16.7,10,5.4,65,503-30-0,C1COC1
+"2,2-Dimethyl-1-Propanol (Neopentyl Alc.)",15.6,6.5,13.5,121.1,75-84-3,CC(C)(C)CO
+2-Methyl-1-Pentanol,15.8,4.9,13.5,123.5,105-30-6,CC(CO)CCC
+3-Methyl-2-Butanol,15.6,5.2,13.4,108.3,598-75-4,CC(C)C(O)C
+1-Methyl Cyclohexanol,17.1,4,12,123.9,590-67-0,OC1(C)CCCCC1
+3-Methyl Cyclohexanol (Mix),17.2,6.4,12.5,124.8,591-23-1,CC1CCCC(C1)O
+4-Methyl Cyclohexanol (Mix),17.2,6.3,12.5,125.5,589-91-3,CC(CC1)CCC1O
+2-Methyl Cyclohexanol (Mix),17.1,6.5,12.5,124.1,583-59-5,CC1CCCCC1O
+Thiodiethylenglycol,17.3,8.8,19.8,103.6,111-48-8,OCCSCCO
+Isobutyl Formate,15.5,6.5,6.7,116.8,542-55-2,O=COCC(C)C
+Propargyl Acetate,16.3,5.2,8.3,98.8,627-09-8,CC(OCC#C)=O
+Methyl Aceto Acetate,16.4,8.6,8.9,108.3,105-45-3,CC(CC(OC)=O)=O
+"1,3-Propanediol (Trimethyleneglycol)",16.8,13.5,23.2,72.5,504-63-2,C(CO)CO
+Isobutyric Acid,15.7,5.4,10.5,93.3,79-31-2,CC(C)C(O)=O
+Isovaleric Acid,16.4,4.1,10.7,110.3,503-74-2,CC(C)CC(O)=O
+Methyl Cyanoacetate,16.9,14.9,9.9,88.6,105-34-0,O=C(OC)CC#N
+Ethyl Cyanoacetate,16.7,7.9,8.3,106.9,105-56-6,O=C(OCC)CC#N
+Propionic Anhydride,15.8,9,7.7,129.4,123-62-6,O=C(CC)OC(CC)=O
+2-Heptanol,15.7,5.4,11.7,142.7,543-49-7,CCCCCC(O)C
+"2,5-Diethoxy Tetrahydrofuran",16.6,6.4,7.3,165.7,3320-90-9,CCOC1OC(OCC)CC1
+Phenylhydrazine,20.4,6.5,14,98.8,100-63-0,NNC1=CC=CC=C1
+Piperidine,17.3,4.5,8.2,99.3,110-89-4,C1CCCCN1
+Pyrrolidine,17.9,6.5,7.4,82.7,123-75-1,C1CCCN1
+Piperazine,17.3,4.8,6,129.4,110-85-0,C1CNCCN1
+"1,2,3-Benzotriazole",18.7,15.6,12.4,96.2,95-14-7,C12=CC=CC=C1NN=N2
+Benzamide,21.2,14.7,11.2,90.3,55-21-0,NC(C1=CC=CC=C1)=O
+Ethylene Glycol Mono n-Hexyl Ether,16,5,11.4,164.5,112-25-4,CCCCCCOCCO
+Ethylene,15,2,3.8,49.3,74-85-1,[H]\C([H])=C([H])/[H]
+Undecane,16,0,0,212.2,1120-21-4,CCCCCCCCCCC
+Butyraldehyde,15.6,10.1,6.2,90.5,123-72-8,CCCC=O
+Pentanal (Valeraldehyde),15.7,9.4,5.8,107,110-62-3,CCCCC=O
+Methyl Cyclopentane,16,0,1,113,96-37-7,CC1CCCC1
+Propane,13.1,0,0,75.7,74-98-6,CCC
+Octyl Acetate,15.8,2.9,5.1,199.3,112-14-1,CC(OCCCCCCCC)=O
+Biuret,20,14.6,18.8,70.3,108-19-0,C(=O)(N)NC(=O)N
+2-Chloroacetamide,17.6,12.4,12.8,93.5,79-07-2,NC(CCl)=O
+Dibutyl Ketone,16,7.7,4.4,174,502-56-7,CCCCC(CCCC)=O
+Dihexyl Ether,16,3,2.8,235.8,112-58-3,CCCCCCOCCCCCC
+1-Nonene,15.4,1,2.2,174.1,124-11-8,C=CCCCCCCC
+4-Ethyl Phenol,18.3,5.2,12.6,123.3,123-07-9,CCC1=CC=C(O)C=C1
+n-Butyramide,16.9,13.7,12.3,98.4,541-35-5,O=C(N)CCC
+Nitrosobenzene,20,12.7,4,89.3,586-96-9,C1=CC=C(C=C1)N=O
+2-Phenyl Ethanol,18.3,5.6,11.2,120.2,60-12-8,OCCC1=CC=CC=C1
+Dodecanol,16,4,9.3,224.3,112-53-8,CCCCCCCCCCCCO
+Sulfanilamide,20,19.5,10.7,159.5,63-74-1,NC1=CC=C(S(=O)(N)=O)C=C1
+Indene,18.7,2.6,9,116.9,95-13-6,C1(CC=C2)=C2C=CC=C1
+2-t-Butyl-4-Methyl Phenol,17.3,3.7,10.5,177.6,2409-55-4,CC1=CC(=C(C=C1)O)C(C)(C)C
+Dimethyl Sulfate,16.5,13,7,95.5,77-78-1,O=S(OC)(OC)=O
+Chloropicrin (Trichloronitromethane),17.6,6.8,7,101.7,76-06-2,Cl[C](Cl)(Cl)[N+]([O-])=O
+"1,1-Dichloro-1-Nitroethane",16.8,12.1,4.3,125.2,594-72-9,CC([N+](=O)[O-])(Cl)Cl
+1-Chloro-1-Nitropropane,16.8,13,4.5,102.2,600-25-9,CCC([N+](=O)[O-])Cl
+Diisopropylamine,14.8,1.7,3.5,141.9,108-18-9,CC(C)NC(C)C
+4-Ethyl Morpholine,17.7,5,6.6,116.5,100-74-3,CCN1CCOCC1
+Propylene Imine (2-Methyl Aziridine),17.8,8.4,6.5,71.2,75-55-8,CC1CN1
+Glycidol,18.2,9,17.9,66.5,556-52-5,C1C(O1)CO
+?-Chloro Acetophenone,20,9.6,5.7,116.8,532-27-4,C1=CC=C(C=C1)C(=O)CCl
+"Picric Acid (2,4,6-Trinitrophenol)",19.2,7,6,135,88-89-1,OC1=C([N+]([O-])=O)C=C([N+]([O-])=O)C=C1[N+]([O-])=O
+2-Amino Pyridine,20.4,8.1,12.2,94.1,504-29-0,NC1=CC=CC=N1
+2-Propyn-1-ol,16.1,8.7,18.8,59.3,107-19-7,OCC#C
+2-Nitro-1-Propanol,16.1,13.7,15.4,88.8,2902-96-7,CC(CO)[N+](=O)[O-]
+"1,2-Cyclohexanediol",17.4,9.8,18.3,112.8,931-17-9,OC1C(O)CCCC1
+"1,2-Cyclohexanedione",18.6,10.3,8,103.8,765-87-7,C1CCC(=O)C(=O)C1
+"1,9-Nonanediol",15.7,7,15.1,170.5,3937-56-2,C(CCCCO)CCCCO
+Tetrahydrofurfuryl Alcohol,17.8,8.2,12.9,97.4,97-99-4,OCC1CCCO1
+Hexanal,15.8,8.4,5.3,123.7,66-25-1,CCCCCC=O
+Sulfuryl Chloride,17.6,7.2,0,81.4,7791-25-5,O=S(=O)(Cl)Cl
+"9,10-Anthraquinone",20.3,7.6,4.8,194.1,84-65-1,O=C(C2=C1C=CC=C2)C(C=CC=C3)=C3C1=O
+Bisphenol A,19.2,5.9,13.8,215.4,80-05-7,C[C](C2=CC=C(O)C=C2)(C)C1=CC=C(O)C=C1
+Sinapyl Alcohol,19.2,7.3,16.1,194.6,537-33-7,COC1=CC(=CC(=C1O)OC)C=CCO
+Coniferyl Alcohol,19,7,16.3,171.6,458-35-5,COC1=C(C=CC(=C1)C=CCO)O
+p-Coumaryl Alcohol,19.1,7,17.3,136.5,09/05/3690,C1=CC(=CC=C1C=CCO)O
+Ferulic Acid,19,6.6,15.1,155.5,1135-24-6,COC1=C(C=CC(=C1)C=CC(=O)O)O
+4-Hydroxycinnamic Acid,19.1,6.7,15.9,128.3,7400-08-0,C1=CC(=CC=C1C=CC(=O)O)O
+Cinnamyl Alcohol,19.1,6,13,129.1,104-54-1,OC\C=C\C1=CC=CC=C1
+"2,6-Dimethoxy Phenol",19.3,7.6,13.7,136.4,91-10-1,OC1=C(OC)C=CC=C1OC
+Eugenol,19,7.5,13,154,97-53-0,COC1=C(C=CC(=C1)CC=C)O
+Cis-Cinnamic Acid,19.1,3.9,10.6,115.4,102-94-3,C1=CC=C(C=C1)C=CC(=O)O
+Trans-Cinnamaldehyde,19.4,12.4,6.2,125.9,14371-10-9,O=C([H])/C=C/C1=CC=CC=C1
+Nitroglycerin (Glyceryl Trinitrate),16.9,13,10.9,143.1,55-63-0,C(C(CO[N+](=O)[O-])O[N+](=O)[O-])O[N+](=O)[O-]
+Anisaldehyde (2-Methoxy Benzaldehyde),19.4,11.9,8.3,120.8,135-02-4,O=CC(C=CC=C1)=C1OC
+Paraquat,19.5,8.8,5.9,205.7,4685-14-7,C[N+]1=CC=C(C=C1)C2=CC=[N+](C=C2)C
+"2,4,6-Trichloroanisol",21,3.9,7,129,87-40-1,COC1=C(C=C(C=C1Cl)Cl)Cl
+Acetyl Salicylic Acid,19,6.9,9.7,149.4,50-78-2,CC(=O)OC1=CC=CC=C1C(=O)O
+Ethyl Oleate,16.2,3.2,4,357.3,111-62-6,CCCCCCCCC=CCCCCCCCC(=O)OCC
+"2,4,6-Tribromo Phenol",20.6,10.2,14.1,129.7,118-79-6,C1=C(C=C(C(=C1Br)O)Br)Br
+Hexafluorobenzene,16,0,0,115.8,392-56-3,FC(C(F)=C(F)C(F)=C1F)=C1F
+OS-10 (Hexamethyldisiloxane),12.6,2,0,212.4,107-46-0,C[Si](C)(C)O[Si](C)(C)C
+Hexachloroethane,18.6,2,0,143.6,67-72-1,ClC(Cl)(Cl)C(Cl)(Cl)Cl
+Diphenyl Ether,19.4,3.4,4,159.6,101-84-8,C1(OC2=CC=CC=C2)=CC=CC=C1
+Hexamethyl Benzene,19.2,1.6,0,152.7,87-85-4,CC1=C(C(=C(C(=C1C)C)C)C)C
+1-Bromopropane,16.4,7.9,4.8,91.4,106-94-5,BrCCC
+2-Bromopropane,15.5,8.3,4.7,95.9,75-26-3,CC(Br)C
+Iodoform,20.2,3.6,10.6,98.2,75-47-8,[H]C(I)(I)I
+Tetrabromobisphenol A,20.2,9.1,13.8,249.5,79-94-7,CC(C)(C1=CC(=C(C(=C1)Br)O)Br)C2=CC(=C(C(=C2)Br)O)Br
+Hexachlorobenzene,20.3,2.1,0,164.9,118-74-1,ClC(C(Cl)=C(Cl)C(Cl)=C1Cl)=C1Cl
+Menthofuran,17.2,4.6,5.6,158,494-90-6,CC1=COC2=C1CCC(C)C2
+l-Menthone,17,8.1,4.4,172.3,10458-14-7,CC1CCC(C(=O)C1)C(C)C
+l-Menthyl Acetate,16.8,4.7,4.9,215.8,2623-23-6,CC1CCC(C(C1)OC(=O)C)C(C)C
+l-Menthol,16,4.7,9,177.5,2216-51-5,O[C@H]1C[C@@H](C)CC[C@@H]1[C@H](C)C
+Pulegone,17.5,8.9,5.5,162.9,89-82-7,CC(C1)CC/C(C1=O)=C(C)/C
+OS-20 (Octamethyltrisiloxane),12.2,1.8,0,288.4,107-51-7,C[Si](C)(C)O[Si](C)(C)O[Si](C)(C)C
+"1,8-Cineole (Eucalyptol)",16.7,4.6,3.4,167.5,470-82-6,CC1(C2CCC(O1)(CC2)C)C
+OS-30 (Decamethyltetrasiloxane),11.7,2.4,0,363.8,141-62-8,C[Si](C)(C)O[Si](C)(C)O[Si](C)(C)O[Si](C)(C)C
+Tri-n-Butyl Acetyl Citrate,16.7,2.5,7.4,384.3,77-90-7,CCCCOC(=O)CC(CC(=O)OCCCC)(C(=O)OCCCC)OC(=O)C
+Di-(2-Ethyl Hexyl) Sebacate,16.2,5,9,468.7,122-62-3,CCCCC(CC)COC(=O)CCCCCCCCC(=O)OCC(CC)CCCC
+Di-(2-Ethylhexyl)Azelate,16.2,4.7,8.4,449.9,103-24-2,CCCCC(CC)COC(=O)CCCCCCCC(=O)OCC(CC)CCCC
+Diisobutyl Adipate,16.7,2.5,6.2,269.6,141-04-8,CC(C)COC(=O)CCCCC(=O)OCC(C)C
+Dioctyl Adipate,16.7,2,5.1,400,123-79-5,CCCCCCCCOC(=O)CCCCC(=O)OCCCCCCCC
+Diethyl Oxalate,16.2,8,8.8,136.2,95-92-1,CCOC(C(OCC)=O)=O
+Dimethyl Sebacate,16.6,2.9,6.7,233.3,106-79-6,O=C(OC)CCCCCCCCC(OC)=O
+Dimethyl Maleate,16.3,8.3,9.8,125.5,624-48-6,O=C(OC)/C=C\C(OC)=O
+Dibutyl Maleate,16.5,6.1,7.2,230.4,105-76-0,O=C(OCCCC)\C=C/C(OCCCC)=O
+Dibenzyl Sebacate,17.8,2.2,5.5,362.1,140-24-9,C1=CC=C(C=C1)COC(=O)CCCCCCCCC(=O)OCC2=CC=CC=C2
+Benzyl Benzoate,20,5.1,5.2,190.3,120-51-4,O=C(OCC2=CC=CC=C2)C1=CC=CC=C1
+Triphenyl Phosphate,20.1,6.4,6.8,270.9,115-86-6,O=[P](OC2=CC=CC=C2)(OC3=CC=CC=C3)OC1=CC=CC=C1
+Trioctyl Phosphate,16.2,5.9,4.2,469.8,1806-54-8,CCCCCCCCOP(=O)(OCCCCCCCC)OCCCCCCCC
+"Adipic Acid (1,6-Hexanedioic)",17.1,10,16.3,133.9,124-04-9,OC(CCCCC(O)=O)=O
+2-Ethyl Hexyl Phthalate (Mono),17.3,6.2,6.8,265,4376-20-9,CCCCC(CC)COC(=O)C1=CC=CC=C1C(=O)O
+Perfluorobutane,10.6,0,0,176.1,355-25-9,FC(F)(F)C(F)(F)C(F)(F)C(F)(F)F
+Bisphenol-S,20,14.6,16.3,183.2,80-09-1,C1=CC(=CC=C1O)S(=O)(=O)C2=CC=C(C=C2)O
+Oxalic Acid,17,17,26,61.5,144-62-7,O=C(O)C(O)=O
+"1,3-Bis(Trifluoromethyl)Benzene",17,6.8,0,155.2,402-31-3,C1=CC(=CC(=C1)C(F)(F)F)C(F)(F)F
+"Alpha,Alpha,a-Trifluoro Toluene",17.5,8.8,0,122.9,98-08-8,C1=CC=C(C=C1)C(F)(F)F
+"2,4-Dichlorophenol",20,7.2,13.1,119,120-83-2,C1=CC(=C(C=C1Cl)Cl)O
+Triclosan,20,7.7,10,263,3380-34-5,Clc1cc(Cl)ccc1Oc2c(O)cc(Cl)cc2
+Pentachloro Ethane,18.2,3.2,2.4,120.8,76-01-7,[H][C](Cl)(Cl)[C](Cl)(Cl)Cl
+Vanillin (4-Hydroxy-3-Methoxy Benzaldehy,19.4,9.8,11.2,133.2,121-33-5,OC1=CC=C(C([H])=O)C=C1OC
+Ascorbic Acid,18,11.7,25.5,124.8,50-81-7,O=C1C(O)=C(O)[C@@H]([C@@H](O)CO)O1
+1-Chloro-2-Ethyl Benzene,18.9,4.9,2.2,133,89-96-3,CCC1=CC=CC=C1Cl
+2-Chloroethyl Benzene,19.3,6.3,2.2,131.5,622-24-2,ClCCC1=CC=CC=C1
+Diphenyl Acetylene (0 Dipole Moment),18,2,3.2,188.5,501-65-5,C1(C#CC2=CC=CC=C2)=CC=CC=C1
+Diphenyl Acetylene (P By Group Cont.),18,2,3.2,188.5,501-65-5,C1(C#CC2=CC=CC=C2)=CC=CC=C1
+Phenyl Acetylene,18.8,2.8,4,110.5,536-74-3,C#CC1=CC=CC=C1
+Ozone,19.8,4.2,0,35.6,10028-15-6,O=[O+][O-]
+Bromine,18.2,14.9,0,51.5,7726-95-6,[Br]Br
+Phosphorous Oxychloride,18.1,9.3,0,92,10025-87-3,O=P(Cl)(Cl)Cl
+Boron Trichloride,16.6,2.5,0,87.1,10294-34-5,ClB(Cl)Cl
+Hydrogen Peroxide,15.5,12.2,42.7,23.6,7722-84-1,OO
+Trichlorosilane,14.2,3.6,3.8,101.5,10025-78-2,[H][Si](Cl)(Cl)Cl
+Perfluoropentane (PFC 5050),11.3,0,0,176.7,678-26-2,FC(F)(C(F)(C(F)(C(F)(C(F)(F)F)F)F)F)F
+Ecstasy,18,5.1,6.1,202.9,42542-10-9,CC(CC1=CC2=C(C=C1)OCO2)NC
+Serotonin,18,8.2,14.4,144.4,50-67-9,C1=CC2=C(C=C1O)C(=CN2)CCN
+Amphetamine,17.5,4.3,6.3,148.1,300-62-9,CC(CC1=CC=CC=C1)N
+Dopamine,18.2,10.3,19.5,180,51-61-6,C1=CC(=C(C=C1CCN)O)O
+Adrenalin,20.5,8.7,19.9,154.5,51-43-4,CNCC(C1=CC(=C(C=C1)O)O)O
+Saccharin,21.1,12.5,9.8,206.8,81-07-2,O=C2C1=CC=CC=C1S(N2)(=O)=O
+Dipentene (Dl-Limonene),17.2,1.8,4.3,162.9,138-86-3,CC1=CCC(CC1)C(=C)C
+Nicotine,18.5,7.8,6.5,160.7,54-11-5,CN1[C@@H](C2=CC=CN=C2)CCC1
+Cycloheximide,18.3,11,13.8,171,66-81-9,OC(C(CC(C)CC1C)C1=O)CC(CC2=O)CC(N2)=O
+Caffeine,19.5,10.1,13,157.9,58-08-2,O=C(N(C)C2=C1N(C)C=N2)N(C)C1=O
+Perfluorohexane (PFC 5060),12.1,0,0,201.2,355-42-0,FC(F)(C(F)(C(F)(C(F)(C(F)(C(F)(F)F)F)F)F)F)F
+Quinine,19,6.6,11,310.7,130-95-0,COC1=CC2=C(C=CN=C2C=C1)C(C3CC4CCN3CC4C=C)O
+Thymol,19,4.5,10.8,166.9,89-83-8,CC1=CC(O)=C(C(C)C)C=C1
+Salicylic Acid,19,9,13.7,119.6,69-72-7,OC1=CC=CC=C1C(O)=O
+4-Aminopyridine,20.4,16.1,12.9,87.1,504-24-5,NC1=CC=NC=C1
+1-Aminocyclopropane Carboxylic Acid,17,6.3,13.6,93.7,22059-21-8,C(O)(=O)C1(CC1)(N)
+Spermidin,16.7,11.2,12,155.6,124-20-9,C(CCNCCCN)CN
+Meclofenoxate,16,6.2,9,198.3,51-68-3,CN(C)CCOC(=O)COC1=CC=C(C=C1)Cl
+Norephedrin,18,10.7,24.1,141.9,299-42-3,C[C@@H]([C@@H](C1=CC=CC=C1)O)NC
+2-Oxopyrrolidinacetamid,17.5,15.6,11.2,116.6,7491-74-9,C1CC(=O)N(C1)CC(=O)N
+Paracetamol,17.8,10.5,13.9,151.2,103-90-2,CC(=O)NC1=CC=C(C=C1)O
+Methoxy Methanol,16,9,18.5,62,4461-52-3,COCO
+"Cyclohexane-1,2-Dicarboxylic Acid Di-Isononyl Ether",16.4,2.2,5,422.4,NA,O=C(OCCCCCCC(C)C)C1CCCCC1C(OCCCCCCC(C)C)=O
+Phosphoric Acid,14.7,18.6,28.4,52.8,7664-38-2,OP(=O)(O)O
+"4,4'-Methylenebis(Phenylisocyanate)",19.5,4.1,1.7,212.1,101-68-8,C1=CC(=CC=C1CC2=CC=C(C=C2)N=C=O)N=C=O
+Triethyl Citrate,16.5,4.9,12,243,77-93-0,OC(CC(OCC)=O)(C(OCC)=O)CC(OCC)=O
+Acetyl Triethyl Citrate,16.6,3.5,8.6,279.9,77-89-4,CCOC(=O)CC(CC(=O)OCC)(C(=O)OCC)OC(=O)C
+Tri-n-Butyl Citrate,16.6,3.8,10.1,345.5,77-94-1,CCCCOC(=O)CC(CC(=O)OCCCC)(C(=O)OCCCC)O
+"1,2-Dichloropropane",17.3,7.1,2.9,98.2,78-87-5,CC(Cl)CCl
+Glycerol Diacetate,16.4,8.9,14.2,149.4,NA,-
+d-Camphor,17.8,10.3,5.2,182.4,464-49-3,CC1(C)C2CC[C]1(C)C(C2)=O
+Sebacic Acid,17.1,7.1,11.7,196.1,111-20-6,OC(CCCCCCCCC(O)=O)=O
+Butyl Oleate,16.3,3.7,4.2,389,142-77-8,CCCCCCCC\C=C/CCCCCCCC(OCCCC)=O
+Dichloroethylene (Trans),16.7,7.8,3.3,77.6,156-60-5,C(=CCl)Cl
+"4-Ethyl-1,3-Dioxolane-2-One",17.5,9.8,3,116,4437-85-8,CCC1COC(=O)O1
+o-Chlorotoluene,19,4.9,2.3,117.5,95-49-8,CC(C=CC=C1)=C1Cl
+l-Dopa,18,8.2,20.3,136,59-92-7,C1=CC(=C(C=C1CC(C(=O)O)N)O)O
+l-Tyrosine,17.5,6.9,17.2,143,60-18-4,N[C@@H](CC1=CC=C(O)C=C1)C(O)=O
+"5,6-Indolequinone",19.5,9.3,7.8,134.1,NA,O=C1\C=C\2/C(=C\C1=O)N/C=C/2
+"5,6-Dihydroxyindole",19.5,8.8,17.9,135.9,3131-52-0,C1=CNC2=CC(=C(C=C21)O)O
+"5,6-Dihydroxyindole-2-Carboxylic Acid",19.5,8.1,17.7,175.9,03/08/4790,OC(=O)c1cc2cc(O)c(O)cc2[nH]1
+Ethyl Fluoride,15.2,9.3,3,58.8,353-36-6,CCF
+"2,6-Dichloro-7-Methyl Purine",20.5,11.7,14.2,162.4,2273-93-0,CN1C=NC2=C1C(=NC(=N2)Cl)Cl
+Purine,20.5,11.7,14.2,95,120-73-0,C1=C2C(=NC=N1)N=CN2
+Pyrimidine,20.5,9.4,11.3,78.8,289-95-2,C1=CC=NC=N1
+Adonitol,18,12,36,95.1,488-81-3,C(C(C(C(CO)O)O)O)O
+Adenine,20,16,14.9,122.8,73-24-5,NC1=NC=NC2=C1N=CN2
+Thymine,19,20.5,13,114.6,65-71-4,O=C1C(C)=CNC(N1)=O
+3-Methoxy-3-Methyl Butanol,16,6.3,12.9,127.6,56539-66-3,CC(C)(CCO)OC
+HFC-365mfc,16.4,0,0,116.6,406-58-6,CC(F)(F)CC(F)(F)F
+Thiourea From Urea Min Sphere,18,15,12,90.6,62-56-6,NC(N)=S
+Urea Min Sphere,17.6,17.3,16,48.8,57-13-6,O=C(N)N
+Di-sec-Butyl Ether,15.2,3.5,3.3,172.3,6863-58-7,O(C(CC)C)C(CC)C
+Cyclopentyl Methyl Ether (Cpme),16.7,4.3,4.3,116.5,5614-37-9,COC1CCCC1
+Cycloheptane,17.1,1.4,1.9,121.2,291-64-5,C1CCCCCC1
+d-Limonene,17.2,1.8,4.3,162.9,5989-27-5,CC1=CCC(CC1)C(=C)C
+n-Propyl Propanoate,15.5,5.6,5.7,132.5,106-36-5,CCCOC(=O)CC
+Octamethylcyclotetrasiloxane,12.8,1.3,1,312.4,556-67-2,C[Si]1(C)O[Si](C)(C)O[Si](C)(C)O[Si](C)(C)O1
+Decamethylcyclopentasiloxane,12.9,1.3,1,388.7,541-02-6,[Si]1(C)(C)O[Si](C)(C)O[Si](C)(C)O[Si](C)(C)O[Si](O1)(C)C
+Cyclododecane,16.4,0,0,198,294-62-2,C1CCCCCCCCCCC1
+Camphene,16.4,1.8,3.1,153,79-92-5,C1(C(C2CC1CC2)(C)C)=C
+Dimethyl Succinate,16.1,7.7,8.8,135.1,106-65-0,O=C(CCC(OC)=O)OC
+Diethyl Succinate,16.2,6.8,8.7,169.3,123-25-1,O=C(CCC(OCC)=O)OCC
+Dimethyl Glutarate,16.1,7.7,8.3,151.9,1119-40-0,COC(CCCC(OC)=O)=O
+Diethyl Glutarate,16.3,7,7.8,186.08,818-38-2,O=C(OCC)CCCC(OCC)=O
+Dimethyl Adipate,16.3,6.8,8.5,168.5,627-93-0,O=C(OC)CCCCC(OC)=O
+Diethyl Adipate,16.4,6.2,7.5,202.7,141-28-6,O=C(OCC)CCCCC(OCC)=O
+Dimethyl 2-Methylglutarate,16.6,8.7,5,151.9,14035-94-0,COC(=O)CCC(C(=O)OC)C
+Glycerol Carbonate,17.9,25.5,17.4,83.2,931-40-8,O=C1OCC(O1)CO
+Glycerol Carbonate Acetate,17.1,14.7,9.2,122.3,1607-31-4,O=C(C)OCC1COC(=O)O1
+Glycerol Carbonate Ethyl Ether,16.8,18.5,8.7,125.4,307949-19-5,O=C1OC(CO1)COCC
+Dimethyl  Isosorbide (DMI),17.6,7.1,7.5,150.1,5306-85-4,O([C@@H]1[C@H]2OC[C@@H](OC)[C@H]2OC1)C
+"1,4-Dioxane (High P)",17.1,6.8,7.8,85.7,123-91-1,C1COCCO1
+Methanol Cluster,14.7,5,10,100,67-56-1,OC([H])([H])[H]
+Cyclohexane for IGC,16,0,0.2,108.9,110-82-7,C1CCCCC1
+Cyclooctane,16.6,0.1,0.1,131.7,292-64-8,C1CCCCCCC1
+Cyrene,18.9,12.4,7.1,102.5,53716-82-8,O=C1C(OC2)OC2CC1
+?-Valerolactone (GVL),16.8,16.5,6.7,97.1,108-29-2,CC(CC1)OC1=O

@@ -1,9 +1,12 @@
+from __future__ import annotations
+
 import numpy as np
+from numpy.typing import NDArray
 from scipy.optimize import differential_evolution, minimize, OptimizeResult
 from scipy.spatial.distance import pdist, squareform
 from sklearn.base import BaseEstimator, TransformerMixin, _fit_context
 from sklearn.metrics import accuracy_score
-from sklearn.utils.validation import check_is_fitted,  check_array
+from sklearn.utils.validation import check_is_fitted, check_array
 from sklearn.utils._param_validation import Interval, StrOptions, Real, Integral
 
 from .loss import HSPSingleSphereLoss, HSPDoubleSphereLoss
@@ -140,8 +143,14 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
         # Minimize params
         self.min_options = min_options
 
-    def _binarize_labels(self, y):
-        """Convert labels to binary (1=inside, 0=outside) using inside_limit."""
+    def _binarize_labels(self, y: NDArray) -> NDArray:
+        """Convert labels to binary (1=inside, 0=outside) using inside_limit.
+
+        A solvent is classified as "inside" (good) when its score satisfies
+        ``0 < score <= inside_limit``.  A score of exactly 0 is treated as
+        "outside" (bad) regardless of ``inside_limit``, because 0 is the
+        conventional placeholder for an untested or bad solvent in HSP data.
+        """
         y = np.asarray(y, dtype=float)
         return ((y <= self.inside_limit) & (y != 0)).astype(int)
     
@@ -202,8 +211,6 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
             return compute_datafit(distances, radii, y_bin)
         else:
             raise ValueError("DATAFIT computation only implemented for 1 or 2 spheres.")
-
-        return DATAFIT
      
     def _classic_fit(self, X, y):
         """Classic fitting algorithm for single sphere."""
@@ -469,16 +476,16 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
         return self
     
     @_fit_context(prefer_skip_nested_validation=True)
-    def fit(self, X, y):
+    def fit(self, X: NDArray, y: NDArray) -> HSPEstimator:
         """Fit HSP model to training data.
-        
+
         Parameters
         ----------
         X : array-like of shape (n_samples, 3)
             Training vectors with D, P, H values
         y : array-like of shape (n_samples,)
             Target scores
-        
+
         Returns
         -------
         self : object
@@ -504,12 +511,12 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
             return self._minimize_fit(Xv, yv)
         elif self.method == 'classic' and self.n_spheres == 1:
             return self._classic_fit(Xv, yv)
-        elif self.method == 'classic' and self.n_spheres >= 2:
+        elif self.method == 'classic' and self.n_spheres == 2:
             return self._classic_two_fit(Xv, yv)
         else:
             raise ValueError(f"Unknown method: {self.method}")
     
-    def predict(self, X):
+    def predict(self, X: NDArray) -> NDArray:
         """Predict using the HSP model for 1 or 2 spheres.
 
         Parameters
@@ -519,7 +526,7 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
 
         Returns
         -------
-        y_pred : array-like of shape (n_samples,)
+        y_pred : ndarray of shape (n_samples,)
             Predicted values (1 if inside any sphere, else 0)
         """
         check_is_fitted(self, ['hsp_', 'error_'])
@@ -540,18 +547,22 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
         y_pred = (red <= 1.0).any(axis=1).astype(int)
         return y_pred
 
-    def transform(self, X):
+    def transform(self, X: NDArray) -> NDArray:
         """Transform X using HSP distances.
-        
+
+        Returns the minimum Relative Energy Difference (RED = dist/R) across
+        all fitted spheres for each sample.  RED < 1 means the solvent lies
+        inside a sphere (predicted compatible).
+
         Parameters
         ----------
         X : array-like of shape (n_samples, 3)
             Input samples with D, P, H values
-            
+
         Returns
         -------
-        X_transformed : array of shape (n_samples, 1)
-            RED values for each sample
+        X_transformed : ndarray of shape (n_samples, 1)
+            RED values for each sample (minimum across spheres)
         """
         check_is_fitted(self, ['hsp_', 'error_'])
         X = self._validate_data(X)
@@ -568,7 +579,7 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
 
         return red_min.reshape(-1, 1)
     
-    def score(self, X, y):
+    def score(self, X: NDArray, y: NDArray) -> float:
         """Returns the model accuracy on the given test data and labels."""
         check_is_fitted(self, ['hsp_', 'error_'])
         X = np.asarray(X, dtype=float)

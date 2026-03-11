@@ -1,7 +1,15 @@
+from __future__ import annotations
+
+import logging
+
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.figure
+
 from .core.hsp_estimator import HSPEstimator
 from .readers import HSPDataReader
-import matplotlib.pyplot as plt
+
+logger = logging.getLogger(__name__)
 
 
 def WireframeSphere(
@@ -64,18 +72,17 @@ class HSP(HSPEstimator):
         super().__init__(inside_limit=inside_limit, n_spheres=n_spheres)
 
 
-    def read(self, path):
+    def read(self, path: str) -> HSP:
         """
         Read HSP data from various file formats.
-        
-        Supports CSV, HSD, and HSDX formats with automatic format detection.
 
+        Supports CSV, HSD, and HSDX formats with automatic format detection.
         """
         reader = HSPDataReader()
         self.grid = reader.read(path)
-        return self     
+        return self
 
-    def get(self, inside_limit=1, n_spheres=1):
+    def get(self, inside_limit: float = 1, n_spheres: int = 1) -> tuple:
         """
         Fit HSP spheres to the loaded data and prepare for plotting.
         
@@ -147,26 +154,24 @@ class HSP(HSPEstimator):
             else "%.3f" % self.radius
         )
        
-        print(
-            "HSP: "
-            + ", ".join(map(str, formatted_hsp))
-            + "\n"
-            + "Radius: "
-            + str(formatted_radius)
-            + "\n"
-            + "error: "
-            + "{:.2e}".format(self.error_)
-            + "\n"
-            + "accuracy: "
-            + str("%.4f" % self.accuracy_)
-            + "\n"
-            + "DATAFIT: "
-            + str("%.4f" % self.datafit_)
+        logger.info(
+            "HSP: %s | Radius: %s | error: %.2e | accuracy: %.4f | DATAFIT: %.4f",
+            ", ".join(map(str, formatted_hsp)),
+            formatted_radius,
+            self.error_,
+            self.accuracy_,
+            self.datafit_,
         )
         return self.hsp, self.radius, self.error, self.accuracy, self.DATAFIT
            
-    def plot_3d(self, legend=False):
-        """Create a 3D plot of the HSP space with spheres and solvents."""
+    def plot_3d(self, legend: bool = False) -> matplotlib.figure.Figure:
+        """Create a 3D plot of the HSP space with spheres and solvents.
+
+        Returns
+        -------
+        matplotlib.figure.Figure
+            The 3D figure object.
+        """
         if not hasattr(self, 'hsp_') or self.hsp_ is None:
             raise ValueError("Model not fitted. Call get() first.")     
        
@@ -215,9 +220,8 @@ class HSP(HSPEstimator):
             ax.scatter(center[0], center[1], center[2], color="g", s=50)
 
         # Draw solvent points
-        good_x, good_y, good_z = self.inside_[:, 2], self.inside_[:, 0], self.inside_[:, 1] # H, D, P
-        ax.scatter(good_x, good_y, good_z, color="b", s=50)
-        bad_x, bad_y, bad_z = self.outside_[:, 2], self.outside_[:, 0], self.outside_[:, 1] # H, D, P
+        good_x, good_y, good_z = self.inside_[:, 2], self.inside_[:, 0], self.inside_[:, 1]  # H, D, P
+        bad_x, bad_y, bad_z = self.outside_[:, 2], self.outside_[:, 0], self.outside_[:, 1]  # H, D, P
 
         ax.scatter(good_x, good_y, good_z, color="b", s=50, label="Good solvents", alpha=0.7)
         ax.scatter(bad_x, bad_y, bad_z, color="r", s=50, label="Bad solvents", alpha=0.7)
@@ -228,9 +232,12 @@ class HSP(HSPEstimator):
         if legend:
             ax.legend()
 
+        return fig
 
-    def plot_2d(self, legend=False):
+
+    def plot_2d(self, legend: bool = False) -> matplotlib.figure.Figure:
         """Create 2D projections of the HSP space.
+
         Returns
         -------
         matplotlib.figure.Figure
@@ -273,7 +280,7 @@ class HSP(HSPEstimator):
             centers_h = [sphere[2] for sphere in self.hsp_]  # H values
             radii = [sphere[3] for sphere in self.hsp_]      # radii
 
-       # P vs H
+        # P vs H
         ax1.scatter(good_z, good_x, color="b", label="Good solvents")
         ax1.scatter(bad_z, bad_x, color="r", label="Bad solvents")
         for p_center, h_center, radius in zip(centers_p, centers_h, radii):
@@ -311,16 +318,18 @@ class HSP(HSPEstimator):
         if legend:
             ax3.legend()
         set_axes_equal(ax3)
- 
 
-    def plots(self):
+        return fig
+
+    def plots(self) -> tuple[matplotlib.figure.Figure, matplotlib.figure.Figure]:
         """Show both 3D and 2D plots.
-        
+
         Returns
         -------
         tuple
             (fig_3d, fig_2d) matplotlib figure objects.
         """
-        self.plot_3d()
-        self.plot_2d()
+        fig_3d = self.plot_3d()
+        fig_2d = self.plot_2d()
+        return fig_3d, fig_2d
 

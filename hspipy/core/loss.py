@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 import numpy as np
+from numpy.typing import NDArray
 
 from .utils import compute_datafit, hansen_distance, hansen_center_distance
 
@@ -24,8 +27,9 @@ class BaseHSPLoss:
         return 1 - float(of_value) if self.minimize else float(of_value)
 
 class HSPSingleSphereLoss(BaseHSPLoss):
-    """Custom loss for single HSP sphere."""
-    def __call__(self, HSP, X, y):
+    """Loss function for fitting a single HSP sphere via optimization."""
+
+    def __call__(self, HSP: NDArray, X: NDArray, y: NDArray) -> float:
         self.y = y
         D, P, H, R = HSP
         center = np.array([D, P, H])
@@ -38,8 +42,9 @@ class HSPSingleSphereLoss(BaseHSPLoss):
         return self._finalize_output(objective)
 
 class HSPDoubleSphereLoss(BaseHSPLoss):
-    """Custom loss for double HSP spheres."""
-    def __call__(self, HSP, X, y):
+    """Loss function for fitting two HSP spheres via optimization."""
+
+    def __call__(self, HSP: NDArray, X: NDArray, y: NDArray) -> float:
         self.y = y
         D1, P1, H1, R1 = HSP[0:4]
         D2, P2, H2, R2 = HSP[4:8]
@@ -47,9 +52,12 @@ class HSPDoubleSphereLoss(BaseHSPLoss):
         center1 = np.array([D1, P1, H1])
         center2 = np.array([D2, P2, H2])
 
-        # Check constraints
+        # Check constraints; return a large penalty so the optimizer avoids
+        # invalid configurations (one sphere inside the other, or a sphere
+        # with no good solvents).  1e10 is chosen to dominate any realistic
+        # DATAFIT value (which is in [0, 1]) while staying within float64 range.
         if self._violates_constraints(center1, center2, R1, R2, X, y):
-            return 1e10  # Heavy penalty for constraint violation
+            return 1e10
 
         # Compute distances for all samples to both spheres
         dist1 = hansen_distance(X, center1)

@@ -1,8 +1,12 @@
+import logging
+import numpy as np
 import pandas as pd
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Union
 from abc import ABC, abstractmethod
+
+logger = logging.getLogger(__name__)
 
 
 class HSPReader(ABC):
@@ -41,7 +45,7 @@ class HSPReader(ABC):
         initial_count = len(df)
         df = df.dropna(subset=['D', 'P', 'H'])
         if len(df) < initial_count:
-            print(f"Warning: Removed {initial_count - len(df)} rows with invalid data")
+            logger.warning("Removed %d rows with invalid D/P/H data", initial_count - len(df))
         
         if len(df) == 0:
             raise ValueError("No valid data rows found after cleaning")
@@ -49,7 +53,7 @@ class HSPReader(ABC):
         # Report missing Score values but don't modify them
         score_missing = df['Score'].isna().sum()
         if score_missing > 0:
-            print(f"Info: {score_missing} rows have missing Score values (will be excluded during fitting)")
+            logger.info("%d rows have missing Score values (will be excluded during fitting)", score_missing)
              
         # Validate HSP parameter ranges
         self._validate_hsp_ranges(df)
@@ -61,7 +65,7 @@ class HSPReader(ABC):
         for param, col in [('D', 'D'), ('P', 'P'), ('H', 'H')]:
             out_of_range = ((df[col] < 0) | (df[col] > 50)).sum()
             if out_of_range > 0:
-                print(f"Warning: {out_of_range} {param} values outside typical range (0-50)")
+                logger.warning("%d %s values outside typical range (0–50)", out_of_range, param)
 
 
 class CSVReader(HSPReader):
@@ -210,7 +214,7 @@ class HSPDataReader:
         
         try:
             df = reader.read(path)
-            print(f"Successfully loaded {len(df)} solvent records from {path.name}")
+            logger.info("Successfully loaded %d solvent records from %s", len(df), path.name)
             return df
         except Exception as e:
             raise ValueError(f"Failed to read HSP data from {path}: {str(e)}")
