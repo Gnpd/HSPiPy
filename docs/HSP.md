@@ -60,27 +60,26 @@ Read HSP data from various file formats.
 - `self`: object  
   Returns self with loaded data.
 
-### `get(inside_limit=None, n_spheres=None)`
+### `get(inside_limit=1, n_spheres=1)`
 
 Fit HSP spheres to the loaded data and prepare for plotting.
 
 **Parameters**:
-- `inside_limit`: `float` or `None`, default=None  
-  Threshold for inside vs outside classification. If None, uses the value from initialization.
-- `n_spheres`: `int` or `None`, default=None  
-  Number of spheres to fit. If None, uses value from initialization.
+- `inside_limit`: `float`, default=1
+  Threshold score value for classifying a solvent as inside the sphere (`0 < score <= inside_limit`).
+- `n_spheres`: `int`, default=1
+  Number of spheres to fit (1 or 2).
 
 **Returns**:
-- `hsp`: `ndarray`  
-  Fitted HSP parameters.
-- `radius`: `float` or `ndarray`  
-  Fitted sphere radius/radii.
-- `error`: `float`  
-  Optimization error.
-- `accuracy`: `float`  
-  Classification accuracy.
-- `DATAFIT`: `float`  
-  DATAFIT value.
+- `HSPResult`
+  Result object with the following attributes:
+  - `.hsp`: `ndarray` — Fitted HSP center coordinates. Shape `(3,)` for single sphere, `(n_spheres, 3)` for multiple.
+  - `.radius`: `float` or `ndarray` — Sphere radius or radii.
+  - `.error`: `float` — Objective function value from the optimization (lower is better).
+  - `.accuracy`: `float` — Classification accuracy on the input dataset.
+  - `.datafit`: `float` — DATAFIT value (geometric mean fitness; 1.0 = perfect classification).
+
+  In a Jupyter notebook the result renders as a formatted table automatically. In a script use `print(result)` or access attributes directly.
 
 ### `plot_3d()`
 
@@ -103,7 +102,7 @@ Create 2D projections of the HSP space.
 Show both 3D and 2D plots.
 
 **Returns**:
-- Displays both 3D and 2D visualizations.
+- `tuple` — `(fig_3d, fig_2d)` matplotlib figure objects.
 
 ## Examples
 
@@ -116,8 +115,14 @@ from hspipy import HSP
 hsp = HSP()
 hsp.read('solvent_data.csv')
 
-# Fit model and get results
-hsp, radius, error, accuracy, datafit = hsp.get()
+# Fit model — result renders as a table in Jupyter automatically
+result = hsp.get()
+
+# Access individual attributes
+print(result.hsp)       # fitted D, P, H center
+print(result.radius)    # sphere radius
+print(result.accuracy)  # classification accuracy
+print(result.datafit)   # DATAFIT value
 
 # Visualize results
 hsp.plots()
@@ -129,14 +134,13 @@ hsp.plots()
 # Fit with custom parameters
 hsp = HSP(inside_limit=2, n_spheres=2)
 hsp.read('solvent_data.hsd')
-hsp.get()
+result = hsp.get()
 
-# Access individual parameters
+# Access individual parameters via the HSP instance (set after get())
 print(f"D: {hsp.d}, P: {hsp.p}, H: {hsp.h}")
 print(f"Radius: {hsp.radius}")
-print(f"DATAFIT: {hsp.DATAFIT}")
-print(f"Accuracy: {hsp.accuracy}")
-
+print(f"DATAFIT: {result.datafit}")
+print(f"Accuracy: {result.accuracy}")
 ```
 
 ## File Format Support
@@ -151,4 +155,5 @@ The `HSP` class supports multiple file formats through the `HSPDataReader`:
 ## Notes
 
 - For plotting, the 3D axes are labelled as H (x), D (y), P (z) and the model centers are converted accordingly.
-- `get()` prints formatted results and returns `(hsp, radius, error, accuracy, DATAFIT)` for convenience.
+- `get()` returns an `HSPResult` object. In a Jupyter notebook it renders as a formatted table automatically; in a script use `print(result)`.
+- `plots()` returns `(fig_3d, fig_2d)` so figures can be saved or further customised.

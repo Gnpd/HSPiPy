@@ -5,6 +5,7 @@ import matplotlib
 matplotlib.use("Agg")  # non-interactive backend for tests
 
 from hspipy import HSP
+from hspipy.hsp import HSPResult
 
 
 CSV_PATH = "examples/hsp_example.csv"
@@ -43,12 +44,36 @@ def test_get_double_sphere():
         assert h.hsp_[i][3] > 0, f"Radius of sphere {i} must be positive"
 
 
-def test_get_returns_tuple(fitted_hsp):
+def test_get_returns_hsp_result():
     h = HSP()
     h.read(CSV_PATH)
     result = h.get(inside_limit=1, n_spheres=1)
-    assert isinstance(result, tuple)
-    assert len(result) == 5  # hsp, radius, error, accuracy, DATAFIT
+    assert isinstance(result, HSPResult)
+    assert result.hsp is not None
+    assert result.radius > 0
+    assert 0.0 <= result.accuracy <= 1.0
+    assert 0.0 <= result.datafit <= 1.0
+
+
+def test_hsp_result_repr():
+    h = HSP()
+    h.read(CSV_PATH)
+    result = h.get()
+    text = repr(result)
+    assert "HSP:" in text
+    assert "Radius:" in text
+    assert "accuracy:" in text
+    assert "DATAFIT:" in text
+
+
+def test_hsp_result_repr_html():
+    h = HSP()
+    h.read(CSV_PATH)
+    result = h.get()
+    html = result._repr_html_()
+    assert "<table" in html
+    assert "HSP" in html
+    assert "DATAFIT" in html
 
 
 def test_plots_returns_figures(fitted_hsp):

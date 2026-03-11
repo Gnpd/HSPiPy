@@ -48,6 +48,68 @@ def WireframeSphere(
     return sphere_x, sphere_y, sphere_z
 
 
+class HSPResult:
+    """
+    Result object returned by :meth:`HSP.get`.
+
+    Attributes
+    ----------
+    hsp : ndarray
+        Fitted HSP coordinates. Shape ``(3,)`` for a single sphere (D, P, H),
+        or ``(n_spheres, 3)`` for multiple spheres.
+    radius : float or ndarray
+        Sphere radius or radii.
+    error : float
+        Objective function value from the optimization (lower is better).
+    accuracy : float
+        Classification accuracy on the input dataset.
+    datafit : float
+        DATAFIT value (geometric mean fitness; 1.0 = perfect classification).
+    """
+
+    def __init__(self, hsp, radius, error, accuracy, datafit):
+        self.hsp = hsp
+        self.radius = radius
+        self.error = error
+        self.accuracy = accuracy
+        self.datafit = datafit
+
+    def __repr__(self) -> str:
+        hsp_str = ", ".join("%.2f" % v for v in np.ravel(self.hsp))
+        r_str = ", ".join("%.3f" % v for v in np.ravel(self.radius))
+        return (
+            f"HSP:      {hsp_str}\n"
+            f"Radius:   {r_str}\n"
+            f"error:    {self.error:.2e}\n"
+            f"accuracy: {self.accuracy:.4f}\n"
+            f"DATAFIT:  {self.datafit:.4f}"
+        )
+
+    def _repr_html_(self) -> str:
+        hsp_str = ", ".join("%.2f" % v for v in np.ravel(self.hsp))
+        r_str = ", ".join("%.3f" % v for v in np.ravel(self.radius))
+        rows = [
+            ("HSP", hsp_str),
+            ("Radius", r_str),
+            ("error", f"{self.error:.2e}"),
+            ("accuracy", f"{self.accuracy:.4f}"),
+            ("DATAFIT", f"{self.datafit:.4f}"),
+        ]
+        html = (
+            "<table style='border-collapse:collapse'>"
+            "<tbody>"
+        )
+        for k, v in rows:
+            html += (
+                f"<tr>"
+                f"<th style='text-align:left;padding:4px 12px 4px 4px'>{k}</th>"
+                f"<td style='padding:4px'>{v}</td>"
+                f"</tr>"
+            )
+        html += "</tbody></table>"
+        return html
+
+
 def split_grid(grid, inside_limit=1):
     """Split grid into inside and outside solvents based on score."""
     inside = []
@@ -82,30 +144,27 @@ class HSP(HSPEstimator):
         self.grid = reader.read(path)
         return self
 
-    def get(self, inside_limit: float = 1, n_spheres: int = 1) -> tuple:
+    def get(self, inside_limit: float = 1, n_spheres: int = 1) -> HSPResult:
         """
         Fit HSP spheres to the loaded data and prepare for plotting.
-        
+
+        In a Jupyter notebook the returned :class:`HSPResult` renders as a
+        formatted table automatically. In a script use ``print(result)`` or
+        access individual attributes (``result.accuracy``, etc.).
+
         Parameters
         ----------
         inside_limit : float, optional
-            Threshold for inside vs outside classification.
-            If None, uses the value from initialization.
+            Threshold score value for classifying a solvent as inside the
+            sphere (``0 < score <= inside_limit``).
         n_spheres : int, optional
-            Number of spheres to fit. If None, uses value from initialization.
-        
+            Number of spheres to fit (1 or 2).
+
         Returns
         -------
-        hsp : ndarray
-            Fitted HSP parameters.
-        radius : float or ndarray
-            Fitted sphere radius/radii.
-        error : float
-            Optimization error.
-        accuracy : float
-            Classification accuracy.
-        DATAFIT : float
-            DATAFIT value.
+        HSPResult
+            Fitted parameters with ``.hsp``, ``.radius``, ``.error``,
+            ``.accuracy``, and ``.datafit`` attributes.
         """
         if not hasattr(self, "grid") or self.grid is None:
             raise ValueError("No data loaded. Call read() first.")
@@ -146,23 +205,7 @@ class HSP(HSPEstimator):
         self.accuracy = self.accuracy_
         self.DATAFIT = self.datafit_
 
-        # Format output for printing
-        formatted_hsp = ["%.2f" % elem for elem in np.ravel(self.hsp)]
-        formatted_radius = (
-            ", ".join("%.3f" % r for r in np.ravel(self.radius))
-            if isinstance(self.radius, (np.ndarray, list)) and len(np.ravel(self.radius)) > 1
-            else "%.3f" % self.radius
-        )
-       
-        logger.info(
-            "HSP: %s | Radius: %s | error: %.2e | accuracy: %.4f | DATAFIT: %.4f",
-            ", ".join(map(str, formatted_hsp)),
-            formatted_radius,
-            self.error_,
-            self.accuracy_,
-            self.datafit_,
-        )
-        return self.hsp, self.radius, self.error, self.accuracy, self.DATAFIT
+        return HSPResult(self.hsp, self.radius, self.error_, self.accuracy_, self.datafit_)
            
     def plot_3d(self, legend: bool = False) -> matplotlib.figure.Figure:
         """Create a 3D plot of the HSP space with spheres and solvents.

@@ -1,4 +1,4 @@
-[![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.1.3-orange.svg) 
+[![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.1.4-orange.svg) 
 
 # HSPiPy
 
@@ -63,12 +63,21 @@ hsp.read('path_to_your_hsp_file.csv')
 Use the `get` method to calculate the Hansen Solubility Parameters (HSP) from your data:
 ```python
 # For a single sphere model (default)
-hsp.get(inside_limit=1)
+result = hsp.get(inside_limit=1)
 
 # For a double sphere model
-hsp.get(inside_limit=1, n_spheres=2)
-
+result = hsp.get(inside_limit=1, n_spheres=2)
 ```
+
+`get()` returns an `HSPResult` object. In a Jupyter notebook it renders as a formatted table automatically. In a script use `print(result)` or access attributes directly:
+
+```python
+print(result.hsp)       # fitted D, P, H center coordinates
+print(result.radius)    # sphere radius
+print(result.accuracy)  # classification accuracy
+print(result.datafit)   # DATAFIT value
+```
+
 The `inside_limit` parameter defines the threshold score value to consider a solvent as "inside" the solubility sphere (default: `inside_limit=1`).
 
 #### Visualizing HSP
@@ -87,29 +96,27 @@ hsp.plots()
 ![2dHSP](https://github.com/Gnpd/HSPiPy/blob/main/2dPlot.png)
 
 ### `HSP` class methods:
-| Method              |      Description                                                                       |  
+| Method              |      Description                                                                       |
 |---------------------|:--------------------------------------------------------------------------------------:|
-| read(path)          |  Reads solvent data from a CSV, HSD, or HSDX filefile.                                                   |
-| get(inside_limit=1, n_spheres=1) |  Calculates the HSP and identifies solvents inside and outside the solubility sphere.  |
-| plot_3d()           |  Plots the HSP data in 3D.                                                             |
-| plot_2d()           |  Plots the HSP data in 2D.                                                             | 
-| plots()             |  Generates both 2D and 3D plots.                                                       | 
+| read(path)          |  Reads solvent data from a CSV, HSD, or HSDX file.                                    |
+| get(inside_limit=1, n_spheres=1) |  Fits HSP sphere(s) and returns an `HSPResult` object.                  |
+| plot_3d()           |  Plots the HSP data in 3D. Returns the figure.                                        |
+| plot_2d()           |  Plots the HSP data in 2D. Returns the figure.                                        |
+| plots()             |  Generates both 2D and 3D plots. Returns `(fig_3d, fig_2d)`.                          |
 
-Once you have calculated the HSP parameters using the get() method, you can access the calculated HSP parameters and related attributes through the properties of the HSP class instance. Below are the attributes you can access:
+`get()` returns an `HSPResult` object. The following attributes are available on it and also set on the `HSP` instance after calling `get()`:
 
-| Attribute      | Description                                                                                                                             |  
-|----------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `hsp.hsp`      | Numpy array — Fitted HSP coordinates. Shape: `(3,)` for single-sphere (D, P, H), or `(n_spheres, 3)` for multiple spheres.              |
-| `hsp.d`        | Float — Dispersion component (δD) of the fitted Hansen Solubility Parameters (single-sphere only).                                      |
-| `hsp.p`        | Float — Polar component (δP) of the fitted Hansen Solubility Parameters (single-sphere only).                                           |
-| `hsp.h`        | Float — Hydrogen-bonding component (δH) of the fitted Hansen Solubility Parameters (single-sphere only).                                |
-| `hsp.radius`   | Float or array — Radius (or radii) of the solubility sphere(s).                                                                         |
-| `hsp.DATAFIT`  | Float — Hansen exponential penalty function result for wrong in and wrong out.                                                          |   
-| `hsp.error`    | Float — Objective function value from the optimization (lower is better; indicates the fitting error of the HSP sphere(s)).             |
-| `hsp.accuracy` | Float — Classification accuracy of the fitted model on the dataset (ratio of correctly predicted solvents inside/outside the sphere(s)).|
-| `hsp.inside`   | List — Solvents classified as *inside* the solubility sphere(s), with their HSP values and scores.                                      | 
-| `hsp.outside`  | List — Solvents classified as *outside* the solubility sphere(s), with their HSP values and scores.                                     |
-| `hsp.grid`     | Pandas DataFrame — The full input dataset, standardized with columns: `Solvent`, `D`, `P`, `H`, and `Score`.                            |
+| Attribute            | Description                                                                                                                             |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `result.hsp`         | Numpy array — Fitted HSP coordinates. Shape: `(3,)` for single-sphere (D, P, H), or `(n_spheres, 3)` for multiple spheres.             |
+| `result.radius`      | Float or array — Radius (or radii) of the solubility sphere(s).                                                                        |
+| `result.error`       | Float — Objective function value from the optimization (lower is better).                                                              |
+| `result.accuracy`    | Float — Classification accuracy of the fitted model on the dataset.                                                                    |
+| `result.datafit`     | Float — DATAFIT value (geometric mean fitness; 1.0 = perfect classification).                                                          |
+| `hsp.d`, `hsp.p`, `hsp.h` | Float — Individual HSP components (δD, δP, δH). Single-sphere only; `None` for multi-sphere.                                   |
+| `hsp.inside`         | List — Solvents classified as *inside* the solubility sphere(s), with their HSP values and scores.                                     |
+| `hsp.outside`        | List — Solvents classified as *outside* the solubility sphere(s), with their HSP values and scores.                                    |
+| `hsp.grid`           | Pandas DataFrame — The full input dataset, standardized with columns: `Solvent`, `D`, `P`, `H`, and `Score`.                           |
 
 
 ### Using scikit-learn style estimator
