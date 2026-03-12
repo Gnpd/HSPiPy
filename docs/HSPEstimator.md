@@ -76,6 +76,16 @@ The `HSPEstimator` fits Hansen Solubility Parameter spheres to solvent data and 
   Objective value at the optimum (lower is better, 1 - DATAFIT fro classic method).
 - `accuracy_`: `float`
   Set by `score(X, y)`. Classification accuracy of inside/outside vs. predicted.
+- `n_solvents_in_`: `int`
+  Set by `score(X, y)`. Number of good solvents (`0 < score <= inside_limit`).
+- `n_solvents_out_`: `int`
+  Set by `score(X, y)`. Number of bad solvents (`score == 0` or `score > inside_limit`).
+- `n_total_`: `int`
+  Set by `score(X, y)`. Total number of solvents.
+- `n_wrong_in_`: `int`
+  Set by `score(X, y)`. Bad solvents predicted inside the sphere (false positives).
+- `n_wrong_out_`: `int`
+  Set by `score(X, y)`. Good solvents predicted outside the sphere (false negatives).
 - `optimization_result_`: `OptimizeResult`
   Raw optimizer result / metadata (contains `fun`, `x`, `success`, `message`, etc).
 - `inside_` / `outside_`: `ndarray` of the input X rows classified as inside or outside after binarization.
@@ -120,7 +130,7 @@ Transform X using HSP distances.
   RED values for each sample.
 
 ### `score(X, y)`
-Return the model accuracy on the given test data and labels.
+Return the model accuracy on the given test data and labels. Also sets `n_solvents_in_`, `n_solvents_out_`, `n_total_`, `n_wrong_in_`, and `n_wrong_out_` on the estimator.
 
 **Parameters**:
 - `X`:  array-like of shape (n_samples, 3).

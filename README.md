@@ -72,10 +72,15 @@ result = hsp.get(inside_limit=1, n_spheres=2)
 `get()` returns an `HSPResult` object. In a Jupyter notebook it renders as a formatted table automatically. In a script use `print(result)` or access attributes directly:
 
 ```python
-print(result.hsp)       # fitted D, P, H center coordinates
-print(result.radius)    # sphere radius
-print(result.accuracy)  # classification accuracy
-print(result.datafit)   # DATAFIT value
+print(result.hsp)             # fitted D, P, H center coordinates
+print(result.radius)          # sphere radius
+print(result.accuracy)        # classification accuracy
+print(result.datafit)         # DATAFIT value
+print(result.n_solvents_in)   # number of good solvents
+print(result.n_solvents_out)  # number of bad solvents
+print(result.n_total)         # total solvents
+print(result.n_wrong_in)      # bad solvents inside sphere (false positives)
+print(result.n_wrong_out)     # good solvents outside sphere (false negatives)
 ```
 
 The `inside_limit` parameter defines the threshold score value to consider a solvent as "inside" the solubility sphere (default: `inside_limit=1`).
@@ -113,6 +118,11 @@ hsp.plots()
 | `result.error`       | Float — Objective function value from the optimization (lower is better).                                                              |
 | `result.accuracy`    | Float — Classification accuracy of the fitted model on the dataset.                                                                    |
 | `result.datafit`     | Float — DATAFIT value (geometric mean fitness; 1.0 = perfect classification).                                                          |
+| `result.n_solvents_in`  | Int — Number of good solvents (`0 < score <= inside_limit`).                                                                       |
+| `result.n_solvents_out` | Int — Number of bad solvents (`score == 0` or `score > inside_limit`).                                                             |
+| `result.n_total`        | Int — Total number of solvents.                                                                                                     |
+| `result.n_wrong_in`     | Int — Bad solvents predicted inside the sphere (false positives).                                                                  |
+| `result.n_wrong_out`    | Int — Good solvents predicted outside the sphere (false negatives).                                                                |
 | `hsp.d`, `hsp.p`, `hsp.h` | Float — Individual HSP components (δD, δP, δH). Single-sphere only; `None` for multi-sphere.                                   |
 | `hsp.inside`         | List — Solvents classified as *inside* the solubility sphere(s), with their HSP values and scores.                                     |
 | `hsp.outside`        | List — Solvents classified as *outside* the solubility sphere(s), with their HSP values and scores.                                    |

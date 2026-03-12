@@ -53,6 +53,11 @@ def test_get_returns_hsp_result():
     assert result.radius > 0
     assert 0.0 <= result.accuracy <= 1.0
     assert 0.0 <= result.datafit <= 1.0
+    assert result.n_solvents_in >= 0
+    assert result.n_solvents_out >= 0
+    assert result.n_total == result.n_solvents_in + result.n_solvents_out
+    assert result.n_wrong_in >= 0
+    assert result.n_wrong_out >= 0
 
 
 def test_hsp_result_repr():

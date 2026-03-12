@@ -65,24 +65,45 @@ class HSPResult:
         Classification accuracy on the input dataset.
     datafit : float
         DATAFIT value (geometric mean fitness; 1.0 = perfect classification).
+    n_solvents_in : int
+        Number of good solvents (score within inside_limit).
+    n_solvents_out : int
+        Number of bad solvents (score outside inside_limit or zero).
+    n_total : int
+        Total number of solvents.
+    n_wrong_in : int
+        Bad solvents predicted inside the sphere (false positives).
+    n_wrong_out : int
+        Good solvents predicted outside the sphere (false negatives).
     """
 
-    def __init__(self, hsp, radius, error, accuracy, datafit):
+    def __init__(self, hsp, radius, error, accuracy, datafit,
+                 n_solvents_in, n_solvents_out, n_total, n_wrong_in, n_wrong_out):
         self.hsp = hsp
         self.radius = radius
         self.error = error
         self.accuracy = accuracy
         self.datafit = datafit
+        self.n_solvents_in = n_solvents_in
+        self.n_solvents_out = n_solvents_out
+        self.n_total = n_total
+        self.n_wrong_in = n_wrong_in
+        self.n_wrong_out = n_wrong_out
 
     def __repr__(self) -> str:
         hsp_str = ", ".join("%.2f" % v for v in np.ravel(self.hsp))
         r_str = ", ".join("%.3f" % v for v in np.ravel(self.radius))
         return (
-            f"HSP:      {hsp_str}\n"
-            f"Radius:   {r_str}\n"
-            f"error:    {self.error:.2e}\n"
-            f"accuracy: {self.accuracy:.4f}\n"
-            f"DATAFIT:  {self.datafit:.4f}"
+            f"HSP:           {hsp_str}\n"
+            f"Radius:        {r_str}\n"
+            f"error:         {self.error:.2e}\n"
+            f"accuracy:      {self.accuracy:.4f}\n"
+            f"DATAFIT:       {self.datafit:.4f}\n"
+            f"Solvents In:   {self.n_solvents_in}\n"
+            f"Solvents Out:  {self.n_solvents_out}\n"
+            f"Total:         {self.n_total}\n"
+            f"Wrong In:      {self.n_wrong_in}\n"
+            f"Wrong Out:     {self.n_wrong_out}"
         )
 
     def _repr_html_(self) -> str:
@@ -94,6 +115,11 @@ class HSPResult:
             ("error", f"{self.error:.2e}"),
             ("accuracy", f"{self.accuracy:.4f}"),
             ("DATAFIT", f"{self.datafit:.4f}"),
+            ("Solvents In", str(self.n_solvents_in)),
+            ("Solvents Out", str(self.n_solvents_out)),
+            ("Total", str(self.n_total)),
+            ("Wrong In", str(self.n_wrong_in)),
+            ("Wrong Out", str(self.n_wrong_out)),
         ]
         html = (
             "<table style='border-collapse:collapse'>"
@@ -205,7 +231,11 @@ class HSP(HSPEstimator):
         self.accuracy = self.accuracy_
         self.DATAFIT = self.datafit_
 
-        return HSPResult(self.hsp, self.radius, self.error_, self.accuracy_, self.datafit_)
+        return HSPResult(
+            self.hsp, self.radius, self.error_, self.accuracy_, self.datafit_,
+            self.n_solvents_in_, self.n_solvents_out_, self.n_total_,
+            self.n_wrong_in_, self.n_wrong_out_,
+        )
            
     def plot_3d(self, legend: bool = False) -> matplotlib.figure.Figure:
         """Create a 3D plot of the HSP space with spheres and solvents.

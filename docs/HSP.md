@@ -78,6 +78,11 @@ Fit HSP spheres to the loaded data and prepare for plotting.
   - `.error`: `float` — Objective function value from the optimization (lower is better).
   - `.accuracy`: `float` — Classification accuracy on the input dataset.
   - `.datafit`: `float` — DATAFIT value (geometric mean fitness; 1.0 = perfect classification).
+  - `.n_solvents_in`: `int` — Number of good solvents (`0 < score <= inside_limit`).
+  - `.n_solvents_out`: `int` — Number of bad solvents (`score == 0` or `score > inside_limit`).
+  - `.n_total`: `int` — Total number of solvents.
+  - `.n_wrong_in`: `int` — Bad solvents predicted inside the sphere (false positives).
+  - `.n_wrong_out`: `int` — Good solvents predicted outside the sphere (false negatives).
 
   In a Jupyter notebook the result renders as a formatted table automatically. In a script use `print(result)` or access attributes directly.
 
@@ -119,10 +124,15 @@ hsp.read('solvent_data.csv')
 result = hsp.get()
 
 # Access individual attributes
-print(result.hsp)       # fitted D, P, H center
-print(result.radius)    # sphere radius
-print(result.accuracy)  # classification accuracy
-print(result.datafit)   # DATAFIT value
+print(result.hsp)             # fitted D, P, H center
+print(result.radius)          # sphere radius
+print(result.accuracy)        # classification accuracy
+print(result.datafit)         # DATAFIT value
+print(result.n_solvents_in)   # number of good solvents
+print(result.n_solvents_out)  # number of bad solvents
+print(result.n_total)         # total solvents
+print(result.n_wrong_in)      # bad solvents inside sphere (false positives)
+print(result.n_wrong_out)     # good solvents outside sphere (false negatives)
 
 # Visualize results
 hsp.plots()

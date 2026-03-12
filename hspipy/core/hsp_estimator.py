@@ -591,6 +591,13 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
         y_pred = self.predict(X[valid])
 
         self.accuracy_ = accuracy_score(y_bin, y_pred)
+
+        self.n_solvents_in_ = int(np.sum(y_bin == 1))
+        self.n_solvents_out_ = int(np.sum(y_bin == 0))
+        self.n_total_ = int(len(y_bin))
+        self.n_wrong_in_ = int(np.sum((y_bin == 0) & (y_pred == 1)))
+        self.n_wrong_out_ = int(np.sum((y_bin == 1) & (y_pred == 0)))
+
         return self.accuracy_
 
 
