@@ -137,18 +137,26 @@ class HSDXReader(HSPReader):
                 h_val = self._get_xml_text(chemical, 'δH')
                 score = self._get_xml_text(chemical, 'Score')
                 
-                if all(val is not None for val in [solvent, d_val, p_val, h_val, score]):
-                    try:
-                        data.append({
-                            'Solvent': solvent,
-                            'D': float(d_val),
-                            'P': float(p_val),
-                            'H': float(h_val),
-                            'Score': float(score)
-                        })
-                    except ValueError:
-                        # Skip rows with invalid numeric data
-                        continue
+                # Require Solvent and D/P/H; Score is optional
+                if any(val is None for val in [solvent, d_val, p_val, h_val]):
+                    continue
+
+                try:
+                    d = float(d_val)
+                    p = float(p_val)
+                    h = float(h_val)
+                except (ValueError, TypeError):
+                    logger.warning("Skipping '%s': invalid D/P/H value", solvent)
+                    continue
+
+                # Score is optional — pass as-is; _validate_dataframe will coerce to float/NaN
+                data.append({
+                    'Solvent': solvent,
+                    'D': d,
+                    'P': p,
+                    'H': h,
+                    'Score': score  # may be "-", None, "0", "1", "1.007", etc.
+                })
             
             if not data:
                 raise ValueError("No valid chemical data found in HSDX file")
