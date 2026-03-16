@@ -5,6 +5,7 @@ import logging
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.figure
+from matplotlib.patches import Ellipse
 
 from .core.hsp_estimator import HSPEstimator
 from .readers import HSPDataReader
@@ -13,23 +14,34 @@ logger = logging.getLogger(__name__)
 
 
 def WireframeSphere(
-    centre=[0.0, 0.0, 0.0], radius=1.0, n_meridians=40, n_circles_latitude=None
+    centre=[0.0, 0.0, 0.0], radius=1.0, n_meridians=40, n_circles_latitude=None,
+    scale=(1.0, 1.0, 1.0)
 ):
     """
-    Create the arrays of values to plot the wireframe of a sphere.
+    Create the arrays of values to plot the wireframe of an HSP ellipsoid.
+
+    The Hansen distance formula ``sqrt(4·dD² + dP² + dH²)`` defines an
+    ellipsoid in Euclidean space, not a sphere.  The *scale* parameter lets
+    callers map the per-axis semi-axes correctly.  For a plot whose axes are
+    ordered ``[H, D, P]`` (as in ``plot_3d``), pass ``scale=(1.0, 0.5, 1.0)``
+    so that the D axis is compressed by the factor-of-2 implied by the 4·dD²
+    term.
 
     Parameters
     ----------
     centre: array like
         A point, defined as an iterable of three numerical values.
     radius: number
-        The radius of the sphere.
+        The sphere radius R as fitted by the estimator.
     n_meridians: int
         The number of meridians to display (circles that pass on both poles).
     n_circles_latitude: int
         The number of horizontal circles (akin to the Equator) to display.
         Notice this includes one for each pole, and defaults to 4 or half
         of the *n_meridians* if the latter is larger.
+    scale: tuple of three floats, default (1.0, 1.0, 1.0)
+        Per-axis scale factors applied to *radius*.  The actual semi-axis
+        along each plot axis is ``radius * scale[i]``.
 
     Returns
     -------
@@ -42,9 +54,9 @@ def WireframeSphere(
     u, v = np.mgrid[
         0 : 2 * np.pi : n_meridians * 1j, 0 : np.pi : n_circles_latitude * 1j
     ]
-    sphere_x = centre[0] + radius * np.cos(u) * np.sin(v)
-    sphere_y = centre[1] + radius * np.sin(u) * np.sin(v)
-    sphere_z = centre[2] + radius * np.cos(v)
+    sphere_x = centre[0] + radius * scale[0] * np.cos(u) * np.sin(v)
+    sphere_y = centre[1] + radius * scale[1] * np.sin(u) * np.sin(v)
+    sphere_z = centre[2] + radius * scale[2] * np.cos(v)
     return sphere_x, sphere_y, sphere_z
 
 
@@ -287,8 +299,11 @@ class HSP(HSPEstimator):
                 centers.append(center)
                 radii.append(sphere[3])
 
+        # Axes order in plot_3d is [H, D, P].  Hansen distance has a 4x weight
+        # on D, so the HSP ellipsoid has semi-axis R/2 along the D (y) axis.
+        hsp_scale = (1.0, 0.5, 1.0)  # [H, D, P]
         for center, radius in zip(centers, radii):
-            x, y, z = WireframeSphere(center, radius)
+            x, y, z = WireframeSphere(center, radius, scale=hsp_scale)
             ax.plot_wireframe(x, y, z, color="g", linewidth=0.5)
             ax.scatter(center[0], center[1], center[2], color="g", s=50)
 
@@ -367,12 +382,14 @@ class HSP(HSPEstimator):
         set_axes_equal(ax1)
 
         # H vs D
+        # Hansen distance has 4x weight on D → ellipse with semi-axis R in H, R/2 in D
         ax2.scatter(good_x, good_y, color="b", label="Good solvents")
         ax2.scatter(bad_x, bad_y, color="r", label="Bad solvents")
         for h_center, d_center, radius in zip(centers_h, centers_d, radii):
             ax2.scatter(h_center, d_center, color="g", s=100)
-            circle = plt.Circle((h_center, d_center), radius, color="g", fill=False)
-            ax2.add_patch(circle)
+            ellipse = Ellipse((h_center, d_center), width=2 * radius, height=radius,
+                              color="g", fill=False)
+            ax2.add_patch(ellipse)
         ax2.set_xlabel("H")
         ax2.set_ylabel("D")
         if legend:
@@ -380,12 +397,14 @@ class HSP(HSPEstimator):
         set_axes_equal(ax2)
 
         # P vs D
+        # Hansen distance has 4x weight on D → ellipse with semi-axis R in P, R/2 in D
         ax3.scatter(good_z, good_y, color="b", label="Good solvents")
         ax3.scatter(bad_z, bad_y, color="r", label="Bad solvents")
         for p_center, d_center, radius in zip(centers_p, centers_d, radii):
             ax3.scatter(p_center, d_center, color="g", s=100)
-            circle = plt.Circle((p_center, d_center), radius, color="g", fill=False)
-            ax3.add_patch(circle)
+            ellipse = Ellipse((p_center, d_center), width=2 * radius, height=radius,
+                              color="g", fill=False)
+            ax3.add_patch(ellipse)
         ax3.set_xlabel("P")
         ax3.set_ylabel("D")
         if legend:
