@@ -5,7 +5,7 @@ import logging
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.figure
-from matplotlib.patches import Ellipse
+import matplotlib.ticker as ticker
 
 from .core.hsp_estimator import HSPEstimator
 from .readers import HSPDataReader
@@ -284,32 +284,36 @@ class HSP(HSPEstimator):
         ax.set_zlabel("P")
         ax.zaxis.labelpad = -2
 
-        # Draw spheres and centers
+        # D is internally plotted as 2D so the HSP ellipsoid (semi-axis R/2 in D)
+        # appears as a sphere of radius R.  Tick labels are divided by 2 to show
+        # the real D values.
+        ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: f"{x/2:.4g}"))
+
         if self.n_spheres == 1:
-            # hsp_[0] = [D, P, H, radius], we need [H, D, P] for 3D plot
-            center = np.array([self.hsp_[0][2], self.hsp_[0][0], self.hsp_[0][1]])  # [H, D, P]
+            # hsp_[0] = [D, P, H, radius], axes are [H, 2D, P]
+            center = np.array([self.hsp_[0][2], 2 * self.hsp_[0][0], self.hsp_[0][1]])
             centers = [center]
             radii = [self.hsp_[0][3]]
         else:
-            # Multiple spheres: convert [D, P, H, radius] to [H, D, P] for each sphere
             centers = []
             radii = []
             for sphere in self.hsp_:
-                center = np.array([sphere[2], sphere[0], sphere[1]])  # [H, D, P]
+                center = np.array([sphere[2], 2 * sphere[0], sphere[1]])
                 centers.append(center)
                 radii.append(sphere[3])
 
-        # Axes order in plot_3d is [H, D, P].  Hansen distance has a 4x weight
-        # on D, so the HSP ellipsoid has semi-axis R/2 along the D (y) axis.
-        hsp_scale = (1.0, 0.5, 1.0)  # [H, D, P]
         for center, radius in zip(centers, radii):
-            x, y, z = WireframeSphere(center, radius, scale=hsp_scale)
+            x, y, z = WireframeSphere(center, radius)
             ax.plot_wireframe(x, y, z, color="g", linewidth=0.5)
             ax.scatter(center[0], center[1], center[2], color="g", s=50)
 
-        # Draw solvent points
-        good_x, good_y, good_z = self.inside_[:, 2], self.inside_[:, 0], self.inside_[:, 1]  # H, D, P
-        bad_x, bad_y, bad_z = self.outside_[:, 2], self.outside_[:, 0], self.outside_[:, 1]  # H, D, P
+        # Draw solvent points (D scaled by 2 for visual sphere)
+        good_x = self.inside_[:, 2]        # H
+        good_y = 2 * self.inside_[:, 0]    # 2D (displayed as D)
+        good_z = self.inside_[:, 1]        # P
+        bad_x = self.outside_[:, 2]        # H
+        bad_y = 2 * self.outside_[:, 0]    # 2D (displayed as D)
+        bad_z = self.outside_[:, 1]        # P
 
         ax.scatter(good_x, good_y, good_z, color="b", s=50, label="Good solvents", alpha=0.7)
         ax.scatter(bad_x, bad_y, bad_z, color="r", s=50, label="Bad solvents", alpha=0.7)
@@ -350,25 +354,32 @@ class HSP(HSPEstimator):
         fig, (ax1, ax2, ax3) = plt.subplots(ncols=3, figsize=(12, 3.5))
         fig.suptitle("2D HSP Subplots")
 
-        good_x, good_y, good_z = self.inside_[:, 2], self.inside_[:, 0], self.inside_[:, 1]  # H, D, P
-        bad_x, bad_y, bad_z = self.outside_[:, 2], self.outside_[:, 0], self.outside_[:, 1]  # H, D, P
+        # D is internally plotted as 2D so circles appear undistorted.
+        # Tick labels on D axes are divided by 2 to show real D values.
+        good_x = self.inside_[:, 2]        # H
+        good_y = 2 * self.inside_[:, 0]    # 2D (displayed as D)
+        good_z = self.inside_[:, 1]        # P
+        bad_x = self.outside_[:, 2]        # H
+        bad_y = 2 * self.outside_[:, 0]    # 2D (displayed as D)
+        bad_z = self.outside_[:, 1]        # P
 
-        # Prepare centers and radii
+        # Prepare centers and radii (D scaled by 2)
         if self.n_spheres == 1:
             # hsp_[0] = [D, P, H, radius]
             d_center, p_center, h_center = self.hsp_[0][0], self.hsp_[0][1], self.hsp_[0][2]
-            centers_d = [d_center]
+            centers_d = [2 * d_center]
             centers_p = [p_center]
             centers_h = [h_center]
             radii = [self.hsp_[0][3]]
         else:
-            # Multiple spheres
-            centers_d = [sphere[0] for sphere in self.hsp_]  # D values
-            centers_p = [sphere[1] for sphere in self.hsp_]  # P values
-            centers_h = [sphere[2] for sphere in self.hsp_]  # H values
-            radii = [sphere[3] for sphere in self.hsp_]      # radii
+            centers_d = [2 * sphere[0] for sphere in self.hsp_]
+            centers_p = [sphere[1] for sphere in self.hsp_]
+            centers_h = [sphere[2] for sphere in self.hsp_]
+            radii = [sphere[3] for sphere in self.hsp_]
 
-        # P vs H
+        d_formatter = ticker.FuncFormatter(lambda x, _: f"{x/2:.4g}")
+
+        # P vs H (no D axis — circle is already correct, no scaling needed)
         ax1.scatter(good_z, good_x, color="b", label="Good solvents")
         ax1.scatter(bad_z, bad_x, color="r", label="Bad solvents")
         for p_center, h_center, radius in zip(centers_p, centers_h, radii):
@@ -381,32 +392,30 @@ class HSP(HSPEstimator):
             ax1.legend()
         set_axes_equal(ax1)
 
-        # H vs D
-        # Hansen distance has 4x weight on D → ellipse with semi-axis R in H, R/2 in D
+        # H vs D (D scaled by 2 → circle looks correct; formatter restores real D labels)
         ax2.scatter(good_x, good_y, color="b", label="Good solvents")
         ax2.scatter(bad_x, bad_y, color="r", label="Bad solvents")
         for h_center, d_center, radius in zip(centers_h, centers_d, radii):
             ax2.scatter(h_center, d_center, color="g", s=100)
-            ellipse = Ellipse((h_center, d_center), width=2 * radius, height=radius,
-                              color="g", fill=False)
-            ax2.add_patch(ellipse)
+            circle = plt.Circle((h_center, d_center), radius, color="g", fill=False)
+            ax2.add_patch(circle)
         ax2.set_xlabel("H")
         ax2.set_ylabel("D")
+        ax2.yaxis.set_major_formatter(d_formatter)
         if legend:
             ax2.legend()
         set_axes_equal(ax2)
 
-        # P vs D
-        # Hansen distance has 4x weight on D → ellipse with semi-axis R in P, R/2 in D
+        # P vs D (D scaled by 2 → circle looks correct; formatter restores real D labels)
         ax3.scatter(good_z, good_y, color="b", label="Good solvents")
         ax3.scatter(bad_z, bad_y, color="r", label="Bad solvents")
         for p_center, d_center, radius in zip(centers_p, centers_d, radii):
             ax3.scatter(p_center, d_center, color="g", s=100)
-            ellipse = Ellipse((p_center, d_center), width=2 * radius, height=radius,
-                              color="g", fill=False)
-            ax3.add_patch(ellipse)
+            circle = plt.Circle((p_center, d_center), radius, color="g", fill=False)
+            ax3.add_patch(circle)
         ax3.set_xlabel("P")
         ax3.set_ylabel("D")
+        ax3.yaxis.set_major_formatter(d_formatter)
         if legend:
             ax3.legend()
         set_axes_equal(ax3)
