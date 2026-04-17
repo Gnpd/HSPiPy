@@ -69,7 +69,7 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
         "de_recombination": [Interval(Real, 0, 1, closed="both")],
         "de_init": [StrOptions({"latinhypercube"})],  # Add all valid options
         "de_atol": [Interval(Real, 0, None, closed="left")],
-        "de_updating": [StrOptions({"immediate"})],  # Add all valid options
+        "de_updating": [StrOptions({"immediate", "deferred"})],
         "de_workers": [Interval(Integral, 1, None, closed="left")],
         "min_options": [None, dict],
     }
@@ -110,14 +110,14 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
         # Differential Evolution params
         de_bounds=None,
         de_strategy='best1bin',
-        de_maxiter=2000,
+        de_maxiter=1000,
         de_popsize=15,
         de_tol=1e-6,
         de_mutation=0.7,
         de_recombination=0.4,
         de_init='latinhypercube',
         de_atol=0,
-        de_updating='immediate',
+        de_updating='deferred',
         de_workers=1,
         # Minimize params
         min_options=None,
@@ -496,14 +496,20 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
         X_good = X[y == 1, :3]
         if X_good.shape[0] < self.n_spheres:
             raise ValueError("Not enough inside solvents to form the required number of spheres.")
-        
+
         loss_func = self._get_loss_function()
         bounds = self._get_bounds()
         x0 = self._get_initial_guess(X_good)
 
         def objective(array):
             return loss_func(array, X, y)
-        
+
+        # vectorized=True lets scipy pass the entire population (n_params, S) to
+        # the objective at once. The loss functions handle the batch dimension via
+        # ndim dispatch, replacing ~S Python call overhead with a single numpy
+        # operation. scipy requires updating='deferred' with vectorized=True, and
+        # raises ValueError if workers > 1 is combined with vectorized, so we
+        # clamp workers to 1 here.
         options = {
             'bounds': bounds,
             'strategy': self.de_strategy,
@@ -514,10 +520,11 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
             'recombination': self.de_recombination,
             'init': self.de_init,
             'atol': self.de_atol,
-            'updating': self.de_updating,
-            'workers': self.de_workers,
+            'updating': 'deferred',
+            'workers': 1,
             'x0': x0,
-            }
+            'vectorized': True,
+        }
 
         result = differential_evolution(objective, **options)
 
