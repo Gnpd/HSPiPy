@@ -313,130 +313,149 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
         return self
   
     def _classic_two_fit(self, X, y):
-        """Classic HSP fit restricted to exactly 2 spheres."""
+        """Classic HSP fit restricted to exactly 2 spheres (vectorized)."""
         if self.n_spheres != 2:
             raise ValueError("classic_two requires n_spheres == 2.")
         X = np.asarray(X, dtype=float)
-
         if np.sum(y == 1) == 0:
             raise ValueError("No good solvents found for classic_two.")
 
         nfev = 0
         nit_total = 0
+        inside = (y == 1)
+        outside = ~inside
 
-        # --- Constraint-aware datafit ---
-        def combine_datafit(dists_list, radii, centers):
+        def best_radius_for_sphere_vec(candidate_center, dist_j, dist_k, R_k, center_k):
+            """Vectorized radius search for one sphere, keeping the other fixed.
+
+            candidate_center is passed explicitly so the containment constraint
+            uses the new position rather than the stale centers list.
+            """
             nonlocal nfev
-            nfev += 1
-            distances = np.stack(dists_list, axis=1)  # (n_samples, 2)
-            R = np.asarray(radii).reshape((1, 2))
-            df = compute_datafit(distances, R, y)
+            unique_dists = np.unique(dist_j)
+            candidates = np.r_[
+                max(unique_dists[0] - 1e-6, 0.0),
+                unique_dists,
+                unique_dists + 1e-6,
+                unique_dists[-1] + 1.0,
+            ]
+            nfev += len(candidates)
 
-            # Apply constraints as penalties
-            penalty = 0.0
-            # (1) Sphere containment
-            d = hansen_center_distance(centers[0], centers[1])
-            if d + min(radii) <= max(radii) + 1e-8:
-                penalty += 1000.0
-            # (2) Each sphere must contain at least two "good"
-            inside = (y == 1)
-            if np.any(inside):
-               # Count how many good solvents each sphere contains
-                good_counts = np.sum(inside[:, None] & (distances <= R), axis=0)
-                # Require at least 2 per sphere
-                if np.any(good_counts < 2):
-                    penalty += 1000.0
-            else:
-                penalty += 1000.0
+            delta_j = dist_j[:, None] - candidates[None, :]  # (n_samples, n_cand)
+            delta_k = dist_k - R_k  # (n_samples,)
 
-            # (3) Minimum radius to avoid collapse
-            min_radius = 1
-            if np.any(np.asarray(radii) < min_radius):
-                penalty += 1000.0
+            # Per-sphere fitness
+            fit_j = np.ones_like(delta_j)
+            g_out_j = inside[:, None] & (delta_j > 0)
+            fit_j[g_out_j] = np.exp(-delta_j[g_out_j])
+            b_in_j = outside[:, None] & (delta_j < 0)
+            fit_j[b_in_j] = np.exp(delta_j[b_in_j])
 
-            return df - penalty
+            fit_k = np.ones(len(y))
+            g_out_k = inside & (delta_k > 0)
+            fit_k[g_out_k] = np.exp(-delta_k[g_out_k])
+            b_in_k = outside & (delta_k < 0)
+            fit_k[b_in_k] = np.exp(delta_k[b_in_k])
 
-        def best_radius_for_sphere(dist_j, dists_list, radii, j, centers):
-            # scan candidate radii for sphere j keeping others fixed
-            dists = np.unique(dist_j)
-            candidates = np.r_[max(dists.min() - 1e-6, 0.0),
-                            dists,
-                            dists + 1e-6,
-                            dists.max() + 1.0]
-            best_df = -np.inf
-            best_R = radii[j]
-            for R in candidates:
-                candidate_r = list(radii)
-                candidate_r[j] = R
-                df = combine_datafit(dists_list, candidate_r, centers)
-                if df > best_df or (np.isclose(df, best_df) and R < best_R):
-                    best_df = df
-                    best_R = R
-            return best_R, best_df
+            # Combined fitness: worst across both spheres, then override correct good
+            fitness = np.minimum(fit_j, fit_k[:, None])
+            correct = (inside[:, None] & (delta_j <= 0)) | (inside & (dist_k <= R_k))[:, None]
+            fitness[correct] = 1.0
+            fitness = np.maximum(fitness, 1e-12)
+            datafit_all = np.exp(np.mean(np.log(fitness), axis=0))  # (n_cand,)
 
-        # --- Initialization: farthest pair among good solvents ---
+            # Constraint penalties (vectorized over candidates)
+            cd = hansen_center_distance(candidate_center, center_k)
+            min_r = np.minimum(candidates, R_k)
+            max_r = np.maximum(candidates, R_k)
+            penalty = np.zeros(len(candidates))
+            penalty[(cd + min_r) <= (max_r + 1e-8)] += 1000.0
+            good_j = np.sum(inside[:, None] & (delta_j <= 0), axis=0)
+            good_k = int(np.sum(inside & (dist_k <= R_k)))
+            penalty[(good_j < 2) | (good_k < 2)] += 1000.0
+            penalty[candidates < 1] += 1000.0
+
+            scored = datafit_all - penalty
+            best_scored = float(scored.max())
+            tied = np.abs(scored - best_scored) < 1e-9
+            best_R = float(candidates[tied].min())
+            return best_R, best_scored
+
+        # --- Initialization ---
         X_good = X[y == 1, :3]
         if X_good.shape[0] < 2:
             raise ValueError("Not enough good solvents to initialize 2 spheres.")
 
-        initial_guess = self._get_initial_guess(X_good)  # shape (8,)
-        centers = [initial_guess[i*4:i*4+3].copy() for i in range(2)]
-
+        initial_guess = self._get_initial_guess(X_good)
+        centers = [initial_guess[i * 4:i * 4 + 3].copy() for i in range(2)]
         dists_list = [hansen_distance(X, c) for c in centers]
-        radii = [0.5, 0.5]
+        radii = [1.0, 1.0]
+        best_df = -np.inf
 
-        # Initial datafit
-        best_df = combine_datafit(dists_list, radii, centers)
+        signs = np.array([[sx, sy, sz]
+                          for sx in (-1.0, 1.0)
+                          for sy in (-1.0, 1.0)
+                          for sz in (-1.0, 1.0)])  # (8, 3)
 
-        # --- Classic cube schedule ---
+        # Strict-improvement hill-climb: same rationale as _classic_fit.
+        # R tie-breaking removed from both the inner candidate selection and
+        # the outer movement condition to prevent plateau traversal.
+        tol = 1e-9
         for edge in (1.0, 0.3, 0.1):
             h = 0.5 * edge
             improved = True
-            max_iter = 1000
             iter_count = 0
-            tol = 1e-6
-            while improved and iter_count < max_iter:
+            while improved:
                 improved = False
-                signs = np.array([[sx, sy, sz] for sx in (-1.0, 1.0)
-                                                for sy in (-1.0, 1.0)
-                                                for sz in (-1.0, 1.0)])
                 iter_count += 1
                 for j in range(2):
-                    best_local = None
+                    k = 1 - j
                     best_local_df = best_df
-                    best_local_R = radii[j]
-                    for s in signs:
-                        c = centers[j] + h * s
-                        dist_j = hansen_distance(X, c)
-                        cand_dists = list(dists_list)
-                        cand_dists[j] = dist_j
-                        Rj, dfj = best_radius_for_sphere(dist_j, cand_dists, radii, j, centers)
-                        cand_centers = list(centers)
-                        cand_centers[j] = c
-                        cand_radii = list(radii)
-                        cand_radii[j] = Rj
-                        df_total = combine_datafit(cand_dists, cand_radii, cand_centers)
-                        if df_total > best_local_df or (np.isclose(df_total, best_local_df) and Rj < best_local_R):
-                            best_local_df = df_total
-                            best_local_R = Rj
-                            best_local = (cand_dists, cand_centers, cand_radii)
-                    if best_local is not None and (best_local_df > best_df + tol or
-                                                (np.isclose(best_local_df, best_df) and best_local_R < radii[j])):
-                        dists_list, centers, radii = best_local
+                    best_local = None
+
+                    corners = centers[j][None, :] + h * signs  # (8, 3)
+                    d = X[:, None, :] - corners[None, :, :]
+                    dist_j_all = np.sqrt(4.0 * d[..., 0]**2 + d[..., 1]**2 + d[..., 2]**2)
+
+                    for idx in range(8):
+                        Rj, dfj = best_radius_for_sphere_vec(
+                            corners[idx], dist_j_all[:, idx],
+                            dists_list[k], radii[k], centers[k],
+                        )
+                        if dfj > best_local_df + tol:
+                            best_local_df = dfj
+                            best_local = (corners[idx], dist_j_all[:, idx], Rj)
+
+                    if best_local is not None:
+                        c, dist_j, Rj = best_local
+                        centers[j] = c
+                        radii[j] = Rj
+                        dists_list[j] = dist_j
                         best_df = best_local_df
                         improved = True
             nit_total += iter_count
 
+        # Resolve final radii for both spheres after convergence
+        for j in range(2):
+            k = 1 - j
+            radii[j], _ = best_radius_for_sphere_vec(
+                centers[j], dists_list[j], dists_list[k], radii[k], centers[k],
+            )
+
+        # Report unpenalized datafit for the final configuration
+        distances = np.stack(dists_list, axis=1)
+        actual_df = float(compute_datafit(distances, np.array(radii).reshape(1, 2), y))
+
         self.hsp_ = np.array([[centers[i][0], centers[i][1], centers[i][2], radii[i]] for i in range(2)])
-        self.error_ = 1.0 - best_df
-        self.datafit_ = best_df
+        self.error_ = 1.0 - actual_df
+        self.datafit_ = actual_df
         self.optimization_result_ = OptimizeResult({
             'method': 'classic_two',
-            'datafit': best_df,
+            'datafit': actual_df,
             'fun': float(self.error_),
             'x': self.hsp_.flatten().tolist(),
             'success': True,
-            'message': f'classic finished, datafit={best_df:.6g}',
+            'message': f'classic finished, datafit={actual_df:.6g}',
             'nit': int(nit_total),
             'nfev': int(nfev),
         })
