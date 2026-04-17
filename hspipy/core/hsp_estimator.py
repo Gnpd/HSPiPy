@@ -213,69 +213,103 @@ class HSPEstimator(TransformerMixin, BaseEstimator):
             raise ValueError("DATAFIT computation only implemented for 1 or 2 spheres.")
      
     def _classic_fit(self, X, y):
-        """Classic fitting algorithm for single sphere."""
+        """Classic fitting algorithm for single sphere (vectorized)."""
         X = np.asarray(X, dtype=float)
         if np.sum(y == 1) == 0:
             raise ValueError("No good solvents found for classic fit.")
-        
+
         nfev = 0
         nit_total = 0
+        inside = (y == 1)
+        outside = ~inside
 
-        def datafit(dist, R):
+        def best_radius_vec(dist):
+            """Vectorized radius search: evaluates all candidates in one numpy pass."""
             nonlocal nfev
-            nfev += 1
-            return compute_datafit(dist, R, y)
+            unique_dists = np.unique(dist)
+            candidates = np.r_[
+                max(unique_dists[0] - 1e-6, 0.0),
+                unique_dists,
+                unique_dists + 1e-6,
+                unique_dists[-1] + 1.0,
+            ]  # (n_cand,)
+            nfev += len(candidates)
 
-        def best_radius(dist):
-            dists = np.unique(dist)
-            candidates = np.r_[max(dists.min() - 1e-6, 0.0), dists, dists + 1e-6, dists.max() + 1.0]
-            best_df = -np.inf
-            best_R = None
-            for R in candidates:
-                df = datafit(dist, R)
-                if df > best_df or (np.isclose(df, best_df) and (best_R is None or R < best_R)):
-                    best_df = df
-                    best_R = R
+            # delta[i, j] = dist[i] - candidates[j],  shape (n_samples, n_cand)
+            delta = dist[:, None] - candidates[None, :]
+            fitness = np.ones_like(delta)
+
+            # good solvent outside sphere
+            good_out = inside[:, None] & (delta > 0)
+            fitness[good_out] = np.exp(-delta[good_out])
+
+            # bad solvent inside sphere
+            bad_in = outside[:, None] & (delta < 0)
+            fitness[bad_in] = np.exp(delta[bad_in])
+
+            fitness = np.maximum(fitness, 1e-12)
+            datafit_all = np.exp(np.mean(np.log(fitness), axis=0))  # (n_cand,)
+
+            best_df = float(datafit_all.max())
+            tied = np.abs(datafit_all - best_df) < 1e-9
+            best_R = float(candidates[tied].min())
             return best_R, best_df
 
         # Start at mean of good solvents
-        center = X[y == 1, :3].mean(axis=0)
+        center = X[inside].mean(axis=0)
         dist = hansen_distance(X, center)
-        best_R, best_df = best_radius(dist)
+        best_R, best_df = best_radius_vec(dist)
         best_center = center.copy()
 
-        # Edge lengths 1.0 → 0.3 → 0.1; use ±half-edge offsets for corners
+        signs = np.array([[sx, sy, sz]
+                          for sx in (-1.0, 1.0)
+                          for sy in (-1.0, 1.0)
+                          for sz in (-1.0, 1.0)])  # (8, 3)
+
+        # Strict-improvement hill-climb: only move when df strictly increases.
+        # R tie-breaking is intentionally excluded from the movement criterion —
+        # mixing it in creates a large plateau traversal that never terminates
+        # on some datasets. The minimum radius for the final center is resolved
+        # once by best_radius_vec after convergence.
+        tol = 1e-9
         for edge in (1.0, 0.3, 0.1):
             h = 0.5 * edge
             improved = True
-            signs = np.array([[sx, sy, sz] for sx in (-1.0, 1.0) for sy in (-1.0, 1.0) for sz in (-1.0, 1.0)])
             iter_count = 0
             while improved:
                 improved = False
                 iter_count += 1
-                corners = best_center[None, :] + h * signs
-                for c in corners:
-                    dist_c = hansen_distance(X, c)
-                    R_c, df_c = best_radius(dist_c)
-                    if df_c > best_df or (np.isclose(df_c, best_df) and R_c < best_R):
+                corners = best_center[None, :] + h * signs  # (8, 3)
+
+                # All 8 corner distances in one broadcast: (n_samples, 8)
+                d = X[:, None, :] - corners[None, :, :]
+                dist_all = np.sqrt(4.0 * d[..., 0]**2 + d[..., 1]**2 + d[..., 2]**2)
+
+                for k in range(8):
+                    R_c, df_c = best_radius_vec(dist_all[:, k])
+                    if df_c > best_df + tol:
                         best_df = df_c
                         best_R = R_c
-                        best_center = c
+                        best_center = corners[k]
                         improved = True
             nit_total += iter_count
+
+        # Resolve minimum radius for the converged center
+        dist = hansen_distance(X, best_center)
+        best_R, best_df = best_radius_vec(dist)
 
         self.hsp_ = np.array([[best_center[0], best_center[1], best_center[2], best_R]])
         self.error_ = 1.0 - best_df
         self.datafit_ = best_df
         self.optimization_result_ = OptimizeResult({
-            'method': 'classic', 
+            'method': 'classic',
             'fun': float(self.error_),
             'x': self.hsp_.flatten().tolist(),
             'success': True,
             'message': f'classic finished, datafit={best_df:.6g}',
             'nit': int(nit_total),
             'nfev': int(nfev),
-            })
+        })
         return self
   
     def _classic_two_fit(self, X, y):
