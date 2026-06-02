@@ -1,4 +1,8 @@
-[![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.1.8-orange.svg) 
+[中文](./README.zh-CN.md) | [Español](./README.es.md) | English
+
+[![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.1.8-orange.svg)
+> [!TIP]
+> Looking for a no-code version of HSPiPy? Get [**HSP Desktop**](https://g-npd.com/hsp)
 
 # HSPiPy
 
@@ -155,6 +159,31 @@ print("Accuracy:", est.score(X, y))
 
 Contributions are welcome! If you have any suggestions, feature requests, or bug reports, please open an issue on the [GitHub repository](https://github.com/Gnpd/HSPiPy/issues).
 
+### Supporting HSPiPy
+---------------------
+If HSPiPy is useful for your work, there are several ways to support its continued development.
+
+#### 🖥️ HSP Desktop (No-Code Version)
+
+HSP Desktop is an affordable desktop application built on top of the HSPiPy engine, providing a fast and intuitive graphical interface for Hansen Solubility Parameter analysis.
+
+It is ideal for users who:
+
+- Prefer a graphical interface over Python scripting
+- Need a fast, one-click workflow for HSP calculations
+- Want advanced visualization and solvent exploration tools
+
+👉 https://g-npd.com/hsp
+
+Purchasing HSP Desktop helps fund the continued development of HSPiPy, including new features, databases, documentation, and maintenance.
+
+#### ❤️ GitHub Sponsors
+
+You can also support the project directly through GitHub Sponsors:
+
+👉 https://github.com/sponsors/Gnpd
+
+Every contribution helps keep HSPiPy free, open source, and actively maintained.
 
 ### License
 -----------
@@ -165,7 +194,3 @@ This library is licensed under the MIT License. See the [LICENSE](https://github
 ----------------
 
 HSPiPy was inspired by the well-known HSP software suit [Hansen Solubility Parameters in Practice (HSPiP)](https://www.hansen-solubility.com/HSPiP/) and by the HSP community.
-
-
-
-
