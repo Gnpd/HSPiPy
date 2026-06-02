@@ -1,9 +1,9 @@
-[English](./README.md) | 中文
+[English](./README.md) | [Español](./README.es.md) | 中文
 
 [![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.1.8-orange.svg)
 
 > [!TIP]
-> 寻找无需编程的版本？试试 [**HSP Desktop**](https://g-npd.com/hsp)
+> 寻找无需编程的版本？试试 [**HSP Desktop**](https://g-npd.com/zh/hsp)
 
 # HSPiPy
 
@@ -174,7 +174,7 @@ HSP Desktop 是基于 HSPiPy 引擎构建的桌面应用程序，提供快速直
 
 购买 HSP Desktop 有助于资助 HSPiPy 的持续开发，包括新功能、数据库、文档和维护工作。
 
-👉 https://g-npd.com/hsp
+👉 https://g-npd.com/zh/hsp
 
 #### ❤️ GitHub Sponsors
 

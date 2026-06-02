@@ -1,4 +1,4 @@
-[中文](./README.zh-CN.md) | English
+[中文](./README.zh-CN.md) | [Español](./README.es.md) | English
 
 [![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.1.8-orange.svg)
 > [!TIP]
