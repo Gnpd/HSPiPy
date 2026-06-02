@@ -1,3 +1,5 @@
+[中文](./README.zh-CN.md) | English
+
 [![PyPI](https://img.shields.io/pypi/v/HSPiPy.svg)](https://pypi.org/project/HSPiPy/) ![version](https://img.shields.io/badge/version-1.1.8-orange.svg)
 > [!TIP]
 > Looking for a no-code version of HSPiPy? Get [**HSP Desktop**](https://g-npd.com/hsp)
